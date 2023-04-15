@@ -1,0 +1,118 @@
+{% extends 'baseClient.html.twig' %}
+
+{% block Embauche %}
+	active
+{% endblock %}
+
+
+{% block body %}
+	<style>
+		#embauches {
+			display: none;
+		}
+	</style>
+	<h1 class="ml-2">Liste des embauches</h1>
+	<table class="table ml-4">
+
+		<thead class="thead-dark">
+			<tr>
+				<th class="actions">Id</th>
+				<th>Poste</th>
+				<th>Date_embauche</th>
+				<th>Salaire</th>
+				<th>Duree</th>
+				{# <th class="actions">actions</th> #}
+			</tr>
+		</thead>
+		<tbody>
+			{% for embauche in embauches %}
+				<tr>
+					<td class="actions">{{ embauche.id }}</td>
+					<td>{{ embauche.poste }}</td>
+					<td>{{ embauche.dateEmbauche ? embauche.dateEmbauche|date('Y-m-d') : '' }}</td>
+					<td>{{ embauche.salaire }}</td>
+					<td>{{ embauche.duree }}</td>
+					{# <td class="ml-4 actions">
+															                    <a href="{{ path('app_embauche_show', {'id': embauche.id}) }}" class="btn btn-warning">show</a>
+															                    <a href="{{ path('app_embauche_edit', {'id': embauche.id}) }}" class="btn btn-warning">edit</a>
+															                </td> #}
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="6">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<div id="embauches">
+
+		<h1>Listes des offres embauches</h1>
+		<table class="table">
+
+			<thead>
+				<tr>
+					<th>Poste</th>
+					<th>Date_embauche</th>
+					<th>Salaire</th>
+					<th>Duree</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for embauche in embauches %}
+					<tr>
+						<td>{{ embauche.poste }}</td>
+						<td>{{ embauche.dateEmbauche ? embauche.dateEmbauche|date('Y-m-d') : '' }}</td>
+						<td>{{ embauche.salaire }}</td>
+						<td>{{ embauche.duree }}</td>
+
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="6">no records found</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	{# <a class="btn btn-success" href="{{ path('app_embauche_new') }}">Create new</a> #}
+	<button class="btn btn-info" id="generate-pdf-button">Generate PDF</button>
+
+	{# <div id='calendar'></div> #}
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css'/>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js'></script>
+
+	<script>
+		$(document).ready(function () {
+$('#calendar').fullCalendar({
+events: [{% for embauche in embauches %}{
+title: '{{ embauche.poste }}',
+start: '{{ embauche.dateEmbauche|date('Y-m-d') }}',
+end: '{{ embauche.dateEmbauche|date('Y-m-d') }}',
+description: 'Salaire:    {{ embauche.salaire }}, Duree:    {{ embauche.duree }}'
+},{% endfor %}],
+// options and callbacks here
+});
+});
+	</script>
+	<script>
+
+		const generatePdfButton = document.getElementById("generate-pdf-button");
+generatePdfButton.addEventListener("click", generatePdf);
+function generatePdf() {
+const doc = new jsPDF('p', 'pt', 'letter');
+const htmlContent = document.getElementById("embauches").outerHTML;
+
+const cssString = ".table { border-collapse: collapse; width: 100%; } .table th, .table td { text-align: left; padding: 8px; } .table tr:nth-child(even) { background-color: #f2f2f2; } .table th { background-color: #4CAF50; color: white; } ";
+
+doc.fromHTML(htmlContent, 10, 10, {
+'width': 500,
+'elementHandlers': {},
+'css': cssString
+});
+doc.save("embauches.pdf");
+}
+	</script>
+{% endblock %}

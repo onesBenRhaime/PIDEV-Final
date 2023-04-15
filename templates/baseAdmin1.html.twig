@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}MAZE BANK{% endblock %}</title>
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+    <link rel="shortcut icon"
+        href="./assets/images/icon2.png">     
+
+    <script src="https://kit.fontawesome.com/3c64a1ca0d.js" crossorigin="anonymous"></script>
+ 
+  
+   <link href="https://product.geniusocean.com/genius-bank/assets/admin/vendor/fontawesome-free/css/all.min.css"
+        rel="stylesheet" type="text/css">
+    <link href="https://product.geniusocean.com/genius-bank/assets/admin/vendor/bootstrap/css/bootstrap.min.css"
+        rel="stylesheet" type="text/css">
+    <link href="https://product.geniusocean.com/genius-bank/assets/admin/css/toastr.css" rel="stylesheet">
+    <link href="https://product.geniusocean.com/genius-bank/assets/admin/css/select2.min.css" rel="stylesheet">
+    <link href="https://product.geniusocean.com/genius-bank/assets/admin/css/tagify.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://product.geniusocean.com/genius-bank/assets/admin/css/summernote.css">
+    <link href="https://product.geniusocean.com/genius-bank/assets/admin/css/bootstrap-colorpicker.css"
+        rel="stylesheet">
+    <link href="https://product.geniusocean.com/genius-bank/assets/admin/css/bootstrap-iconpicker.css" rel="stylesheet">
+    <link href="https://product.geniusocean.com/genius-bank/assets/admin/css/color-picker.css" rel="stylesheet">
+
+    <link href="https://product.geniusocean.com/genius-bank/assets/admin/css/plugin.css" rel="stylesheet" />
+    <link href="./assets/admin/css/ruang-admin.css" rel="stylesheet">
+    <link href="https://product.geniusocean.com/genius-bank/assets/admin/css/custom.css" rel="stylesheet">
+
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+ 
+	<div
+		class="Loader"
+			style="
+				background: url(https://product.geniusocean.com/genius-bank/assets/images/33CiUFaI1641808748.gif)
+					no-repeat scroll center center #fff;
+			"
+		></div>
+		<div id="wrapper">
+ 
+
+      
+         {#------------------------ Sidebar ----------------------------- #}
+			<ul
+				class="navbar-nav sidebar sidebar-light accordion"
+				id="accordionSidebar"
+			>
+				<a
+					class="sidebar-brand d-flex align-items-center justify-content-center"
+					href="dashboard.html"
+				>
+					<div class="sidebar-brand-icon">
+						<img
+							src="./assets/images/logo.png"
+						/>
+					</div>
+				</a>
+
+				<li class="nav-item">
+					<a class="nav-link" href="dashboard.html">
+						<i class="fas fa-fw fa-tachometer-alt"></i>
+						<span>Dashboard</span></a
+					>
+				</li>
+
+				<li class="nav-item">
+					<a
+						class="nav-link collapsed"
+						href="#"
+						data-toggle="collapse"
+						data-target="#customer"
+						aria-expanded="true"
+						aria-controls="collapseTable"
+					>
+						<i class="fas fa-user"></i>
+						<span>Manage Customers</span>
+					</a>
+					<div
+						id="customer"
+						class="collapse"
+						aria-labelledby="headingTable"
+						data-parent="#accordionSidebar"
+					>
+						<div class="bg-white py-2 collapse-inner rounded">
+							<a class="collapse-item" href="users.html">User List</a>
+
+							<a class="collapse-item" href="users/withdraws.html"
+								>Withdraw Request
+								<span class="badge badge-sm badge-danger badge-counter"
+									>210</span
+								></a
+							>
+						</div>
+					</div>
+				</li>
+
+				<li class="nav-item">
+					<a
+						class="nav-link collapsed"
+						href="#"
+						data-toggle="collapse"
+						data-target="#loan"
+						aria-expanded="true"
+						aria-controls="collapseTable"
+					>
+						<i class="fas fa-cash-register"></i>
+						<span>Loan Management</span>
+					</a>
+					<div
+						id="loan"
+						class="collapse"
+						aria-labelledby="headingTable"
+						data-parent="#accordionSidebar"
+					>
+						<div class="bg-white py-2 collapse-inner rounded">
+							<a class="collapse-item" href="loan-plans.html">Loan Plans</a>
+							<a class="collapse-item" href="loan.html">All Loans</a>
+						</div>
+					</div>
+				</li>
+
+				<li class="nav-item">
+					<a
+						class="nav-link collapsed"
+						href="#"
+						data-toggle="collapse"
+						data-target="#dps"
+						aria-expanded="true"
+						aria-controls="collapseTable"
+					>
+						<i class="fas fa-warehouse"></i>
+						<span>Offer Management</span>
+					</a>
+					<div
+						id="dps"
+						class="collapse"
+						aria-labelledby="headingTable"
+						data-parent="#accordionSidebar"
+					>
+						<div class="bg-white py-2 collapse-inner rounded">
+							<a class="collapse-item" href="investment.html">Investment</a>
+							<a class="collapse-item" href="career.html">Career</a>
+						</div>
+					</div>
+				</li>
+
+				<li class="nav-item">
+					<a
+						class="nav-link collapsed"
+						href="#"
+						data-toggle="collapse"
+						data-target="#wiretransfer"
+						aria-expanded="true"
+						aria-controls="collapseTable"
+					>
+						<i class="fas fa-wallet"></i>
+						<span>Wire Transfer</span>
+					</a>
+					<div
+						id="wiretransfer"
+						class="collapse"
+						aria-labelledby="headingTable"
+						data-parent="#accordionSidebar"
+					>
+						<div class="bg-white py-2 collapse-inner rounded">
+							<a class="collapse-item" href="wire-transfers.html"
+								>Wire Transfer Bank</a
+							>
+						</div>
+					</div>
+				</li>
+
+				<li class="nav-item">
+					<a
+						class="nav-link collapsed"
+						href="#"
+						data-toggle="collapse"
+						data-target="#requestmoney"
+						aria-expanded="true"
+						aria-controls="collapseTable"
+					>
+						<i class="fas fa-donate"></i>
+						<span>Request Money</span>
+					</a>
+					<div
+						id="requestmoney"
+						class="collapse"
+						aria-labelledby="headingTable"
+						data-parent="#accordionSidebar"
+					>
+						<div class="bg-white py-2 collapse-inner rounded">
+							<a class="collapse-item" href="request-money.html"
+								>All Money Request</a
+							>
+						</div>
+					</div>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link" href="transactions.html">
+						<i class="fas fa-chart-line"></i>
+						<span>Transactions</span>
+					</a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link" href="deposits.html">
+						<i class="fas fa-piggy-bank"></i>
+						<span>Deposits</span>
+					</a>
+				</li>
+
+				<li class="nav-item">
+					<a
+						class="nav-link collapsed"
+						href="#"
+						data-toggle="collapse"
+						data-target="#blog"
+						aria-expanded="true"
+						aria-controls="collapseTable"
+					>
+						<i class="fas fa-fw fa-newspaper"></i>
+						<span>Manage Blog</span>
+					</a>
+					<div
+						id="blog"
+						class="collapse"
+						aria-labelledby="headingTable"
+						data-parent="#accordionSidebar"
+					>
+						<div class="bg-white py-2 collapse-inner rounded">
+							<a class="collapse-item" href="blog.html">Posts</a>
+						</div>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="ticket.html">
+						<i class="fas fa-vote-yea"></i>
+						<span>Support Tickets</span></a
+					>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link" href="subscribers.html">
+						<i class="fas fa-fw fa-users-cog"></i>
+						<span>Subscribers</span></a
+					>
+				</li>
+			</ul>
+			{#------------------------------- Sidbar--------------------- #}
+   
+			<div id="content-wrapper" class="d-flex flex-column">
+				<div id="content">
+					<!-- TopBar -->
+					   <nav
+					    	class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top"
+					    >
+						<button
+							id="sidebarToggleTop"
+							class="btn btn-link rounded-circle mr-3"
+						>
+							<i class="fa fa-bars"></i>
+						</button>
+						<ul class="navbar-nav ml-auto">
+							<li class="nav-item dropdown no-arrow mx-1">
+								<a class="nav-link pr-0" target="_blank" href="../index.html">
+									<i class="fas fa-globe fa-fw"></i>
+								</a>
+							</li>
+
+							<div class="topbar-divider d-none d-sm-block"></div>
+							<li class="nav-item dropdown no-arrow">
+								<a
+									class="nav-link dropdown-toggle"
+									href="#"
+									id="userDropdown"
+									role="button"
+									data-toggle="dropdown"
+									aria-haspopup="true"
+									aria-expanded="false"
+								>
+									<img
+										class="img-profile rounded-circle"
+										src="https://product.geniusocean.com/genius-bank/assets/images/1639300861admin.jpg"
+										style="max-width: 60px"
+									/>
+									<span class="ml-2 d-none d-lg-inline text-white small"
+										>Admin</span
+									>
+								</a>
+								<div
+									class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+									aria-labelledby="userDropdown"
+								>
+									<a class="dropdown-item" href="#">
+										<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+										Profile
+									</a>
+									<a class="dropdown-item" href="#">
+										<i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+										Change Password
+									</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="#">
+										<i
+											class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"
+										></i>
+										Logout
+									</a>
+								</div>
+							</li>
+						</ul>
+				    	</nav>
+					<!-- Topbar -->
+
+						  {% block body %}
+                          {% endblock %}
+					{# <!-- Container Fluid-->
+					<div class="container-fluid" id="container-wrapper">
+						
+					</div>
+					<!---Container Fluid--> #}
+				</div>
+			</div>
+
+</div>
+
+    <script type="text/javascript">
+        'use strict';
+        var form_error = "Please fill all the required fields";
+        var mainurl = "https://product.geniusocean.com/genius-bank";
+        var admin_loader = 1;
+    </script>
+
+    <script src="https://product.geniusocean.com/genius-bank/assets/admin/vendor/jquery/jquery.min.js"></script>
+    <script
+        src="https://product.geniusocean.com/genius-bank/assets/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script
+        src="https://product.geniusocean.com/genius-bank/assets/admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="https://product.geniusocean.com/genius-bank/assets/admin/js/plugin.js"></script>
+    <script src="https://product.geniusocean.com/genius-bank/assets/admin/js/chart.min.js"></script>
+    <script src="https://product.geniusocean.com/genius-bank/assets/admin/js/toastr.js"></script>
+    <script src="https://product.geniusocean.com/genius-bank/assets/admin/js/bootstrap-colorpicker.js"></script>
+    <script
+        src="https://product.geniusocean.com/genius-bank/assets/admin/js/bootstrap-iconpicker.bundle.min.js"></script>
+    <script src="https://product.geniusocean.com/genius-bank/assets/admin/js/colorpicker.js"></script>
+    <script src="https://product.geniusocean.com/genius-bank/assets/admin/js/select2.min.js"></script>
+    <script src="https://product.geniusocean.com/genius-bank/assets/admin/js/tagify.js"></script>
+    <script src="https://product.geniusocean.com/genius-bank/assets/admin/js/summernote.js"></script>
+    <script src="https://product.geniusocean.com/genius-bank/assets/admin/js/sortable.js"></script>
+    <script src="https://product.geniusocean.com/genius-bank/assets/admin/js/bootstrap.bundle.min.js"></script>
+    <script src="https://product.geniusocean.com/genius-bank/assets/admin/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://product.geniusocean.com/genius-bank/assets/admin/js/ruang-admin.js"></script>
+
+
+
+    </body>
+</html>

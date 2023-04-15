@@ -1,0 +1,537 @@
+{% extends 'base2.html.twig' %}
+
+
+{% block body %}
+
+	<!--------------------------------------- Sidebar ------------------------------------------>
+	<div id="content-wrapper" class="d-flex flex-column">
+		<div
+			id="content">
+			<!-- TopBar -->
+			<nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
+				<button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+					<i class="fa fa-bars"></i>
+				</button>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item dropdown no-arrow mx-1">
+						<a class="nav-link pr-0" target="_blank" href="../index.html">
+							<i class="fas fa-globe fa-fw"></i>
+						</a>
+					</li>
+
+					{% block header_menu %}
+						<ul
+							class="navbar-nav">
+							{# <li class="nav-item dropdown">
+							            <a class="nav-link dropdown-toggle" href="#" id="notificationsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							                Notifications
+							            </a>
+							            <div class="dropdown-menu" aria-labelledby="notificationsDropdown">
+							                {% for notification in notifications %}
+							             
+							                        <h6 class="fw-normal mb-0">{{ notification.message }} <a href="{{path('delete_notif',{'id':notification.id})}}">Read</a></h6>
+							                
+							                {% endfor %}
+							            </div>
+							        </li> #}
+							<li class="nav-item dropdown"></li>
+							<li class="nav-item dropdown">
+								<a class="text-black dropdown-toggle" href="#" id="notificationsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Notifications
+								</a>
+								<div class="dropdown-menu" aria-labelledby="notificationsDropdown">
+									{% for notification in notifications %}
+
+										<h6 class="fw-normal mb-0">{{ notification.message }}
+											<a href="{{path('delete_notif',{'id':notification.id})}}">Delete</a>
+										</h6>
+
+									{% endfor %}
+								</div>
+							</li>
+
+
+						</ul>
+					{% endblock %}
+
+					<div class="topbar-divider d-none d-sm-block"></div>
+					<li class="nav-item dropdown no-arrow">
+						<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<img class="img-profile rounded-circle" src="https://product.geniusocean.com/genius-bank/assets/images/1639300861admin.jpg" style="max-width: 60px">
+							<span class="ml-2 d-none d-lg-inline text-white small">Admin</span>
+						</a>
+						<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+
+							<a class="dropdown-item" href="#">
+								<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+								Profile
+							</a>
+							<a class="dropdown-item" href="#">
+								<i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+								Change Password
+							</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="{{path('app_logout')}}">
+								<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+								Logout
+							</a>
+						</div>
+					</li>
+				</ul>
+			</nav>
+			<!-- Topbar -->
+
+			<!-- Container Fluid-->
+			<div class="container-fluid" id="container-wrapper">
+
+
+				<div class="d-sm-flex align-items-center justify-content-between mb-4 py-3">
+					<h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+					<ol class="breadcrumb m-0 py-0">
+						<li class="breadcrumb-item">
+							<a href="dashboard.html">Dashboard</a>
+						</li>
+					</ol>
+				</div>
+
+				<div class="row mb-3">
+					<div class="col-xl-3 col-md-6 mb-4">
+						<div class="card h-100">
+							<div class="card-body">
+								<div class="row align-items-center">
+									<div class="col mr-2">
+										<div class="text-xs font-weight-bold text-uppercase mb-1">Active Customers
+										</div>
+										<div class="h5 mb-0 font-weight-bold text-gray-800">261</div>
+									</div>
+									<div class="col-auto">
+										<i class="fas fa-user fa-2x text-success"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xl-3 col-md-6 mb-4">
+						<div class="card h-100">
+							<div class="card-body">
+								<div class="row align-items-center">
+									<div class="col mr-2">
+										<div class="text-xs font-weight-bold text-uppercase mb-1">Blocked Customers
+										</div>
+										<div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+									</div>
+									<div class="col-auto">
+										<i class="fas fa-user fa-2x text-danger"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xl-3 col-md-6 mb-4">
+						<div class="card h-100">
+							<div class="card-body">
+								<div class="row align-items-center">
+									<div class="col mr-2">
+										<div class="text-xs font-weight-bold text-uppercase mb-1">Total Blogs</div>
+										<div class="h6 mb-0 mt-2 font-weight-bold text-gray-800">3
+										</div>
+									</div>
+									<div class="col-auto">
+										<i class="fas fa-fw fa-newspaper fa-2x text-success"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xl-3 col-md-6 mb-4">
+						<div class="card h-100">
+							<div class="card-body">
+								<div class="row align-items-center">
+									<div class="col mr-2">
+										<div class="text-xs font-weight-bold text-uppercase mb-1">Total Deposits
+										</div>
+										<div class="h6 mb-0 mt-2 font-weight-bold text-gray-800">617
+										</div>
+									</div>
+									<div class="col-auto">
+										<i class="fas fa-dollar-sign fa-2x text-success"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xl-3 col-md-6 mb-4">
+						<div class="card h-100">
+							<div class="card-body">
+								<div class="row align-items-center">
+									<div class="col mr-2">
+										<div class="text-xs font-weight-bold text-uppercase mb-1">Total Loan</div>
+										<div class="h6 mb-0 mt-2 font-weight-bold text-gray-800">86
+										</div>
+									</div>
+									<div class="col-auto">
+										<i class="fas fa-cash-register fa-2x text-success"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xl-3 col-md-6 mb-4">
+						<div class="card h-100">
+							<div class="card-body">
+								<div class="row align-items-center">
+									<div class="col mr-2">
+										<div class="text-xs font-weight-bold text-uppercase mb-1">Total Pending Loan
+										</div>
+										<div class="h6 mb-0 mt-2 font-weight-bold text-gray-800">86
+										</div>
+									</div>
+									<div class="col-auto">
+										<i class="fas fa-cash-register fa-2x text-success"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xl-3 col-md-6 mb-4">
+						<div class="card h-100">
+							<div class="card-body">
+								<div class="row align-items-center">
+									<div class="col mr-2">
+										<div class="text-xs font-weight-bold text-uppercase mb-1">Total Running Loan
+										</div>
+										<div class="h6 mb-0 mt-2 font-weight-bold text-gray-800">0
+										</div>
+									</div>
+									<div class="col-auto">
+										<i class="fas fa-cash-register fa-2x text-success"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xl-3 col-md-6 mb-4">
+						<div class="card h-100">
+							<div class="card-body">
+								<div class="row align-items-center">
+									<div class="col mr-2">
+										<div class="text-xs font-weight-bold text-uppercase mb-1">Total Paid Loan
+										</div>
+										<div class="h6 mb-0 mt-2 font-weight-bold text-gray-800">0
+										</div>
+									</div>
+									<div class="col-auto">
+										<i class="fas fa-cash-register fa-2x text-success"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xl-3 col-md-6 mb-4">
+						<div class="card h-100">
+							<div class="card-body">
+								<div class="row align-items-center">
+									<div class="col mr-2">
+										<div class="text-xs font-weight-bold text-uppercase mb-1">Total Rejected
+											                                                Loan</div>
+										<div class="h6 mb-0 mt-2 font-weight-bold text-gray-800">0
+										</div>
+									</div>
+									<div class="col-auto">
+										<i class="fas fa-cash-register fa-2x text-danger"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xl-3 col-md-6 mb-4">
+						<div class="card h-100">
+							<div class="card-body">
+								<div class="row align-items-center">
+									<div class="col mr-2">
+										<div class="text-xs font-weight-bold text-uppercase mb-1">Total DPS</div>
+										<div class="h6 mb-0 mt-2 font-weight-bold text-gray-800">114
+										</div>
+									</div>
+									<div class="col-auto">
+										<i class="fas fa-warehouse fa-2x text-success"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xl-3 col-md-6 mb-4">
+						<div class="card h-100">
+							<div class="card-body">
+								<div class="row align-items-center">
+									<div class="col mr-2">
+										<div class="text-xs font-weight-bold text-uppercase mb-1">Total Running DPS
+										</div>
+										<div class="h6 mb-0 mt-2 font-weight-bold text-gray-800">114
+										</div>
+									</div>
+									<div class="col-auto">
+										<i class="fas fa-warehouse fa-2x text-success"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xl-3 col-md-6 mb-4">
+						<div class="card h-100">
+							<div class="card-body">
+								<div class="row align-items-center">
+									<div class="col mr-2">
+										<div class="text-xs font-weight-bold text-uppercase mb-1">Total Matured DPS
+										</div>
+										<div class="h6 mb-0 mt-2 font-weight-bold text-gray-800">0
+										</div>
+									</div>
+									<div class="col-auto">
+										<i class="fas fa-warehouse fa-2x text-success"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xl-3 col-md-6 mb-4">
+						<div class="card h-100">
+							<div class="card-body">
+								<div class="row align-items-center">
+									<div class="col mr-2">
+										<div class="text-xs font-weight-bold text-uppercase mb-1">Total FDR</div>
+										<div class="h6 mb-0 mt-2 font-weight-bold text-gray-800">38
+										</div>
+									</div>
+									<div class="col-auto">
+										<i class="fas fa-user-shield fa-2x text-success"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xl-3 col-md-6 mb-4">
+						<div class="card h-100">
+							<div class="card-body">
+								<div class="row align-items-center">
+									<div class="col mr-2">
+										<div class="text-xs font-weight-bold text-uppercase mb-1">Total Running FDR
+										</div>
+										<div class="h6 mb-0 mt-2 font-weight-bold text-gray-800">29
+										</div>
+									</div>
+									<div class="col-auto">
+										<i class="fas fa-user-shield fa-2x text-success"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xl-3 col-md-6 mb-4">
+						<div class="card h-100">
+							<div class="card-body">
+								<div class="row align-items-center">
+									<div class="col mr-2">
+										<div class="text-xs font-weight-bold text-uppercase mb-1">Total Closed FDR
+										</div>
+										<div class="h6 mb-0 mt-2 font-weight-bold text-gray-800">9
+										</div>
+									</div>
+									<div class="col-auto">
+										<i class="fas fa-user-shield fa-2x text-danger"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xl-3 col-md-6 mb-4">
+						<div class="card h-100">
+							<div class="card-body">
+								<div class="row align-items-center">
+									<div class="col mr-2">
+										<div class="text-xs font-weight-bold text-uppercase mb-1">Total Transactions
+										</div>
+										<div class="h6 mb-0 mt-2 font-weight-bold text-gray-800">549
+										</div>
+									</div>
+									<div class="col-auto">
+										<i class="fas fa-dollar-sign fa-2x text-success"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="row mb-3">
+					<div class="col-xl-4 col-md-6 mb-4">
+						<div class="card h-100">
+							<div class="card-body">
+								<div class="row align-items-center">
+									<div class="col mr-2">
+										<div class="text-xs font-weight-bold text-uppercase mb-1">Total Deposit
+											                                                Amount</div>
+										<div class="h6 mb-0 mt-2 font-weight-bold text-gray-800">2.6111111111111E+85
+											                                                USD
+										</div>
+									</div>
+									<div class="col-auto">
+										<i class="fas fa-dollar-sign fa-2x text-success"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xl-4 col-md-6 mb-4">
+						<div class="card h-100">
+							<div class="card-body">
+								<div class="row align-items-center">
+									<div class="col mr-2">
+										<div class="text-xs font-weight-bold text-uppercase mb-1">Total Withdraw
+											                                                Amount</div>
+										<div class="h6 mb-0 mt-2 font-weight-bold text-gray-800">5472256962203.1 USD
+										</div>
+									</div>
+									<div class="col-auto">
+										<i class="fas fa-dollar-sign fa-2x text-success"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xl-4 col-md-6 mb-4">
+						<div class="card h-100">
+							<div class="card-body">
+								<div class="row align-items-center">
+									<div class="col mr-2">
+										<div class="text-xs font-weight-bold text-uppercase mb-1">Total Withdraw
+											                                                Charge Amount</div>
+										<div class="h6 mb-0 mt-2 font-weight-bold text-gray-800">83333828812.09 USD
+										</div>
+									</div>
+									<div class="col-auto">
+										<i class="fas fa-dollar-sign fa-2x text-success"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row mb-3">
+					<div class="col-xl-12 col-lg-12 mb-4">
+						<div class="card">
+							<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+								<h6 class="m-0 font-weight-bold text-primary">Recent Joined Users</h6>
+							</div>
+
+							<div class="table-responsive">
+								<table class="table align-items-center table-flush">
+									<thead class="thead-light">
+										<tr>
+											<th>Serial No</th>
+											<th>Name</th>
+											<th>Email</th>
+											<th>Status</th>
+											<th>Action</th>
+										</tr>
+									</thead>
+									<tbody>
+
+										<tr>
+											<td data-label="Serial No">1</td>
+											<td data-label="Name">Teste</td>
+											<td data-label="Email">godjucakills@gmail.com</td>
+											<td data-label="Status">
+												<span class="badge badge-success">activated</span>
+											</td>
+											<td data-label="Action">
+												<a href="https://product.geniusocean.com/genius-bank/admin/user/338/show" class="btn btn-sm btn-primary">Detail</a>
+											</td>
+										</tr>
+
+										<tr>
+											<td data-label="Serial No">2</td>
+											<td data-label="Name">Fat</td>
+											<td data-label="Email">oes70635@nezid.com</td>
+											<td data-label="Status">
+												<span class="badge badge-success">activated</span>
+											</td>
+											<td data-label="Action">
+												<a href="https://product.geniusocean.com/genius-bank/admin/user/337/show" class="btn btn-sm btn-primary">Detail</a>
+											</td>
+										</tr>
+
+										<tr>
+											<td data-label="Serial No">3</td>
+											<td data-label="Name">Jackson</td>
+											<td data-label="Email">jerryhousedesign@gmail.com</td>
+											<td data-label="Status">
+												<span class="badge badge-success">activated</span>
+											</td>
+											<td data-label="Action">
+												<a href="https://product.geniusocean.com/genius-bank/admin/user/336/show" class="btn btn-sm btn-primary">Detail</a>
+											</td>
+										</tr>
+
+										<tr>
+											<td data-label="Serial No">4</td>
+											<td data-label="Name">matt morr</td>
+											<td data-label="Email">matt.morrison909@gmail.com</td>
+											<td data-label="Status">
+												<span class="badge badge-success">activated</span>
+											</td>
+											<td data-label="Action">
+												<a href="https://product.geniusocean.com/genius-bank/admin/user/335/show" class="btn btn-sm btn-primary">Detail</a>
+											</td>
+										</tr>
+
+										<tr>
+											<td data-label="Serial No">5</td>
+											<td data-label="Name">deepak</td>
+											<td data-label="Email">chavandeepak182@gmail.com</td>
+											<td data-label="Status">
+												<span class="badge badge-success">activated</span>
+											</td>
+											<td data-label="Action">
+												<a href="https://product.geniusocean.com/genius-bank/admin/user/334/show" class="btn btn-sm btn-primary">Detail</a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="card-footer"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!---Container Fluid-->
+		</div>
+
+	</div>
+</div>
+
+<!-- Scroll to top -->
+<a class="scroll-to-top rounded" href="#page-top">
+	<i class="fas fa-angle-up"></i>
+</a>
+{% block footer %}{% endblock %}{% endblock  %}

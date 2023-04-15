@@ -1,0 +1,368 @@
+{% extends 'baseClient.html.twig' %}
+
+{% block body %}
+
+{# <div class="example-wrapper"> #}
+   
+<div class="page-wrapper">
+
+            <div class="container-xl">
+
+                <div class="page-header d-print-none">
+
+                </div>
+            </div>
+            <div class="page-body">
+                <div class="container-xl">
+
+
+                    <div class="row row-deck row-cards mb-2">
+
+                        <div class="col-sm-6 col-md-6">
+                            <div class="card mb-2">
+                                <div class="card-body p-3 p-md-4">
+                                    <div class="balence--item">
+                                        <div class="icon">
+                                            <i class="fas fa-wallet"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="subheader">Account Number</div>
+                                            <div class="h1 mb-0 mt-2">GS2217525904KbtCyv</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-6">
+                            <div class="card mb-2">
+                                <div class="card-body p-3 p-md-4">
+                                    <div class="balence--item">
+                                        <div class="icon">
+                                            <i class="fas fa-money-bill-wave"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="subheader">Available Balance</div>
+                                            <div class="h1 mb-0 mt-2">1512.59$</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="col-sm-6 col-md-4 mb-3">
+                            <div class="card h-100 card--info-item">
+                                <div class="text-end icon">
+                                    <i class="fas fa-exchange-alt"></i>
+                                </div>
+                                <div class="card-body">
+                                    <div class="h1 m-0">{{transactionCount}}</div>
+                                    <div class="text-muted">Transactions</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-4 mb-3">
+                            <div class="card h-100 card--info-item">
+                                <div class="text-end icon">
+                                    <i class="fas fa-dollar-sign"></i>
+                                </div>
+                                <div class="card-body p-3 p-md-4">
+                                    <div class="h1 m-0">{{sendMoneyCount}}</div>
+                                    <div class="text-muted">Send Money</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-4 mb-3">
+                            <div class="card h-100 card--info-item">
+                                <div class="text-end icon">
+                                <i class="fa-sharp fa-solid fa-money-bill-transfer"></i>
+                                </div>
+                                <div class="card-body p-3 p-md-4">
+                                    <div class="h1 m-0">{{wireTransferCount}}</div>
+                                    <div class="text-muted">Wire Transfer</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-4 mb-3">
+                            <div class="card h-100 card--info-item">
+                                <div class="text-end icon">
+                                   <i class="fa-sharp fa-solid fa-file-invoice-dollar"></i>
+                                   <i class="fa-sharp fa-solid fa-file-user"></i>
+                                </div>
+                                <div class="card-body">
+                                    <div class="h1 m-0">{{accountCount}}</div>
+                                    <div class="text-muted">Account</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4 mb-3">
+                            <div class="card h-100 card--info-item">
+                                <div class="text-end icon">
+                                    <i class="fas fa-hand-holding-usd"></i>
+                                </div>
+                                <div class="card-body">
+                                    <div class="h1 m-0">43</div>
+                                    <div class="text-muted">Loan</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-4 mb-3">
+                            <div class="card h-100 card--info-item">
+                                <div class="text-end icon">
+                                    <i class="fas fa-wallet"></i>
+                                </div>
+                                <div class="card-body">
+                                    <div class="h1 m-0">110</div>
+                                    <div class="text-muted">DPS</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-4 mb-3">
+                            <div class="card h-100 card--info-item">
+                                <div class="text-end icon">
+                                    <i class="far fa-credit-card"></i>
+                                </div>
+                                <div class="card-body">
+                                    <div class="h1 m-0">35</div>
+                                    <div class="text-muted">FDR</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <p>Your Referral Link</p>
+                                        <div class="input-group input--group">
+                                            <input type="text" name="key"
+                                                value="https://product.geniusocean.com/genius-bank?reff=a6daa70e8b98b2630632c09439284bcc"
+                                                class="form-control" id="cronjobURL" readonly>
+                                            <button class="btn btn-sm copytext input-group-text" id="copyBoard"
+                                                onclick="myFunction()"> <i class="fa fa-copy"></i> </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Recent Transaction</h3>
+                                </div>
+
+
+                                <div class="table-responsive">
+                                    <table class="table card-table table-vcenter table-mobile-md text-nowrap datatable">
+                                        <thead>
+                                            <tr>
+                                                <th class="w-1">No.
+                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                        class="icon icon-sm text-dark icon-thick" width="24" height="24"
+                                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                                        fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                        <polyline points="6 15 12 9 18 15" />
+                                                    </svg>
+                                                </th>
+                                                <th>Type</th>
+                                                <th>Txnid</th>
+                                                <th>Amount</th>
+                                                <th>Date</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td data-label="No">
+                                                    <div>
+
+                                                        <span class="text-muted">1</span>
+                                                    </div>
+                                                </td>
+
+                                                <td data-label="Type">
+                                                    <div>
+                                                        Payout
+                                                    </div>
+                                                </td>
+
+                                                <td data-label="Txnid">
+                                                    <div>
+                                                        S41QDiymY8RI
+                                                    </div>
+                                                </td>
+
+                                                <td data-label="Amount">
+                                                    <div>
+                                                        <p class="m-0 text-danger">1968$</p>
+                                                    </div>
+                                                </td>
+
+                                                <td data-label="Date">
+                                                    <div>
+                                                        11 Feb 2023
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td data-label="No">
+                                                    <div>
+
+                                                        <span class="text-muted">2</span>
+                                                    </div>
+                                                </td>
+
+                                                <td data-label="Type">
+                                                    <div>
+                                                        Subscription
+                                                    </div>
+                                                </td>
+
+                                                <td data-label="Txnid">
+                                                    <div>
+                                                        4oNk1676085109
+                                                    </div>
+                                                </td>
+
+                                                <td data-label="Amount">
+                                                    <div>
+                                                        <p class="m-0 text-success">100$</p>
+                                                    </div>
+                                                </td>
+
+                                                <td data-label="Date">
+                                                    <div>
+                                                        11 Feb 2023
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td data-label="No">
+                                                    <div>
+
+                                                        <span class="text-muted">3</span>
+                                                    </div>
+                                                </td>
+
+                                                <td data-label="Type">
+                                                    <div>
+                                                        Send Money
+                                                    </div>
+                                                </td>
+
+                                                <td data-label="Txnid">
+                                                    <div>
+                                                        BJCG1675664066
+                                                    </div>
+                                                </td>
+
+                                                <td data-label="Amount">
+                                                    <div>
+                                                        <p class="m-0 text-danger">10$</p>
+                                                    </div>
+                                                </td>
+
+                                                <td data-label="Date">
+                                                    <div>
+                                                        06 Feb 2023
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td data-label="No">
+                                                    <div>
+
+                                                        <span class="text-muted">4</span>
+                                                    </div>
+                                                </td>
+
+                                                <td data-label="Type">
+                                                    <div>
+                                                        Deposit
+                                                    </div>
+                                                </td>
+
+                                                <td data-label="Txnid">
+                                                    <div>
+                                                        ukDuDqDpqgQk
+                                                    </div>
+                                                </td>
+
+                                                <td data-label="Amount">
+                                                    <div>
+                                                        <p class="m-0 text-success">20$</p>
+                                                    </div>
+                                                </td>
+
+                                                <td data-label="Date">
+                                                    <div>
+                                                        06 Feb 2023
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td data-label="No">
+                                                    <div>
+
+                                                        <span class="text-muted">5</span>
+                                                    </div>
+                                                </td>
+
+                                                <td data-label="Type">
+                                                    <div>
+                                                        Payout
+                                                    </div>
+                                                </td>
+
+                                                <td data-label="Txnid">
+                                                    <div>
+                                                        XcybhGfJc6AL
+                                                    </div>
+                                                </td>
+
+                                                <td data-label="Amount">
+                                                    <div>
+                                                        <p class="m-0 text-danger">7.85$</p>
+                                                    </div>
+                                                </td>
+
+                                                <td data-label="Date">
+                                                    <div>
+                                                        05 Feb 2023
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    
+{# </div> #}
+{% endblock %}

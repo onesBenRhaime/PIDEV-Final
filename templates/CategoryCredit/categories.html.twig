@@ -1,0 +1,85 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block body %}
+<div class="container-fluid" id="container-wrapper">
+
+            
+
+<div class="card">
+	<div class="d-sm-flex align-items-center justify-content-between">
+	<h5 class=" mb-0 text-gray-800 pl-3">Categories</h5>
+	<ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+		<li class="breadcrumb-item"><a href="{{path('categories')}}">Categories</a></li>
+	</ol>
+	</div>
+</div>
+
+
+<div class="row mt-3">
+  <div class="col-lg-12">
+	<div class="alert alert-success" style="display: none;" role="alert">
+        <button type="button" class="close hide-close" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <p class="m-0"></p>
+      </div>
+
+
+	<div class="card mb-4">
+	  <div class="table-responsive p-3">
+		<div id="geniustable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer"><div class="row btn-area"><div class="col-sm-4"><div class="dataTables_length" id="geniustable_length"><label>Show <select name="geniustable_length" aria-controls="geniustable" class="custom-select custom-select-sm form-control form-control-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div>
+		<div class="col-sm-4"></div>
+		<div class="col-sm-12 col-md-4 pr-3 text-right"><a class="btn btn-primary" href="{{path('category_add')}}"> Add New Category</a></div></div>
+		<div class="row"><div class="col-sm-12"><table id="geniustable" class="table table-hover dt-responsive dataTable no-footer dtr-inline" cellspacing="0" width="100%" role="grid" aria-describedby="geniustable_info" style="width: 100%;">
+
+		  <thead class="thead-light">
+			<tr role="row"><th class="sorting_disabled" rowspan="1" colspan="1" style="width: 180px;">Name</th><th class="sorting_disabled" rowspan="1" colspan="1" style="width: 175px;">Description</th><th class="sorting_disabled" rowspan="1" colspan="1" style="width: 163px;">Options</th></tr>
+		  </thead>
+		<tbody>
+    
+		{% for c in categories %}
+
+        <tr role="row" class="odd"><td tabindex="0">{{ c.name }}</td><td>{{ c.description }}</td>
+		<td>
+  <div class="btn-group mb-1">
+    <div class="col-sm-12 col-md-4"><a class="btn btn-primary" href="{{ path('editcategory',{'id': c.id}) }}">Edit</a></div>
+    <div class="col-sm-12 col-md-6"><a href="{{ path('category_remove', {'id': c.id}) }}" data-target="#deleteModal" class="btn btn-danger" href="{{ path('category_remove', {'id': c.id}) }}">Delete</a></div>
+  </div>
+</td>
+</tr>
+							  {% endfor %}
+                                              	{{ knp_pagination_render(categories) }}
+
+                             </tbody></table>
+	  </div>
+	</div>
+  </div>
+</div>
+
+
+
+<div class="modal fade confirm-modal" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Confirm Delete</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p class="text-center">You are about to delete this Category. Every informtation under this category will be deleted.</p>
+				<p class="text-center">Do you want to proceed?</p>
+			</div>
+			<div class="modal-footer">
+				<a href="javascript:;" class="btn btn-secondary" data-dismiss="modal">Cancel</a>
+				<a href="javascript:;" class="btn btn-danger btn-ok">Delete</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+        </div>
+{% endblock %}

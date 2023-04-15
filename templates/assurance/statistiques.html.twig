@@ -1,0 +1,44 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Statistiques
+{% endblock %}
+
+{% block body %}
+	<div class="container" style="margin-left:20px">
+		<h1>Statistiques des offres:</h1>
+
+		<canvas id="myChart"></canvas>
+	</div>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+	<script>
+		const ctx = document.getElementById('myChart');
+let statistiques = {{ statistiques|json_encode(constant('JSON_PRETTY_PRINT'))|raw }};
+
+let statistiquesNames = statistiques.map((el) => el.name);
+let statistiquesNumbers = statistiques.map((el) => el.nbre);
+
+new Chart(ctx, {
+type: 'bar',
+data: {
+labels: statistiquesNames,
+datasets: [
+{
+label: 'Assurances nombre par type',
+data: statistiquesNumbers,
+borderWidth: 1
+}
+]
+},
+options: {
+scales: {
+y: {
+beginAtZero: true
+}
+}
+}
+});
+	</script>
+{% endblock %}

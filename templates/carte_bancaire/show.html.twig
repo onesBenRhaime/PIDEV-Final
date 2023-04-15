@@ -1,0 +1,109 @@
+{% extends 'baseClient.html.twig' %}
+
+{% block body %}
+    
+     <div class="page-wrapper">
+        <div class="container-xl">
+          <div class="page-header d-print-none">
+            <div class="row align-items-center">
+              <div class="col">
+                <h2 class="page-title">carte Details</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="page-body">
+          <div class="container-xl">
+            <div class="row row-cards">
+              <div class="col-12">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <div class="table-responsive-sm">
+     <table class="table mb-0">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ carte_bancaire.idtypecarte }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ carte_bancaire.email }}</td>
+            </tr>
+            <tr>
+                <th>Identifier</th>
+                <td>{{ carte_bancaire.identifier }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ carte_bancaire.description }}</td>
+            </tr>
+            <tr>
+                <th>CinS1</th>
+                 <td><img src="{{ asset('uploads/carteBancaire/'~ carte_bancaire.cinS1  ) }}" width="250" height="150"/></td>
+            </tr>
+            <tr>
+                <th>CinS2</th>
+                 <td><img src="{{ asset('uploads/carteBancaire/'~ carte_bancaire.cinS2 ) }}" width="250" height="150"/></td>
+            </tr>
+           
+              
+        </tbody>
+    </table>
+
+    <a class="btn btn-success"  href="{{ path('app_carte_bancaire_index') }}">back to list</a> <br/> <br/>
+
+    <a class="btn btn-info" href="{{ path('app_carte_bancaire_edit', {'id': carte_bancaire.id}) }}">edit</a> <br/>
+    <br/>
+
+    {{ include('carte_bancaire/_delete_form.html.twig') }}
+                        
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        
+{% endblock %}
+
+    {#
+     <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ carte_bancaire.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ carte_bancaire.email }}</td>
+            </tr>
+            <tr>
+                <th>Identifier</th>
+                <td>{{ carte_bancaire.identifier }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ carte_bancaire.description }}</td>
+            </tr>
+            <tr>
+                <th>CinS1</th>
+                <td>{{ carte_bancaire.cinS1 }}</td>
+            </tr>
+            <tr>
+                <th>CinS2</th>
+                <td>{{ carte_bancaire.cinS2 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_carte_bancaire_index') }}">back to list</a>
+
+    <a href="{{ path('app_carte_bancaire_edit', {'id': carte_bancaire.id}) }}">edit</a>
+
+    {{ include('carte_bancaire/_delete_form.html.twig') }} 
+    
+    #}
+

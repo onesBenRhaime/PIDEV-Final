@@ -1,0 +1,233 @@
+
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover,
+h6 a:hover {
+	color: #0ba026;
+}
+
+.pagination li a:hover {
+	border-color: #0ba026;
+}
+.service-item__icon {
+  border-color: #0ba0264d}
+.pagination li a.active {
+	background: #0ba026;
+	border-color: #0ba026;
+}
+
+.owl-dots .owl-dot.active {
+	border: 1px solid #0ba026;
+	border-color: #0ba026;
+}
+.owl-trigger > div.active {
+	background: #0ba026cc;
+
+}
+.owl-dots .owl-dot span {
+	background: #0ba026;
+}
+
+.toTopBtn {
+	border: 1px solid #0ba026;
+	background: #0ba026;
+}
+
+.footer-wrapper .footer-links ul li a:hover {
+	color: #0ba026;
+}
+
+.footer-input-group .form-control:focus {
+	border-color: #0ba026;
+}
+
+.social-icons li a i {
+	background: #0ba026;
+}
+
+.nav-menu li .sub-nav {
+	border-bottom: 3px solid #0ba026;
+}
+
+.nav-menu li .sub-nav li a:hover {
+	background: #0ba026;
+}
+.blog__item-content .meta-post i,
+.feature-item__icon {
+	color: #0ba026;
+}
+
+.feature-item__cont-title {
+	color: #0ba026;
+}
+
+.feature-item:hover .feature-item__icon {
+	background: #0ba026 !important;
+}
+
+.breadcrumb li {
+	color: #0ba026;
+}
+
+.about__item ul li::before {
+	background: #0ba026;
+}
+
+.widget-header {
+	background: #0ba026;
+}
+
+.widget-body .archive-links li a::before {
+	color: #0ba026;
+}
+
+.widget-body .latest-posts li a .cont .date {
+	color: #0ba026;
+}
+
+.widget-body .widget-tags li a:hover,
+.widget-body .widget-tags li a.active {
+	background: #0ba026;
+	border-color: #0ba026;
+}
+
+.about-list li > span::before {
+	color: #0ba026;
+}
+
+.about-thumb .thumb::before {
+	background: #0ba026;
+}
+
+.service-item__icon {
+	color: #0ba026;
+}
+
+.service-item:hover .service-item__icon {
+	background: #0ba026;
+	border-color: #0ba026;
+}
+
+.service-item:hover .service-item__cont-title a,
+.service-item:hover .service-item__cont-title {
+	color: #0ba026;
+}
+
+.counter-item .counter-content .counter-title {
+	color: #0ba026;
+}
+
+.clients-item .clients-content blockquote::before {
+	color: #0ba026;
+}
+
+.clients-item .clients-content .name::after {
+	background: #0ba026;
+}
+
+.clients-item .clients-thumb::before {
+	background: #0ba026;
+}
+
+.owl-trigger > div {
+	color: #0ba026;
+}
+
+.form--control:focus {
+	border-color: #0ba026;
+}
+
+.contact__item-icon {
+	color: #0ba026;
+}
+
+.form-check-input:checked {
+	background: #0ba026;
+	border-color: #0ba026;
+}
+
+.plan__item-body ul li::before {
+	color: #0ba026;
+}
+
+.plan__item:hover .plan__item-header .right .title {
+	color: #0ba026;
+}
+
+.pricing--wrapper
+	div[class*="col"]:nth-child(2)
+	.plan__item-header
+	.right
+	.title {
+	color: #0ba026;
+}
+
+.blog__item-content .read-more {
+	color: #0ba026;
+}
+
+.social-icons-dark li a i {
+	background: #0ba026;
+}
+
+.cmn--btn {
+	background: #0ba026;
+}
+
+.footer-bottom p a {
+	color: #0ba026;
+}
+
+.cmn--btn:hover,
+.cmn--btn.btn-outline {
+	color: #0ba026;
+	border-color: #0ba026;
+}
+
+.cmn--btn.btn-outline:hover {
+	background: #0ba026;
+}
+
+button.cmn--btn:hover {
+	background: #0ba026;
+}
+
+.video--btn {
+	background: #0ba026;
+}
+
+.video--btn::after,
+.video--btn::before {
+	background: #0ba026;
+}
+
+.btn--base,
+.badge--base,
+.bg--base {
+	background-color: #0ba026 !important;
+}
+
+.btn--warning,
+.badge--warning,
+.bg--warning {
+	background-color: #0ba026 !important;
+}
+
+.text--base {
+	color: #0ba026 !important;
+}
+
+.nav--tabs li a.active {
+	background: #0ba026;
+}
+
+.contact__item-icon {
+    color: #0ba026;
+    border: 2px solid #0ba026;
+}
+
+.cmn--btn {
+	font-family: #0ba026, sans-serif;
+}

@@ -1,0 +1,95 @@
+{% extends 'baseClient.html.twig' %}
+
+{% block body %}
+           
+<div class="page-wrapper">
+        <div class="container-xl">
+          <div class="page-header d-print-none">
+            <div class="row align-items-center">
+              <div class="col">
+                <h2 class="page-title">Accounts</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="page-body">
+          <div class="container-xl">
+            <div class="row mb--25-none">
+            
+             {% for type_compte in type_comptes %} 
+                   <div class="col-sm-6 col-lg-4 col-xl-3">
+                      <div class="plan__item position-relative">
+                         <div class="plan__item-header">
+                            <div class="left">
+                               <h4 class="title">{{ type_compte.type  }}</h4>
+                           </div>                    
+                           <a  class="btn btn-primary" href="{{path('compte_create')}}">Add</a>              
+                         </div>
+                         <div class="plan__item-body">
+                             <div class="name"><br/>{{ type_compte.description  }} <br/></div>                  
+                         </div>                 
+                      </div>
+                    </div>
+             {% endfor %}
+          {#
+               <div class="col-sm-6 col-lg-4 col-xl-3">
+                <div class="plan__item position-relative">
+
+                  <div class="plan__item-header">
+                    <div class="left">
+                      <h4 class="title">Checking accounts </h4>
+                    </div>                    
+                       <a  class="btn btn-primary" href="{{path('compte_create')}}">Add</a>              
+                  </div>
+                  <div class="plan__item-body">
+                 <div class="name"><br/>A checking account It's a bank accountused for everyday deposits and withdrawals <br/></div>                  
+                  </div>
+                  
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-4 col-xl-3">
+                <div class="plan__item position-relative">
+                  <div class="plan__item-header">
+                    <div class="left">
+                      <h4 class="title">Savings account</h4>
+                    </div>
+                    
+                      <a  class="btn btn-primary" href="{{path('compte_create')}}">Add</a>  
+                 
+                  </div>
+                  <div class="plan__item-body">
+                    <div class="name">
+                      <br/>A checking account It's a bank accountused for everyday deposits and withdrawals <br/>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div><div class="col-sm-6 col-lg-4 col-xl-3">
+                <div class="plan__item position-relative">
+                  
+                  <div class="plan__item-header">
+                    <div class="left">
+                      <h4 class="title">Salary account</h4>
+                    </div>
+                    
+                      <a  class="btn btn-primary" href="{{path('compte_create')}}">Add</a>  
+                 
+                  </div>
+                  <div class="plan__item-body">
+                    <div class="name">
+                      <br/> A Salary Package account is a special savings account offered to salaried customers  <br/>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+          #}
+            </div>
+          </div>
+        </div>
+        
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'baseAdmin.html.twig' %}
+
+
+{% block body %}
+
+	<div id="content-wrapper" class="d-flex flex-column">
+		<div
+			id="content">
+
+			<!-- Container Fluid-->
+			<div class="container-fluid" id="container-wrapper">
+				<div class="">
+					<div class="d-sm-flex align-items-center justify-content-between">
+						<h5 class="mb-0 text-gray-800 pl-3">
+							<a class="btn btn-primary btn-rounded btn-sm" href="{{path('app_blog')}}">
+								<i class="fas fa-arrow-left"></i>Back</a>
+						</h5>
+
+					</div>
+				</div>
+
+				<div class="row justify-content-center mt-3">
+					<div class="col-md-10">
+						<div class="card mb-4">
+							<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+								<h6 class="m-0 font-weight-bold text-primary">
+									Add New Category Form
+								</h6>
+							</div>
+
+							<div class="card-body">
+								{{form_start(form,{'attr': {'novalidate': 'novalidate'}})}}<div class="form-group">
+									{{form_label(form.name,'Name : ',{'attr':{'class':'form-label'}})}}
+									{{form_widget(form.name,{'attr':{'class':'form-control'}})}}
+									{{ form_errors(form.name) }}
+								</div>
+								<div class="form-group">
+									{{form_label(form.description,'Description : ',{'attr':{'class':'form-label'}})}}
+									{{form_widget(form.description,{'attr':{'class':'form-control'}})}}
+									{{ form_errors(form.description) }}
+									<br>
+								</div>
+								{{form_widget(form.save,{'attr':{'class':'btn btn-primary w-100'}})}}
+								{{form_end(form)}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!---Container Fluid-->
+		</div>
+	</div>
+</div>
+
+<!-- Scroll to top -->
+<a class="scroll-to-top rounded" href="#page-top">
+	<i class="fas fa-angle-up"></i>
+</a>
+{% block footer %}{% endblock %}{% endblock %}

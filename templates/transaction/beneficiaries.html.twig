@@ -1,0 +1,204 @@
+{% extends 'baseClient.html.twig' %}
+
+{% block body %}
+    <div class="page-wrapper">
+        <div class="container-xl">
+          <div class="page-header d-print-none">
+            <div class="row align-items-center">
+              <div class="col">
+                <div class="page-pretitle">Overview</div>
+                <h2 class="page-title">Beneficiaries</h2>
+              </div>
+              <div class="col-auto ms-auto d-print-none">
+                <div class="btn-list">
+                  <a
+                    href="{{path('beneficiarie_create')}}"
+                    class="btn btn-primary d-none d-sm-inline-block"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <line x1="12" y1="5" x2="12" y2="19" />
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                    </svg>
+                    Add new Beneficiaries
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="page-body">
+          <div class="container-xl">
+            <div class="row row-cards">
+              <div class="col-12">
+                <div class="card">
+                  <div class="table-responsive">
+                    <table
+                      class="table table-vcenter table-mobile-md card-table"
+                    >
+                      <thead>
+                        <tr>
+                          <th>Bank</th>
+                          <th>Account No</th>
+                          <th>Account Name</th>
+                          <th>Nick Name</th>
+                          <th>Details</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Bank">
+                            <div>Brac Bank</div>
+                          </td>
+                          <td data-label="Account No">
+                            <div>34534534</div>
+                          </td>
+                          <td data-label="Account Name">
+                            <div>dfgfd</div>
+                          </td>
+
+                          <td data-label="Nick Name">
+                            <div>Dfgdf</div>
+                          </td>
+                          <td data-label="Details">
+                            <div class="btn-list">
+                              <a
+                                href="{{ path('beneficiarie_details') }}"
+                                class="btn btn-primary"
+                              >
+                                Details
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                      <tr>
+                          <td data-label="Bank">
+                            <div>Brac Bank</div>
+                          </td>
+                          <td data-label="Account No">
+                            <div>34534534</div>
+                          </td>
+                          <td data-label="Account Name">
+                            <div>dfgfd</div>
+                          </td>
+
+                          <td data-label="Nick Name">
+                            <div>Dfgdf</div>
+                          </td>
+                          <td data-label="Details">
+                            <div class="btn-list">
+                              <a
+                                href="{{ path('beneficiarie_details') }}"
+                                class="btn btn-primary"
+                              >
+                                Details
+                              </a>
+                            </div>
+                          </td>
+                        </tr><tr>
+                          <td data-label="Bank">
+                            <div>Brac Bank</div>
+                          </td>
+                          <td data-label="Account No">
+                            <div>34534534</div>
+                          </td>
+                          <td data-label="Account Name">
+                            <div>dfgfd</div>
+                          </td>
+
+                          <td data-label="Nick Name">
+                            <div>Dfgdf</div>
+                          </td>
+                          <td data-label="Details">
+                            <div class="btn-list">
+                              <a
+                                href="{{ path('beneficiarie_details') }}"
+                                class="btn btn-primary"
+                              >
+                                Details
+                              </a>
+                            </div>
+                          </td>
+                        </tr><tr>
+                          <td data-label="Bank">
+                            <div>Brac Bank</div>
+                          </td>
+                          <td data-label="Account No">
+                            <div>34534534</div>
+                          </td>
+                          <td data-label="Account Name">
+                            <div>dfgfd</div>
+                          </td>
+
+                          <td data-label="Nick Name">
+                            <div>Dfgdf</div>
+                          </td>
+                          <td data-label="Details">
+                            <div class="btn-list">
+                              <a
+                                href="{{ path('beneficiarie_details') }}"
+                                class="btn btn-primary"
+                              >
+                                Details
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <nav>
+                    <ul class="pagination">
+                      <li
+                        class="page-item disabled"
+                        aria-disabled="true"
+                        aria-label="&laquo; Previous"
+                      >
+                        <span class="page-link" aria-hidden="true"
+                          >&lsaquo;</span
+                        >
+                      </li>
+
+                      <li class="page-item active" aria-current="page">
+                        <span class="page-link">1</span>
+                      </li>
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          href="https://product.geniusocean.com/genius-bank/user/beneficiaries?page=2"
+                          >2</a
+                        >
+                      </li>
+
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          href="https://product.geniusocean.com/genius-bank/user/beneficiaries?page=2"
+                          rel="next"
+                          aria-label="Next &raquo;"
+                          >&rsaquo;</a
+                        >
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+{% endblock %}

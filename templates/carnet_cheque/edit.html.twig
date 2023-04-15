@@ -1,0 +1,68 @@
+
+{% extends 'baseClient.html.twig' %}
+
+{% block body %}
+     <div class="page-wrapper">
+   <div class="page-wrapper">
+        <div class="container-xl">
+          <div class="page-header d-print-none">
+            <div class="row align-items-center">
+              <div class="col">
+                <h2 class="page-title">Edit your checkbook</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+     <div class="page-body">
+     <div class="container-xl">
+         <div class="row row-cards">
+              <div class="col-12">                 
+                  <div class="card-p5">
+                             {{form_start(form) }} 
+                                        <div class="form-group">
+                                            <label class="form-label required">Bank card</label>
+                                              {{form_label(form.idtypecarnet,'type: ',{'attr':{'class':'form-label'}})}}
+                                              {{form_widget(form.idtypecarnet,{'attr':{'class':'form-select'}})}}
+                                        </div>
+                                        <div class="form-group mb-3 mt-3">                                      
+                                              {{form_label(form.email,'Email: ',{'attr':{'class':'form-label'}})}}
+                                              {{form_widget(form.email,{'attr':{'class':'form-control'}})}}
+                                        </div>
+                                        <div class="form-group mb-3 mt-3">
+                                             {{form_label(form.identifier,'identifier: ',{'attr':{'class':'form-label'}})}}
+                                              {{form_widget(form.identifier,{'attr':{'class':'form-control'}})}}
+                                        </div>
+                                            <div class="form-group mb-3">
+                                                {{form_label(form.cinS1,'CIN Side 1: ',{'attr':{'class':'form-label'}})}}
+                                                {{form_widget(form.cinS1,{'attr':{'class':'form-control', 'value': cinS1Filename|default('')}})}}
+                                            </div>
+                                             <div class="form-group mb-3">
+                                                {{form_label(form.cinS2,'CIN Side 2: ',{'attr':{'class':'form-label'}})}}
+                                                {{form_widget(form.cinS2,{'attr':{'class':'form-control', 'value': cinS2Filename|default('')}})}}
+                                            </div>
+                                             <div class="form-group mb-3">
+                                                {{form_label(form.document,'CIN Side 2: ',{'attr':{'class':'form-label'}})}}
+                                                {{form_widget(form.document,{'attr':{'class':'form-control', 'value': documentFilename|default('')}})}}
+                                            </div>
+                                        <div class="form-group mb-3">
+                                    
+                                              {{form_label(form.description,'Description: ',{'attr':{'class':'form-label'}})}}
+                                              {{form_widget(form.description,{'attr':{'class':'form-control summernote'}})}}
+
+                                        </div>
+                                        <div class="form-footer">  
+                                         {{form_widget(form.save,{'attr':{'class':'btn btn-primary w-50'}})}}                                      
+                                        </div>                             
+                            {{form_end(form)}}              
+                   <a class="btn btn-primary"   href="{{ path('app_carnet_cheque_index') }}">back to list</a>
+
+                   {{ include('carnet_cheque/_delete_form.html.twig') }}
+                   </div>
+             </div>
+         </div>
+     </div>
+          </div>
+        </div>
+      </div>        
+    </div>   
+{% endblock %}

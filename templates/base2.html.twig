@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+{% block header %}
+	<div class="Loader" style="background: url(https://product.geniusocean.com/genius-bank/assets/images/33CiUFaI1641808748.gif) no-repeat scroll center center #FFF;"></div>
+	<div
+		id="wrapper">
+		<!-- Sidebar -->
+		<ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
+			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{path('app_dashboard')}}">
+				<div class="sidebar-brand-icon">
+					<img src="{{asset('assets/images/logo.png')}}"/>
+				</div>
+			</a>
+
+			<li class="nav-item">
+				<a class="nav-link" href="{{path('app_dashboard')}}">
+					<i class="fas fa-fw fa-tachometer-alt"></i>
+					<span>Dashboard</span>
+				</a>
+			</li>
+
+			{# mahdi #}
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#customer" aria-expanded="true" aria-controls="collapseTable">
+					<i class="fas fa-user"></i>
+					<span>Manage Customers</span>
+				</a>
+				<div id="customer" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" href="{{path('app_users_list')}}">User
+																																																																																																				                            List</a>
+
+						<a class="collapse-item" href="users/withdraws.html">Withdraw Request
+							<span class="badge badge-sm badge-danger badge-counter">210</span>
+						</a>
+
+					</div>
+				</div>
+			</li>
+			{# hadil #}
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#loan" aria-expanded="true" aria-controls="collapseTable">
+					<i class="fas fa-cash-register"></i>
+					<span>Loan Management</span>
+				</a>
+				<div id="loan" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+
+						<a class="collapse-item" href="{{ path('loanplans') }}">Loan Plans</a>
+						<a class="collapse-item" href="{{ path('applies') }}">All Loans</a>
+					</div>
+				</div>
+			</li>
+
+
+			<li class="nav-item">
+				<a class="nav-link" href="{{path('categories')}}">
+					<i class="fas fa-piggy-bank"></i>
+					<span>Category Management</span>
+				</a>
+			</li>
+
+
+			<li class="nav-item">
+				<a class="nav-link" href="{{path('admin_transactions_index')}}">
+					<i class="fas fa-wallet"></i>
+					<span>Wire Transfer</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#account" aria-expanded="true" aria-controls="collapseTable">
+					<i class="fa-solid fa-money-check-dollar"></i>
+					<span>Accounts</span>
+				</a>
+				<div
+					id="account" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+					{# 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 #}
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" href="{{path('typeCompte_index')}}">Accounts Types</a>
+						<a class="collapse-item" href="{{path('all_deposits')}}">Accounts demands</a>
+					</div>
+				</div>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{{path('moneyRequest_Ad')}}">
+					<i class="fas fa-donate"></i>
+					<span>Request Money</span>
+				</a>
+			</li>
+
+			<li class="nav-item">
+				<a class="nav-link" href="{{path('app_compte_statistiques')}}">
+					<i class="fas fa-chart-line"></i>
+					<span>Statistiques</span>
+				</a>
+			</li>
+
+
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Deposits" aria-expanded="true" aria-controls="collapseTable">
+					<i class="fas fa-cash-register"></i>
+					<span>Deposits</span>
+				</a>
+				<div id="Deposits" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" href=" {{ path('statis') }}">Statistique CarteBancaire</a>
+						<a class="collapse-item" href=" {{ path('app_produit_stats2') }}">Statistique CarnetCheque</a>
+						<a class="collapse-item" href=" {{ path('servicecarte') }}">Liste demande Cartes</a>
+						<a class="collapse-item" href=" {{ path('servicecarnet') }}">Liste demande Carnets</a>
+					</div>
+				</div>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#services" aria-expanded="true" aria-controls="collapseTable">
+					<i class="fas fa-cash-register"></i>
+					<span>Services</span>
+				</a>
+				<div id="services" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" href="{{path('showcarnets')}}">Check Book</a>
+
+						<a class="collapse-item" href="{{path('newcard')}}">Bank card</a>
+					</div>
+				</div>
+			</li>
+
+			{# wela #}
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#blog" aria-expanded="true" aria-controls="collapseTable">
+					<i class="fas fa-fw fa-newspaper"></i>
+					<span>Manage Blog</span>
+				</a>
+				<div id="blog" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+
+						<a class="collapse-item" href="{{path('app_blog')}}">Posts</a>
+						<a class="collapse-item" href="{{path('app_category')}}">Categories</a>
+					</div>
+				</div>
+			</li>
+
+			{# mahdi #}
+			<li class="nav-item">
+				<a class="nav-link" href="{{path('app_reclamation')}}">
+					<i class="fas fa-vote-yea"></i>
+					<span>Support Tickets</span>
+				</a>
+			</li>
+			{# wela #}
+			<li class="nav-item">
+				<a class="nav-link" href="{{path('app_agence')}}">
+					<i class="fas fa-child"></i>
+					<span>Agence</span>
+				</a>
+			</li>
+
+		</ul>
+	{% endblock %}
+	<html>
+		<head>
+			<meta charset="UTF-8">
+			<title>
+				{% block title %}Maze Bank - All in Digital One Banking System
+				{% endblock %}
+			</title>
+			<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+			<link rel="stylesheet" href="assets/front/css/bootstrap.min.css"/>
+
+			<script src="https://kit.fontawesome.com/3c64a1ca0d.js" crossorigin="anonymous"></script>
+			<link rel="stylesheet" href="{{asset('assets/front/css/bootstrap.min.css')}}"/>
+			<link rel="stylesheet" href="{{asset('assets/admin/css/bootstrap-colorpicker.css')}}"/>
+			<link rel="stylesheet" href="{{asset('assets/admin/css/bootstrap-iconpicker.css')}}"/>
+			<link rel="stylesheet" href="{{asset('assets/admin/css/color-picker.css')}}"/>
+			<link rel="stylesheet" href="{{asset('assets/admin/css/custom.css')}}"/>
+			<link rel="stylesheet" href="{{asset('assets/admin/css/plugin.css')}}"/>
+			<link rel="stylesheet" href="{{asset('assets/admin/css/ruang-admin.css')}}"/>
+			<link rel="stylesheet" href="{{asset('assets/admin/css/select2.min.css')}}"/>
+			<link rel="stylesheet" href="{{asset('assets/admin/css/summernote.css')}}"/>
+			<link rel="stylesheet" href="{{asset('assets/admin/css/tagify.css')}}"/>
+			<link rel="stylesheet" href="{{asset('assets/admin/css/toastr.css')}}"/>
+			<link rel="stylesheet" href="{{asset('assets/front/css/all.min')}}"/>
+			<link rel="stylesheet" href="{{asset('assets/front/css/animate.css')}}"/>
+			<link rel="stylesheet" href="{{asset('assets/front/css/bootstrap.min.css')}}"/>
+			<link rel="stylesheet" href="{{asset('assets/front/css/font9411.css')}}"/>
+			<link rel="stylesheet" href="{{asset('assets/front/css/lightbox.min.css')}}"/>
+			<link rel="stylesheet" href="{{asset('assets/front/css/main.css')}}"/>
+			<link rel="stylesheet" href="{{asset('assets/front/css/odometer.css')}}"/>
+			<link rel="stylesheet" href="{{asset('assets/front/css/owl.min.css')}}"/>
+			<link rel="stylesheet" href="{{asset('assets/front/css/styles93e6.css')}}"/>
+			<link rel="stylesheet" href="{{asset('assets/front/css/toastr.min.css')}}"/>
+			<link rel="stylesheet" href="{{asset('assets/user/css/custom.css')}}"/>
+			<link rel="stylesheet" href="{{asset('assets/user/css/demo.min.css')}}"/>
+			<link rel="stylesheet" href="{{asset('assets/user/css/tabler.min.css')}}"/>
+			<link rel="stylesheet" href="{{asset('assets/user/css/tabler-flags.min.css')}}"/>
+			<link rel="stylesheet" href="{{asset('assets/user/css/tabler-payments.min.css')}}"/>
+			<link rel="stylesheet" href="{{asset('assets/user/csstabler-vendors.min.css')}}"/>
+			{% block stylesheets %}
+				{{ encore_entry_link_tags('app') }}
+			{% endblock %}
+
+			{% block javascripts %}
+				{{ encore_entry_script_tags('app') }}
+			{% endblock %}
+		</head>
+		<body>
+
+			{% block body %}{% endblock %}
+
+
+		</body>
+		<script src="{{asset('assets/front/js/jquery-3.6.0.min.js')}}"></script>
+		<script src="{{asset('assets/admin/js/bootstrap.bundle.min.js')}}"></script>
+		<script src="{{asset('assets/admin/js/bootstrap-colorpicker.js')}}"></script>
+		<script src="{{asset('assets/admin/js/bootstrap-datepicker.min.js')}}"></script>
+		<script src="{{asset('assets/admin/js/bootstrap-iconpicker.bundle.min.js')}}"></script>
+		<script src="{{asset('assets/admin/js/chart.min.js')}}"></script>
+		<script src="{{asset('assets/admin/js/colorpicker.js')}}"></script>
+		<script src="{{asset('assets/admin/js/plugin.js')}}"></script>
+		<script src="{{asset('assets/admin/js/ruang-admin.js')}}"></script>
+		<script src="{{asset('assets/admin/js/select2.min.js')}}"></script>
+		<script src="{{asset('assets/admin/js/sortable.js')}}"></script>
+		<script src="{{asset('assets/admin/js/summernote.js')}}"></script>
+		<script src="{{asset('assets/admin/js/tagify.js')}}"></script>
+		<script src="{{asset('assets/admin/js/toastr.js')}}"></script>
+		<script src="{{asset('assets/front/js/bootstrap.min.js')}}"></script>
+		<script src="{{asset('assets/front/js/custom.js')}}"></script>
+		<script src="{{asset('assets/front/js/jquery-3.6.0.min.js')}}"></script>
+		<script src="{{asset('assets/front/js/lightbox.min.js')}}"></script>
+		<script src="{{asset('assets/front/js/main.js')}}"></script>
+		<script src="{{asset('assets/front/js/notify.js')}}"></script>
+		<script src="{{asset('assets/front/js/odometer.min.js')}}"></script>
+		<script src="{{asset('assets/front/js/owl.min.js')}}"></script>
+		<script src="{{asset('assets/front/js/payform.js')}}"></script>
+		<script src="{{asset('assets/front/js/paymin.js')}}"></script>
+		<script src="{{asset('assets/front/js/payvalid.js')}}"></script>
+		<script src="{{asset('assets/front/js/toastr.min.js')}}"></script>
+		<script src="{{asset('assets/front/js/viewport.jquery.js')}}"></script>
+		<script src="{{asset('assets/user/js/demo.min.js')}}"></script>
+		<script src="{{asset('assets/user/js/notify.min.js')}}"></script>
+		<script src="{{asset('assets/user/js/jquery-3.6.0.min.js')}}"></script>
+		<script src="{{asset('assets/user/js/tabler.min.js')}}"></script>
+		<script src="{{asset('assets/front/js/main.js')}}"></script>
+		<script src="{{asset('assets/front/js/custom.js')}}"></script>
+
+		<script type="text/javascript">
+			"use strict";
+
+var table = $("#geniustable").DataTable({
+ordering: false,
+processing: true,
+serverSide: true,
+searching: false,
+ajax: "https://product.geniusocean.com/genius-bank/admin/blog/datatables",
+columns: [
+{
+data: "photo",
+name: "photo",
+searchable: false,
+orderable: false
+}, {
+data: "title",
+name: "title"
+}, {
+data: "views",
+name: "views"
+}, {
+data: "action",
+searchable: false,
+orderable: false
+},
+],
+language: {
+processing: '<img src="https://product.geniusocean.com/genius-bank/assets/images/33CiUFaI1641808748.gif">'
+}
+});
+
+$(function () {
+$(".btn-area").append('<div class="col-sm-12 col-md-4 pr-3 text-right">' + '<a class="btn btn-primary" href="create.html">' + '<i class="fas fa-plus"></i> Add New Post' + "</a>" + "</div>");
+});
+		</script>
+	</html>

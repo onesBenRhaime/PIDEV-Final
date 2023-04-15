@@ -1,0 +1,98 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block body %}
+    
+     <div class="page-wrapper">
+        <div class="card">
+	<div class="d-sm-flex align-items-center justify-content-between">
+	<h3 class=" mb-0 text-gray-800 pl-3">Details Card<a class="btn btn-primary btn-rounded btn-sm" href=" {{ path('servicecarte') }}"><i class="fas fa-arrow-left"></i> Back</a></h3>
+	<ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href=" {{ path('servicecarte') }}">Dashboard</a></li>
+       
+	</div>
+</div>
+
+        </div>
+
+        <div class="page-body">
+          <div class="container-xl">
+            <div class="row row-cards">
+              <div class="col-12">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <div class="table-responsive-sm">
+                      <table class="table mb-0">
+                        <tbody>
+                          <tr>
+                <th>Id</th>
+                <td>{{ carte.idtypecarte }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ carte.email }}</td>
+            </tr>
+            <tr>
+                <th>Identifier</th>
+                <td>{{ carte.identifier }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ carte.description }}</td>
+            </tr>
+            <tr>
+                <th>CinS1</th>
+                 <td><img src="{{ asset('uploads/carteBancaire/'~ carte.cinS1  ) }}" width="250" height="150"/></td>
+            </tr>
+            <tr>
+                <th>CinS2</th>
+                 <td><img src="{{ asset('uploads/carteBancaire/'~ carte.cinS2 ) }}" width="250" height="150"/></td>
+            </tr>
+         
+            
+            <tr>
+                <th width="45%">Status</th>
+                {% if  carte.status== "en cours" %}
+                    <td><span class="badge bg-success text-white">{{ carte.status }}</span></td>
+                {% else %}
+                    <td><span class="badge bg-warning text-white">{{ carte.status }}</span></td>                          
+                {% endif %}
+           
+            </tr>
+<tr>
+   <th width="45%"></th>
+  <td width="45%" class="row">
+ <form method="post" action="{{ path('acceptcarte', {'id': carte.id}) }}" onsubmit="return confirm('Are you sure you want to update this item?');">
+                     <input type="hidden" name="_token" value="{{ csrf_token('Approve' ~ carte.id) }}">
+                    <button class="btn btn-success "><i class="far fa-check-circle"></i>Approve</button>
+                 </form>
+                 <form method="post" action="{{ path('refusercarte', {'id': carte.id}) }}" onsubmit="return confirm('Are you sure you want to update this item?');">
+                     <input type="hidden" name="_token" value="{{ csrf_token('Reject' ~ carte.id) }}">
+                    <button class="btn btn-danger ml-3 "><i class="fas fa-minus-circle ml-3"></i>Reject</button>
+                 </form>
+   {# <a href="javascript:;" data-toggle="modal" data-target="#statusModal"  class="btn btn-primary " >
+                 <form method="post" action="{{ path('acceptcarnet', {'id': carnet.id}) }}" onsubmit="return confirm('Are you sure you want to update this item?');">
+                     <input type="hidden" name="_token" value="{{ csrf_token('Approve' ~ carnet.id) }}">
+                  <button>Approve <i class="far fa-check-circle"></i></button>
+                 </form>
+                    </a>
+                     <a href="javascript:;" data-toggle="modal" data-target="#statusModal"  class="btn btn-danger ml-3 " >
+                 <form method="post" action="{{ path('refusercarnet', {'id': carnet.id}) }}" onsubmit="return confirm('Are you sure you want to update this item?');">
+                     <input type="hidden" name="_token" value="{{ csrf_token('Reject' ~ carnet.id) }}">
+                     <button>Reject<i class="fas fa-minus-circle"></i></button>
+                 </form>
+                    </a> #}
+                </td>
+</tr>
+  
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        
+{% endblock %}

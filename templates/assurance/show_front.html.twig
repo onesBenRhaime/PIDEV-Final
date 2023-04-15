@@ -1,0 +1,39 @@
+{% extends 'baseClient.html.twig' %}
+
+{% block title %}Assurance
+{% endblock %}
+
+{% block body %}
+	<h1>Assurance</h1>
+
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Id</th>
+				<td>{{ assurance.id }}</td>
+			</tr>
+			<tr>
+				<th>Libelle</th>
+				<td>{{ assurance.libelle }}</td>
+			</tr>
+			<tr>
+				<th>Image</th>
+				<td>{{ assurance.image }}</td>
+			</tr>
+			<tr>
+				<th>Partenaire</th>
+				<td>{{ assurance.partenaire }}</td>
+			</tr>
+			<tr>
+				<th>Type</th>
+				<td>{{ assurance.type }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_assurance_index_front') }}">back to list</a>
+
+	<a href="{{ path('app_assurance_edit_front', {'id': assurance.id}) }}">edit</a>
+
+	{{ include('assurance/_delete_form_front.html.twig') }}
+{% endblock %}

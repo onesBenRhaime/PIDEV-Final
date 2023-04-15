@@ -1,0 +1,90 @@
+{% extends 'baseClient.html.twig' %}
+
+{% block body %}
+
+<div class="page-wrapper">
+        <div class="container-xl">
+          <div class="page-header d-print-none">
+            <div class="row align-items-center">
+              <div class="col">
+                <h2 class="page-title">Loan Plan</h2>
+        <form action="{{ path('loans') }}" method="get">
+        <label for="category"class="form-label">Category:</label>
+        <select class="form-control" name="category" id="category">
+            <option value="">All categories</option>
+            {% for category in categories %}
+                <option value="{{ category.id }}">{{ category.name }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit"class="btn btn-primary btn-sm btn-rounded">Filter</button>
+        </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="page-body">
+     
+          <div class="container-xl">
+            <div class="row mb--25-none">
+                      {% for p in plans %}
+
+              <div class="col-sm-6 col-lg-4 col-xl-3">
+                <div class="plan__item position-relative">
+                  <div class="ribbon ribbon-top ribbon-bookmark bg-green"></div>
+                  <div class="plan__item-header">
+                    <div class="left">
+                      <h4 class="title">{{ p.creditCategory.name }}</h4>
+                    </div>
+                    <div class="right">
+                      <h5 class="title">{{ p.loanRate }} %</h5>
+                      <span>Per Installment</span>
+                    </div>
+                  </div>
+                  <div class="plan__item-body">
+                    <ul>
+                      <li>
+                        <div class="name">Minimum Amount</div>
+
+                        <div class="info">{{ p.minAmount }}</div>
+                      </li>
+                      <li>
+                        <div class="name">Maximum Amount</div>
+
+                        <div class="info">{{ p.maxAmount }}</div>
+                      </li>
+                      <li>
+                        <div class="name">Installment Interval</div>
+
+                        <div class="info">{{ p.months }}Months</div>
+                      </li>
+                      <li>
+                        <div class="name">Withdraw Monthly</div>
+
+                        <div class="info">{{ p.withdrawMonthly }}</div>
+                      </li>
+                    </ul>
+                     <a href=" {{ path('credit_create' , {'id': p.id}) }}" class="btn btn-primary  w-100 d-none d-sm-inline-block">
+    
+                      Apply
+                    </a>
+                  </div>
+                </div>
+              </div>
+           							  {% endfor %}   
+            </div>
+          </div>
+        </div>
+
+        {# <div
+          class="modal modal-blur fade"
+          id="modal-apply"
+          tabindex="-1"
+          role="dialog"
+          aria-hidden="true"
+        > #}
+          </div>
+        </div>
+</div>
+
+
+{% endblock %}

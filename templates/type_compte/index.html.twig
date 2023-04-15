@@ -1,0 +1,133 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block body %}
+    
+<div class="page-wrapper">
+    <div class="container-fluid" id="container-wrapper">
+       <div class="card">
+	       <div class="d-sm-flex align-items-center justify-content-between">
+	          <h5 class=" mb-0 text-gray-800 pl-3">Accounts Types</h5>
+	           <ol class="breadcrumb">
+                 <li class="breadcrumb-item"><a href="" >Dashboard</a></li>
+		         <li class="breadcrumb-item"><a href="">Accounts</a></li>
+	          </ol>
+	       </div>
+       </div>
+
+       <div class="row mt-3">
+       <div class="col-lg-12"> 
+            <div class="card mb-4">
+	             <div class="table-responsive p-3">
+		            <div id="geniustable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                        <div class="row btn-area"><div class="col-sm-4">
+                            <div class="dataTables_length" id="geniustable_length">
+                                <label>Show 
+                                 <select name="geniustable_length" aria-controls="geniustable" class="custom-select custom-select-sm form-control form-control-sm">
+                                    <option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option>
+                                 </select> 
+                                 entries
+                                </label>
+                            </div>
+                         </div>
+                         <div class="col-sm-4"></div>
+                         <div class="col-sm-12 col-md-4 pr-3 text-right">
+                            <a class="btn btn-primary" href=" {{ path('typeCompte_create') }}">
+                               <i class="fas fa-plus"></i> 
+                               Add New Type
+                            </a>
+                         </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-12">
+                                <table id="geniustable" class="table table-hover dt-responsive dataTable no-footer dtr-inline" cellspacing="0" width="100%" role="grid" aria-describedby="geniustable_info" style="width: 100%;">
+		                           <thead class="thead-light">
+			                           <tr role="row">
+                                            <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 190px;">Type</th>
+                                            <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 185px;">Description</th>
+                                            <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 173px;">Options</th>
+                                        </tr>
+		                           </thead>
+                                   <tbody>
+                                        {% for type_compte in type_comptes %}                                
+                                            <tr>
+                                                <td>{{ type_compte.type  }}</td>
+                                                <td>{{ type_compte.description  }}</td>
+                                                <td>
+                                                    <a href="{{ path('typeCompte_show', {'id': type_compte.id}) }}"class="btn btn-info btn-sm px-3"> <i class="fa-sharp fa-regular fa-eye"></i></a>
+                                                    <a href="{{ path('typeCompte_edit', {'id': type_compte.id}) }}" class="btn btn-success btn-sm px-3"><i class="fa-solid fa-pen-to-square"></i></a>
+                                                </td>
+                                            </tr>
+                                            {% else %}
+                                                <tr> <td colspan="6">no Account found</td></tr>
+                                            {% endfor %}
+		                            </tbody>
+                                </table>
+                                <div id="geniustable_processing" class="dataTables_processing card" style="display: none;">
+                                    <img src="https://product.geniusocean.com/genius-bank/assets/images/33CiUFaI1641808748.gif">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-12 col-md-5">
+                               <div class="dataTables_info" id="geniustable_info" role="status" aria-live="polite">Showing 1 to 6 of 6 entries</div>
+                            </div>
+                            <div class="col-sm-12 col-md-7">
+                                <div class="dataTables_paginate paging_simple_numbers" id="geniustable_paginate">
+                                    <ul class="pagination">
+                                        <li class="paginate_button page-item previous disabled" id="geniustable_previous">
+                                           <a href="#" aria-controls="geniustable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+                                        </li>
+                                        <li class="paginate_button page-item active">
+                                           <a href="#" aria-controls="geniustable" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+                                        </li>
+                                        <li class="paginate_button page-item next disabled" id="geniustable_next">
+                                           <a href="#" aria-controls="geniustable" data-dt-idx="2" tabindex="0" class="page-link">Next</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+	            </div>
+	        </div>
+        </div>
+       </div>
+    </div>
+</div>
+        
+{% endblock %}
+
+{# 
+{% block body %}
+    <h1>TypeCompte index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_compte in type_comptes %}
+            <tr>
+                <td>{{ type_compte.id }}</td>
+                <td>{{ type_compte.type }}</td>
+                <td>{{ type_compte.description }}</td>
+                <td>
+                    <a href="{{ path('typeCompte_show', {'id': type_compte.id}) }}">show</a>
+                    <a href="{{ path('typeCompte_edit', {'id': type_compte.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('typeCompte_create') }}">Create new</a>
+{% endblock %} #}

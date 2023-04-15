@@ -1,0 +1,67 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Assurance index
+{% endblock %}
+
+{% block body %}
+	<style>
+		.search {
+			width: 300px;
+			border-radius: 20px;
+			margin-left: 10px;
+			padding-left: 10px;
+		}
+	</style>
+	<h1>Liste des Assurances</h1>
+	<input name="search" placeholder="recherche..." class="search" onkeydown="recherche()"/>
+
+	<table class="table mt-4">
+		<thead class="thead-dark">
+			<tr>
+				<th>Id</th>
+				<th>Libelle</th>
+				<th>Image</th>
+				<th>Partenaire</th>
+				<th>Type</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody id="place">
+			{% for assurance in assurances %}
+				<tr>
+					<td>{{ assurance.id }}</td>
+					<td>{{ assurance.libelle }}</td>
+					<td><img src="{{ asset('uploads/photos/' ~ assurance.image)|e('html_attr') }}"/></td>
+					<td>{{ assurance.partenaire }}</td>
+					<td>{{ assurance.type }}</td>
+					<td>
+						<a href="{{ path('app_assurance_show', {'id': assurance.id}) }}" class="btn btn-warning">show</a>
+						<a href="{{ path('app_assurance_edit', {'id': assurance.id}) }}" class="btn btn-warning">edit</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="6">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_assurance_new') }}" class="btn btn-success">Create new</a>
+	<script>
+		const recherche = () => {
+const search = document.querySelector(".search").value;
+console.log(search);
+$.ajax({
+url: "{{ path('app_assurance_search') }}",
+type: 'POST',
+data: {
+search
+},
+success: function (result) {
+$("#place").html(result);
+}
+});
+}
+	</script>
+{% endblock %}

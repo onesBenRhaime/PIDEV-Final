@@ -1,0 +1,164 @@
+{% extends 'baseClient.html.twig' %}
+
+{% block body %}
+
+  <div class="page-wrapper">
+        <div class="container-xl">
+          <div class="page-header d-print-none">
+            <div class="row align-items-center">
+              <div class="col">
+                <h2 class="page-title">Transaction</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="page-body">
+          <div class="container-xl">
+            <div class="row row-cards">
+              <div class="col-12">
+                <div class="card">
+                  <div class="table-responsive">
+                    <table
+                      class="table card-table table-vcenter text-nowrap datatable"
+                    >
+                      <tbody>
+                         {% for transaction in transactions %}
+                               <tr>
+                                   <td>{{ transaction.id }}</td>
+                                     <td>{{ transaction.typeTransaction }}</td>
+                                     <td>{{ transaction.montant }}</td>
+                                    <td>{{ transaction.dateTransaction }}</td>
+                                     <td>{{ transaction.requestFrom }}</td>
+                                       <td>{{ transaction.requestTo }}</td>
+                                    <td>{{ transaction.statue }}</td>
+                                    <td>{{ transaction.agenceName }}</td>
+                                      <td>
+                                         <a href="{{ path('app_transaction_show', {'id': transaction.id}) }}">show</a>
+                                            <a href="{{ path('app_transaction_edit', {'id': transaction.id}) }}">edit</a>
+                                       </td>
+                                </tr>
+                           {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+                    </table>
+                  </div>
+                  <nav>
+                    <ul class="pagination">
+                      <li
+                        class="page-item disabled"
+                        aria-disabled="true"
+                        aria-label="&laquo; Previous"
+                      >
+                        <span class="page-link" aria-hidden="true"
+                          >&lsaquo;</span
+                        >
+                      </li>
+
+                      <li class="page-item active" aria-current="page">
+                        <span class="page-link">1</span>
+                      </li>
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          href="https://product.geniusocean.com/genius-bank/user/transactions?page=2"
+                          >2</a
+                        >
+                      </li>
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          href="https://product.geniusocean.com/genius-bank/user/transactions?page=3"
+                          >3</a
+                        >
+                      </li>
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          href="https://product.geniusocean.com/genius-bank/user/transactions?page=4"
+                          >4</a
+                        >
+                      </li>
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          href="https://product.geniusocean.com/genius-bank/user/transactions?page=5"
+                          >5</a
+                        >
+                      </li>
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          href="https://product.geniusocean.com/genius-bank/user/transactions?page=6"
+                          >6</a
+                        >
+                      </li>
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          href="https://product.geniusocean.com/genius-bank/user/transactions?page=7"
+                          >7</a
+                        >
+                      </li>
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          href="https://product.geniusocean.com/genius-bank/user/transactions?page=8"
+                          >8</a
+                        >
+                      </li>
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          href="https://product.geniusocean.com/genius-bank/user/transactions?page=9"
+                          >9</a
+                        >
+                      </li>
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          href="https://product.geniusocean.com/genius-bank/user/transactions?page=10"
+                          >10</a
+                        >
+                      </li>
+
+                      <li class="page-item disabled" aria-disabled="true">
+                        <span class="page-link">...</span>
+                      </li>
+
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          href="https://product.geniusocean.com/genius-bank/user/transactions?page=22"
+                          >22</a
+                        >
+                      </li>
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          href="https://product.geniusocean.com/genius-bank/user/transactions?page=23"
+                          >23</a
+                        >
+                      </li>
+
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          href="https://product.geniusocean.com/genius-bank/user/transactions?page=2"
+                          rel="next"
+                          aria-label="Next &raquo;"
+                          >&rsaquo;</a
+                        >
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+{% endblock %}

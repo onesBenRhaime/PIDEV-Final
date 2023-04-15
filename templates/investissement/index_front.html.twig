@@ -1,0 +1,36 @@
+{% extends 'baseClient.html.twig' %}
+
+
+{% block body %}
+	<h1 class="mb-4">Liste des investissements</h1>
+
+	<table class="table">
+		<thead class="thead-dark">
+			<tr>
+				<th>Id</th>
+				<th>Min_budget</th>
+				{# <th>actions</th> #}
+			</tr>
+		</thead>
+		<tbody>
+			{% for investissement in investissements %}
+				<tr>
+					<td>{{ investissement.id }}</td>
+					<td>{{ investissement.minBudget }}</td>
+					{# <td>
+										                    <a href="{{ path('app_investissement_show_front', {'id': investissement.id}) }}">show</a>
+										                    <a href="{{ path('app_investissement_edit_front', {'id': investissement.id}) }}">edit</a>
+										                </td> #}
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="3">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	{# <a href="{{ path('app_investissement_new_front') }}" class="btn btn-success">Create new</a> #}
+	<a href="{{ path('app_investissement_sort_front') }}" class="btn btn-success">Trier selon Budget</a>
+
+{% endblock %}

@@ -1,0 +1,139 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+            <meta name="keywords" content="Genius,Ocean,Sea,Etc,Genius,Ocean,SeaGenius,Ocean,Sea,Etc,Genius,Ocean,SeaGenius,Ocean,Sea,Etc,Genius,Ocean,Sea">
+        <meta name="author" content="GeniusOcean">
+        <title>Genius Bank - All in Digital One Banking System</title>
+
+    <<link rel="stylesheet" href="{{asset('/assets/front/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('/assets/front/css/animate.css')}}" />
+    <link rel="stylesheet" href="{{asset('/assets/front/css/all.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('/assets/front/css/lightbox.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('/assets/front/css/odometer.css')}}" />
+    <link rel="stylesheet" href="{{asset('/assets/front/css/owl.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('/assets/front/css/main.css')}}" />
+    <link rel="stylesheet" href="{{('/assets/front/css/toastr.min.css')}}">
+
+    <link rel="stylesheet" href="{{asset('/assets/front/css/styles93e6.css?color=0ba026')}}">
+
+            <link href="https://fonts.googleapis.com/css?family=Manrope&display=swap" rel="stylesheet">
+    
+            <link rel="stylesheet" id="colorr" href="https://product.geniusocean.com/genius-bank/assets/front/css/font.php?font_familly=Manrope">
+    
+        
+    <link rel="shortcut icon" href="https://product.geniusocean.com/genius-bank/assets/images/16393007481563335660service-icon-1.png">
+</head>
+
+<body>
+    <!-- Overlayer -->
+    <span class="toTopBtn">
+        <i class="fas fa-angle-up"></i>
+    </span>
+    <div class="overlayer"></div>
+    <div class="loader">
+        <h2>
+            <span class="let1">l</span>
+            <span class="let2">o</span>
+            <span class="let3">a</span>
+            <span class="let4">d</span>
+            <span class="let5">i</span>
+            <span class="let6">n</span>
+            <span class="let7">g</span>
+        </h2>
+    </div>
+    <!-- Overlayer -->
+
+   
+
+        <!-- Hero -->
+    <section class="hero-section bg--overlay bg_img" data-img="https://product.geniusocean.com/genius-bank/assets/images/4oHWW9wP1647317756.png">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">Forgot Password</h2>
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="https://product.geniusocean.com/genius-bank">Home</a>
+                    </li>
+                    <li>
+                        Forgot Password                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- Hero -->
+
+    <!-- Account -->
+    <section class="account-section pt-100 pb-100">
+        <div class="container">
+            <div class="account-wrapper bg--body">
+                <div class="section-title mb-3">
+                    <h3 class="title">Forgot Password</h3>
+                </div>
+                {{form_start(requestPassForm)}}
+                {{form_row(requestPassForm.email)}}
+                <button type="submit" class="cmn--btn bg--base me-3">
+                            Submit                        </button>
+                {{form_end(requestPassForm)}}
+                
+            </div>
+        </div>
+    </section>
+    <!-- Account -->
+
+  <script src="{{asset('/assets/front/js/jquery-3.6.0.min.js')}}"></script>
+    <script src="{{asset('/assets/front/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('/assets/front/js/viewport.jquery.js')}}"></script>
+    <script src="{{asset('/assets/front/js/odometer.min.js')}}"></script>
+    <script src="{{asset('/assets/front/js/lightbox.min.js')}}"></script>
+    <script src="{{asset('/assets/front/js/owl.min.js')}}"></script>
+    <script src="{{asset('/assets/front/js/toastr.min.js')}}"></script>
+    <script src="{{asset('/assets/front/js/notify.js')}}"></script>
+    <script src="{{asset('/assets/front/js/main.js')}}"></script>
+    <script src="{{asset('/assets/front/js/custom.js')}}"></script>
+
+    <script>
+        'use strict';
+		let mainurl = 'https://product.geniusocean.com/genius-bank';
+	</script>
+
+    <script>
+        'use strict';
+    
+              
+              
+              
+            </script>
+
+    <script>
+        'use strict';
+
+        $('.apply-loan').on('click',function(){
+            let id = $(this).data('id');
+            let title = $(this).data('title');
+
+            $('#planId').val(id);
+            $('.loan-title').text(title);
+        });
+
+        $('.apply-pension').on('click',function(){
+            let id = $(this).data('id');
+            let title = $(this).data('title');
+
+            $('#fdrplan').val(id);
+            $('.loan-title').text(title);
+        });
+    </script>
+        
+</body>
+
+</html>
+{% endblock %}

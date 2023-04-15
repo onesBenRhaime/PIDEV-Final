@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}MAZE BANK
+			{% endblock %}
+		</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+		<meta
+		http-equiv="X-UA-Compatible" content="ie=edge"/>
+		{# <link rel="shortcut icon"
+																																																				        href="{{asset('assets/images/icon2.png')}}">        
+																																																				    <script src="https://kit.fontawesome.com/3c64a1ca0d.js" crossorigin="anonymous"></script>
+																																																				    <link href="{{asset('user/fontawesome-free/css/all.min.css')}}"
+																																																				        rel="stylesheet" type="text/css">
+																																																				    <link href="{{asset('assets/user/css/tabler.min.css')}}" rel="stylesheet" />
+																																																				    <link href="{{asset('https://product.geniusocean.com/genius-bank/assets/user/css/tabler-flags.min.css')}}"rel="stylesheet" />
+																																																				    <link href="{{asset('https://product.geniusocean.com/genius-bank/assets/user/css/tabler-payments.min.css')}}" rel="stylesheet" />
+																																																				    <link href="{{asset('https://product.geniusocean.com/genius-bank/assets/user/css/tabler-vendors.min.css')}}" rel="stylesheet" />
+																																																				    
+																																																				    <link href="{{asset('https://product.geniusocean.com/genius-bank/assets/user/css/demo.min.css')}}" rel="stylesheet" />
+																																																				    <link href="{{asset('https://product.geniusocean.com/genius-bank/assets/user/css/custom.css')}}" rel="stylesheet" />
+																																																				    <link
+																																																							rel="stylesheet"
+																																																							href="{{asset('assets/admin/css/summernote.css')}}"
+																																																						/> #}
+		<link rel="shortcut icon" href="{{asset('assets/images/icon2.png')}}">
+		<script src="https://kit.fontawesome.com/3c64a1ca0d.js" crossorigin="anonymous"></script>
+		<link href="{{asset('assets/user/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+		<link href="{{asset('assets/user/css/tabler.min.css')}}" rel="stylesheet"/>
+		<link href="{{asset('assets/user/css/tabler-flags.min.css')}}" rel="stylesheet"/>
+		<link href="{{asset('assets/user/css/tabler-payments.min.css')}}" rel="stylesheet"/>
+		<link href="{{asset('assets/user/css/tabler-vendors.min.css')}}" rel="stylesheet"/>
+		<link href="{{asset('assets/front/css/toastr.min.css')}}" rel="stylesheet"/>
+		<link href="{{asset('assets/user/css/demo.min.css')}}" rel="stylesheet"/>
+		<link href="{{asset('assets/user/css/custom.css')}}" rel="stylesheet"/>
+		<link rel="stylesheet" href="{{asset('assets/user/css/summernote.css')}}"/>
+
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
+
+		{% block javascripts %}
+			{{ encore_entry_script_tags('app') }}
+		{% endblock %}
+	</head>
+	<body>
+
+		<div class="wrapper">
+			<header class="navbar navbar-expand-xl navbar-light d-print-none">
+				<div class="container-xl">
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+						<a href="">
+							<img src="{{asset('assets/images/logo3.png')}}" width="110" height="32" alt="Tabler" class="navbar-brand-image">
+						</a>
+					</h1>
+					<div class="navbar-nav flex-row order-md-last">
+						<div class="change-language me-2">
+							<select name="currency" class="currency selectors nice language-bar">
+								<option value="https://product.geniusocean.com/genius-bank/currency/1" selected>
+									USD
+								</option>
+								<option value="https://product.geniusocean.com/genius-bank/currency/4">
+									BDT
+								</option>
+								<option value="https://product.geniusocean.com/genius-bank/currency/6">
+									EUR
+								</option>
+								<option value="https://product.geniusocean.com/genius-bank/currency/8">
+									NGN
+								</option>
+								<option value="https://product.geniusocean.com/genius-bank/currency/9">
+									INR
+								</option>
+							</select>
+						</div>
+						<a href="?theme=dark" class="nav-link px-0 hide-theme-dark" title="Enable dark mode" data-bs-toggle="tooltip" data-bs-placement="bottom">
+							<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewbox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+								<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+								<path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"/>
+							</svg>
+						</a>
+						<a href="?theme=light" class="nav-link px-0 hide-theme-light" title="Enable light mode" data-bs-toggle="tooltip" data-bs-placement="bottom">
+							<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewbox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+								<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+								<circle cx="12" cy="12" r="4"/>
+								<path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"/>
+							</svg>
+						</a>
+						<div class="nav-item dropdown">
+							<a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
+								<span class="avatar avatar-sm" style="background-image: url(https://product.geniusocean.com/genius-bank/assets/images/16576606414BD963F2-25AD-4236-9452-6D41DFDB92CE.jpeg)"></span>
+								<div class="d-none d-xl-block ps-2">
+									<div>dark loard</div>
+								</div>
+							</a>
+							<div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+								<a href="profile.html" class="dropdown-item">Edit Profile</a>
+								<a href="change-password.html" class="dropdown-item">Change Password</a>
+								<a href="logout.html" class="dropdown-item">Logout</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+			<!-- Navbar -->
+			<div class="navbar-expand-xl">
+				<div class="collapse navbar-collapse" id="navbar-menu">
+					<div class="navbar navbar-light">
+						<div class="container-xl" style="margin-left: 300px; margin-right: 300px;">
+							<ul class="navbar-nav">
+								<li class="nav-item active ">
+									<a class="nav-link " href=" {{ path('index_client') }}">
+										<span class="nav-link-icon d-md-none d-lg-inline-block">
+											<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewbox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+												<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+												<polyline points="5 12 3 12 12 3 21 12 19 12"/>
+												<path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/>
+												<path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/>
+											</svg>
+										</span>
+										<span class="nav-link-title">
+											<b>
+												Home</b>
+										</span>
+									</a>
+								</li>
+								{# hadil #}
+								<li class="nav-item dropdown ">
+									<a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false">
+										<span class="nav-link-icon d-md-none d-lg-inline-block">
+											<i class="fas fa-cash-register"></i>
+										</span>
+										<span class="nav-link-title">
+											<b>
+												Loan</b>
+										</span>
+									</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" href="{{ path('loans') }}">
+											Loan Plan
+										</a>
+
+										<a class="dropdown-item" href=" {{ path('all_applies') }}">
+											All Loans
+										</a>
+
+
+									</div>
+								</li>
+								{# hadil #}
+								<li class="nav-item dropdown ">
+									<a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false">
+										<span class="nav-link-icon d-md-none d-lg-inline-block">
+											<i class="fas fa-warehouse"></i>
+										</span>
+										<span class="nav-link-title">
+											<b>Offer</b>
+										</span>
+									</a>
+									<div
+										class="dropdown-menu">
+										{# <a class="dropdown-item" href="{{ path('app_embauche_index')}}">
+																																																																																																					<b>Embauche</b>
+																																																																																										
+																																																																																																				</a>
+																																																																																										
+																																																																																																				<a class="dropdown-item" href="{{ path('app_investissement_index')}}">
+																																																																																																					<b>
+																																																																																																						Investissement
+																																																																																																					</b>
+																																																																																																				</a>
+																																																																																																				<a class="dropdown-item" href="{{ path('app_assurance_index')}}">
+																																																																																																					<b>
+																																																																																																						Assurance
+																																																																																																					</b>
+																																																																																										
+																																																																																																				</a> #}
+										<a class="dropdown-item" href="{{ path('app_embauche_index_front') }}">
+											<b>Embauche</b>
+
+										</a>
+
+										<a class="dropdown-item" href="{{ path('app_investissement_index_front') }}">
+											<b>
+												Investissement
+											</b>
+										</a>
+										<a class="dropdown-item" href="{{ path('app_assurance_index_front') }}">
+											<b>
+												Assurance
+											</b>
+
+										</a>
+
+									</div>
+								</li>
+
+								<li class="nav-item dropdown ">
+									<a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false">
+										<span class="nav-link-icon d-md-none d-lg-inline-block">
+											<i class="fa-solid fa-money-check-dollar"></i>
+										</span>
+										<span class="nav-link-title">
+											<b>Deposit</b>
+										</span>
+									</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" href="{{path('app_carte_bancaire_index')}}">
+											CarteBancaire
+										</a>
+										<a class="dropdown-item" href="{{path('app_carnet_cheque_index')}}">
+											cheques
+										</a>
+
+
+									</div>
+								</li>
+
+								<li class="nav-item ">
+									<a class="nav-link" href=" {{ path('app_transactions_index') }}">
+										<span class="nav-link-icon d-md-none d-lg-inline-block">
+											<i class="fas fa-tram"></i>
+										</span>
+										<span class="nav-link-title">
+											<b>
+												Wire Transfer</b>
+										</span>
+									</a>
+								</li>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false">
+										<span class="nav-link-icon d-md-none d-lg-inline-block">
+											<i class="fas fa-exchange-alt"></i>
+										</span>
+										<span class="nav-link-title">
+											<b>
+												Transfer
+											</b>
+										</span>
+									</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" {# href=" {{ path('transaction_sendMoney') }}" #} href=" {{ path('send_transactions_sendMoney') }}">
+											Send Money
+										</a>
+
+
+										<a class="dropdown-item" href=" {{ path('transfer_history') }}">
+											Transfer History
+										</a>
+									</div>
+								</li>
+								<li class="nav-item dropdown ">
+									<a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false">
+										<span class="nav-link-icon d-md-none d-lg-inline-block">
+											<i class="fa-solid fa-money-check-dollar"></i>
+										</span>
+										<span class="nav-link-title">
+											<b>Accounts</b>
+										</span>
+									</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" href="{{path('All_types')}}">
+											Types
+										</a>
+										<a class="dropdown-item" href="{{path('All_comptes')}}">
+											Yours
+										</a>
+										<a class="dropdown-item" href="{{path('app_charity_demand_View')}}">
+											Search
+										</a>
+
+
+									</div>
+								</li>
+
+								<li class="nav-item dropdown ">
+									<a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false">
+										<span class="nav-link-icon d-md-none d-lg-inline-block">
+											<i class="fas fa-suitcase"></i>
+										</span>
+										<span class="nav-link-title">
+											<b>More</b>
+										</span>
+									</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" href="{{path('app_messages')}}">
+											Support Tickets
+										</a>
+
+										<a class="dropdown-item" href=" {{path('transactions')}}">
+											Transactions
+										</a>
+
+										<a class="dropdown-item" href="">
+											Statistique
+										</a>
+									</div>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Navbar -->
+
+		</div>
+
+
+		{% block body %}{% endblock %}
+
+		<script>
+			let mainurl = 'https://product.geniusocean.com/genius-bank';
+		</script>
+		<script src="{{asset('assets/user/js/jquery-3.6.0.min.js')}}"></script>
+		<script src="{{asset('assets/user/js/tabler.min.js')}}"></script>
+		<script src="{{asset('assets/user/js/demo.min.js')}}"></script>
+		<script src="{{asset('assets/front/js/custom.js')}}"></script>
+		<script src="{{asset('assets/user/js/notify.min.js')}}"></script>
+		<script src="{{asset('assets/front/js/toastr.min.js')}}"></script>
+		<script>
+			'use strict';
+
+function myFunction() {
+var copyText = document.getElementById("cronjobURL");
+copyText.select();
+copyText.setSelectionRange(0, 99999);
+document.execCommand("copy");
+alert('copied');
+}
+		</script>
+
+
+		<script>
+			'use strict';
+		</script>
+	</body>
+</html>

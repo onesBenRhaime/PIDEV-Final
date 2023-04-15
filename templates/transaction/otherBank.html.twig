@@ -1,0 +1,107 @@
+{% extends 'baseClient.html.twig' %}
+
+{% block body %}
+
+  <div class="page-wrapper">
+        <div class="container-xl">
+          <div class="page-header d-print-none">
+            <div class="row align-items-center">
+              <div class="col">
+                <div class="page-pretitle">Overview</div>
+                <h2 class="page-title">Other Bank Transfer</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="page-body">
+          <div class="container-xl">
+            <div class="row row-cards">
+              <div class="col-12">
+                <div class="card">
+                  <div class="table-responsive">
+                    <table
+                      class="table table-vcenter table-mobile-md card-table"
+                    >
+                      <thead>
+                        <tr>
+                          <th>Bank</th>
+                          <th>Account No</th>
+                          <th>Account Name</th>
+                          <th>Nick Name</th>
+                          <th>Options</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                    
+                        <tr>
+                          <td data-label="Bank">
+                            <div>Dutch Bangla Bank</div>
+                          </td>
+                          <td data-label="Account No">
+                            <div>34343343434</div>
+                          </td>
+                          <td data-label="Account Name">
+                            <div>ererer erere</div>
+                          </td>
+                          <td data-label="Nick Name">
+                            <div>Erer</div>
+                          </td>
+                          <td data-label="Options">
+                            <div class="btn-list">
+                              <a
+                                href=" {{ path('otherBank_send') }}"
+                                class="btn btn-primary"
+                              >
+                                Send
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                        
+                        
+                      </tbody>
+                    </table>
+                  </div>
+                  <nav>
+                    <ul class="pagination">
+                      <li
+                        class="page-item disabled"
+                        aria-disabled="true"
+                        aria-label="&laquo; Previous"
+                      >
+                        <span class="page-link" aria-hidden="true"
+                          >&lsaquo;</span
+                        >
+                      </li>
+
+                      <li class="page-item active" aria-current="page">
+                        <span class="page-link">1</span>
+                      </li>
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          href=""
+                          >2</a
+                        >
+                      </li>
+
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          href=""
+                          rel="next"
+                          aria-label="Next &raquo;"
+                          >&rsaquo;</a
+                        >
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+{% endblock %}

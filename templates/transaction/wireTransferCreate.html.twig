@@ -1,0 +1,197 @@
+{% extends 'baseClient.html.twig' %}
+
+{% block body %}
+    
+    <div class="page-wrapper">
+        <div class="container-xl">
+          <div class="page-header d-print-none">
+            <div class="row align-items-center">
+              <div class="col">
+                <h2 class="page-title">Wire Transfer</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="page-body">
+          <div class="container-xl">
+            <div class="row row-cards">
+              <div class="col-12">
+                <div class="card p-5">
+                  <div
+                    class="gocover"
+                    style="
+                      background: url(https://product.geniusocean.com/genius-bank/assets/images/5monWltX1641808745.gif)
+                        no-repeat scroll center center rgba(45, 45, 45, 0.5);
+                    "
+                  ></div>
+
+                  <form
+                    action="https://product.geniusocean.com/genius-bank/user/wire-transfer/store"
+                    method="POST"
+                    enctype="multipart/form-data"
+                  >
+                    <input
+                      type="hidden"
+                      name="_token"
+                      value="vR3eXGkdlb2WWaaLMMakQUdvmL2t5FszaT4AsjYX"
+                    />
+                    <div class="form-group">
+                      <label class="form-label required">Bank</label>
+                      <select
+                        name="wire_transfer_bank_id"
+                        id="bankmethod"
+                        class="form-select"
+                        required
+                      >
+                        <option value="">Select Bank</option>
+                        <option
+                          value="1"
+                          data-swift="CIBLBDDH"
+                          data-currency="USD"
+                          data-country="Bangladesh"
+                          data-routing="987456123"
+                        >
+                          The City Bank Limited
+                        </option>
+                      </select>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group mb-3 mt-3">
+                          <label class="form-label">Swift Code</label>
+                          <input
+                            type="text"
+                            id="swiftCode"
+                            name="swift_code"
+                            class="form-control"
+                            autocomplete="off"
+                            placeholder="Enter Swift Code"
+                            value=""
+                          />
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group mb-3 mt-3">
+                          <label class="form-label">Currency</label>
+                          <input
+                            type="text"
+                            id="currency"
+                            name="currency"
+                            class="form-control"
+                            autocomplete="off"
+                            placeholder="Enter Currency"
+                            value=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group mb-3 mt-3">
+                          <label class="form-label">Routing Number</label>
+                          <input
+                            type="text"
+                            id="routingNumber"
+                            name="routing_number"
+                            class="form-control"
+                            autocomplete="off"
+                            placeholder="Enter Routing Number"
+                            value=""
+                          />
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group mb-3 mt-3">
+                          <label class="form-label">Country</label>
+                          <input
+                            type="text"
+                            id="country"
+                            name="country"
+                            class="form-control"
+                            autocomplete="off"
+                            placeholder="Enter Country"
+                            value=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group mb-3 mt-3">
+                          <label class="form-label">Account Number</label>
+                          <input
+                            type="text"
+                            name="account_number"
+                            class="form-control"
+                            autocomplete="off"
+                            placeholder="Enter Account Number"
+                            value=""
+                          />
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group mb-3 mt-3">
+                          <label class="form-label">Account Holder Name</label>
+                          <input
+                            type="text"
+                            name="account_holder_name"
+                            class="form-control"
+                            autocomplete="off"
+                            placeholder="Enter Account Holder Name"
+                            value=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group mb-3 mt-3">
+                      <label class="form-label required">Amount</label>
+                      <input
+                        name="amount"
+                        id="amount"
+                        class="form-control"
+                        autocomplete="off"
+                        placeholder="0.0"
+                        type="number"
+                        value=""
+                        min="1"
+                        required
+                      />
+                    </div>
+
+                    <div class="form-group mb-3">
+                      <label class="form-label">Note</label>
+                      <textarea
+                        name="note"
+                        class="form-control nic-edit"
+                        cols="30"
+                        rows="5"
+                        placeholder="Note"
+                      ></textarea>
+                    </div>
+
+                     <div class="form-footer">
+                  
+                      <button type="submit" class="btn btn-primary w-100">
+                        Submit
+                      </button> 
+                    </div>
+                   
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

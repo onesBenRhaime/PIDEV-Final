@@ -1,0 +1,144 @@
+{% extends 'baseClient.html.twig' %}
+
+{% block body %}
+ <div class="page-wrapper">
+        <div class="container-xl">
+          <div class="page-header d-print-none">
+            <div class="row align-items-center">
+              <div class="col">
+                <div class="page-pretitle">Overview</div>
+                <h2 class="page-title">Other Bank Transfer</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="page-body">
+          <div class="container-xl">
+            <div class="row row-cards">
+              <div class="col-md-5">
+                <div class="card p-3 p-lg-4">
+                  <table class="table table-transparent table-responsive">
+                    <thead></thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <p class="strong mb-1">Minimum Amount</p>
+                        </td>
+                        <td class="text-end">500$</td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <p class="strong mb-1">Maximum Amount</p>
+                        </td>
+                        <td class="text-end">5000$</td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <p class="strong mb-1">Daily Amount Limit</p>
+                        </td>
+                        <td class="text-end">1000$</td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <p class="strong mb-1">Daily Monthly Limit</p>
+                        </td>
+                        <td class="text-end">100000$</td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <p class="strong mb-1">Daily Limit</p>
+                        </td>
+                        <td class="text-end">5</td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <p class="strong mb-1">Monthly Limit</p>
+                        </td>
+                        <td class="text-end">10</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="col-md-7">
+                <div class="card p-3 p-lg-4">
+                  <form
+                    action="https://product.geniusocean.com/genius-bank/user/other-bank/store"
+                    method="POST"
+                    enctype="multipart/form-data"
+                  >
+                    <input
+                      type="hidden"
+                      name="_token"
+                      value="vR3eXGkdlb2WWaaLMMakQUdvmL2t5FszaT4AsjYX"
+                    />
+                    <input type="hidden" name="other_bank_id" value="3" />
+                    <input type="hidden" name="beneficiary_id" value="22" />
+                    <div class="form-group mb-3">
+                      <label class="form-label required">Bank Name</label>
+                      <input
+                        name="bank_name"
+                        id="bank_name"
+                        class="form-control"
+                        autocomplete="off"
+                        placeholder="Wells Fargo"
+                        type="text"
+                        value="Brac Bank"
+                        min="1"
+                        required
+                        readonly
+                      />
+                    </div>
+
+                    <div class="form-group mb-3 mt-3">
+                      <label class="form-label required">Name</label>
+                      <input
+                        name="account_name"
+                        id="account_name"
+                        class="form-control"
+                        autocomplete="off"
+                        placeholder="Jhon Doe"
+                        type="text"
+                        value="dfgfd"
+                        min="1"
+                        required
+                        readonly
+                      />
+                    </div>
+
+                    <div class="form-group mt-3">
+                      <label class="form-label required">Amount</label>
+                      <input
+                        name="amount"
+                        id="amount"
+                        class="form-control"
+                        autocomplete="off"
+                        placeholder="0.0"
+                        type="number"
+                        value=""
+                        min="1"
+                        required
+                      />
+                    </div>
+
+                    <div class="form-footer">
+                      <button type="submit" class="btn btn-primary w-100">
+                        Submit
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+{% endblock %}

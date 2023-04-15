@@ -1,0 +1,82 @@
+{# {% extends 'base.html.twig' %}
+
+ {% block twofa %}   
+<!DOCTYPE html>
+<div class="container-fluid" id="container-wrapper" style = "margin-bottom:20px;margin-top:20px;">
+<p class="label"><label for="_auth_code">auth_code google:</label></p>
+
+<form class="form" action="/2fa_check" method="post">
+	<p class="widget"><input id="_auth_code" type="text" autocomplete="off" name="_auth_code"/></p>
+	<p class="submit"><input type="submit" value "login" /></p>
+</form>
+
+
+</div>
+{% endblock %} #}
+
+{% extends 'base.html.twig' %}
+
+
+{% block header %}{% endblock %}
+
+
+{% block footer %}{% endblock %}
+
+{% block body %}
+<style>
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+</style>
+<div class="container">
+  <div class="account-wrapper bg--body">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card border-0 shadow">
+          <div class="card-header bg-transparent">
+            <h3 class="card-title text-center">Google Authentication</h3>
+          </div>
+          <div class="card-body">
+            <form class="form" action="/2fa_check" method="post">
+              <div class="form-group">
+                <label for="_auth_code">Authentication Code</label>
+                <input id="_auth_code" type="text" autocomplete="off" name="_auth_code" class="form-control" required>
+              </div>
+              <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary">Login</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# 
+    <div class="container">
+		            <div class="account-wrapper bg--body">
+
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Google Authentication</h3>
+                    </div>
+                    <div class="panel-body">
+                       
+<form class="form" action="/2fa_check" method="post">
+	<p class="widget"><input id="_auth_code" type="text" autocomplete="off" name="_auth_code"/></p>
+	<p class="submit"><input type="submit" value "login" /></p>
+</form>
+            </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> #}
+{% endblock %}

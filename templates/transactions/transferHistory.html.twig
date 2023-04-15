@@ -1,0 +1,159 @@
+{% extends 'baseClient.html.twig' %}
+
+{% block body %}
+
+
+ <div class="page-wrapper">
+        <div class="container-xl">
+          <div class="page-header d-print-none">
+            <div class="row align-items-center">
+              <div class="col">
+                <div class="page-pretitle">Overview</div>
+                <h2 class="page-title">Transfer Logs</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="page-body">
+          <div class="container-xl">
+            <div class="row row-cards">
+              <div class="col-12">
+                <div class="card">
+                  <div class="table-responsive">
+                    <table
+                      class="table table-vcenter table-mobile-lg card-table"
+                    >
+                      <thead>
+                         <tr>
+                            <th>Date</th>
+                             <th>Agance Name</th>
+                             <th>Account Number</th>
+                             <th>Amount</th> 
+                             <th>Request From</th>
+                             <th>Request To</th>
+                             <th>Status</th>
+                         </tr>
+                      </thead>
+                     <tbody>
+                    {% for transaction in transactions %}
+                      <tr>
+                           <td>{{ transaction.date ? transaction.date|date('Y-m-d') : '' }}</td>                
+                           <td>{{ transaction.agenceName }}</td>
+                           <td>{{ transaction.compte }}</td>
+                           <td>{{ transaction.montant }}</td>
+                           <td>{{ transaction.requestFrom }}</td>
+                           <td>{{ transaction.requestTo }}</td>
+                          {% if  transaction.statue == "valide" %}
+                           <td><span class="badge bg-success">{{ transaction.statue }}</span></td>
+                           {% else %}
+                           <td><span class="badge bg-warning">{{ transaction.statue }}</span></td>
+                          {% endif %}
+                        </tr> 
+                         {% else %}
+                      <tr>
+                         <td colspan="9">no records found</td>
+                      </tr>
+                    {% endfor %}                       
+                      </tbody>
+                    </table>
+                  </div>
+                  <nav>
+                    <ul class="pagination">
+                      <li
+                        class="page-item disabled"
+                        aria-disabled="true"
+                        aria-label="&laquo; Previous"
+                      >
+                        <span class="page-link" aria-hidden="true"
+                          >&lsaquo;</span
+                        >
+                      </li>
+
+                      <li class="page-item active" aria-current="page">
+                        <span class="page-link">1</span>
+                      </li>
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          href="https://product.geniusocean.com/genius-bank/user/tranfer-logs?page=2"
+                          >2</a
+                        >
+                      </li>
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          href="https://product.geniusocean.com/genius-bank/user/tranfer-logs?page=3"
+                          >3</a
+                        >
+                      </li>
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          href="https://product.geniusocean.com/genius-bank/user/tranfer-logs?page=4"
+                          >4</a
+                        >
+                      </li>
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          href="https://product.geniusocean.com/genius-bank/user/tranfer-logs?page=5"
+                          >5</a
+                        >
+                      </li>
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          href="https://product.geniusocean.com/genius-bank/user/tranfer-logs?page=6"
+                          >6</a
+                        >
+                      </li>
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          href="https://product.geniusocean.com/genius-bank/user/tranfer-logs?page=7"
+                          >7</a
+                        >
+                      </li>
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          href="https://product.geniusocean.com/genius-bank/user/tranfer-logs?page=8"
+                          >8</a
+                        >
+                      </li>
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          href="https://product.geniusocean.com/genius-bank/user/tranfer-logs?page=9"
+                          >9</a
+                        >
+                      </li>
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          href="https://product.geniusocean.com/genius-bank/user/tranfer-logs?page=10"
+                          >10</a
+                        >
+                      </li>
+
+                      <li class="page-item">
+                        <a
+                          class="page-link"
+                          href="https://product.geniusocean.com/genius-bank/user/tranfer-logs?page=2"
+                          rel="next"
+                          aria-label="Next &raquo;"
+                          >&rsaquo;</a
+                        >
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+{% endblock %}

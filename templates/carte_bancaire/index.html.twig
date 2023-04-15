@@ -1,0 +1,252 @@
+{# {% extends 'baseClient.html.twig' %}
+
+{% block body %}
+        <div class="page-wrapper">
+            <div class="container-xl">
+                <div class="page-header d-print-none">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <div class="page-pretitle">
+                                
+                            </div>
+                            <h2 class="page-title">
+                                Carte Bancancaire
+                            </h2> 
+                        
+                            
+                        </div>
+                        <div class="col-auto ms-auto d-print-none">
+                            <div class="btn-list">
+
+                                <a href=" {{ path('app_carte_bancaire_new') }}" class="btn btn-primary d-none d-sm-inline-block">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
+                                    Create new Deposit
+                                 </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-body">
+              <div class="container-xl">
+                <div class="row row-cards">
+                    <div class="col-12">
+                        <div class="card">
+
+                            <div class="table-responsive">
+                                <table class="table table-vcenter table-mobile-md card-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                             <th>Type Carde</th>
+                                            <th>Service</th>
+                                            <th>Account</th>
+                                            <th>Status</th>
+                                            <th>Cin 1</th>
+                                            <th>cin 2</th>
+                                            <th>Details <th>
+                                       </tr>
+                                    </thead>
+                                     <tbody>
+        {% for carte_bancaire in carte_bancaires %}
+            <tr>
+                <td>{{ carte_bancaire.id }}</td>
+               <td>{{ carte_bancaire.idtypecarte }}</td>
+                <td>{{ carte_bancaire.email }}</td>
+                <td>{{ carte_bancaire.identifier }}</td>
+                <td>{{ carte_bancaire.description }}</td>
+                <td><img src="{{ asset('uploads/carteBancaire/'~ carte_bancaire.cinS1  ) }}" width="250" height="150"/></td>
+                <td><img src="{{ asset('uploads/carteBancaire/'~ carte_bancaire.cinS2 ) }}" width="250" height="150"/></td>
+               <td><a href="{{ path('app_carte_bancaire_show', {'id': carte_bancaire.id}) }}">Show</a></td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+                                  </table>
+                            </div>
+                            <nav>
+                                <ul class="pagination">
+
+                                    <li class="page-item disabled" aria-disabled="true" aria-label="&laquo; Previous">
+                                        <span class="page-link" aria-hidden="true">&lsaquo;</span>
+                                    </li>
+
+
+
+
+
+                                    <li class="page-item active" aria-current="page"><span class="page-link">1</span>
+                                    </li>
+                                    <li class="page-item"><a class="page-link"
+                                            href="">2</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link"
+                                            href="">3</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link"
+                                            href="">4</a>
+                                    </li>
+                                   
+                                    <li class="page-item">
+                                        <a class="page-link"
+                                            href="https://product.geniusocean.com/genius-bank/user/deposits?page=2"
+                                            rel="next" aria-label="Next &raquo;">&rsaquo;</a>
+                                    </li>
+                                </ul>
+                            </nav>
+
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+{% endblock %} #}
+
+
+{% extends 'baseClient.html.twig' %}
+
+{% block body %}
+	<div class="page-wrapper">
+		<div class="container-xl">
+			<div class="page-header d-print-none">
+				<div class="row align-items-center">
+					<div class="col">
+						<div class="page-pretitle"></div>
+						<h2 class="page-title">
+							Carte Bancaire
+						</h2>
+
+						{# <form action="{{ path('appcartebancaire') }}" method="get">
+												        <select class="form-control" name="type" id="type">
+												            <option value="all">All typecartes</option>
+												            {% for type in Typecarte %}
+												                <option value="{{ type.id }}">{{ type.nom }}</option>
+												            {% endfor %}
+												        </select>
+												        <button type="submit"class="btn btn-primary btn-sm btn-rounded" >Filter</button>
+												</form> #}
+						<form id="filter-form" action="{{ path('appcartebancaire') }}" method="get">
+							<select class="form-control" name="type" id="type">
+								<option value="all">All typecartes</option>
+								<option value="all">typecartes</option>
+								{% for type in Typecarte %}
+									<option value="{{ type.id }}">{{ type.nom }}</option>
+								{% endfor %}
+							</select>
+						</form>
+
+						<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+						<script>
+							$('#type').on('change', function () {
+$('#filter-form').submit();
+});
+						</script>
+
+
+					</div>
+					<div class="col-auto ms-auto d-print-none">
+						<div class="btn-list">
+
+							<a href=" {{ path('app_carte_bancaire_new') }}" class="btn btn-primary d-none d-sm-inline-block">
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewbox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+								Create new Deposit
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="page-body">
+			<div class="container-xl">
+				<div class="row row-cards">
+					<div class="col-12">
+						<div class="card">
+
+							<div class="table-responsive">
+								<table class="table table-vcenter table-mobile-md card-table">
+									<thead>
+										<tr>
+											<th>Id</th>
+											<th>Type Carde</th>
+											<th>Service</th>
+											<th>Account</th>
+											<th>Status</th>
+											<th>Cin 1</th>
+											<th>cin 2</th>
+											<th>Details</th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody>
+										{% for carte_bancaire in carte_bancaires %}
+											{# {% if nom == carte_bancaire.idtypecarte %} #}
+											<tr>
+												<td>{{ carte_bancaire.id }}</td>
+												<td>{{ carte_bancaire.idtypecarte }}</td>
+												<td>{{ carte_bancaire.email }}</td>
+												<td>{{ carte_bancaire.identifier }}</td>
+												<td>{{ carte_bancaire.description }}</td>
+												<td><img src="{{ asset('uploads/carteBancaire/'~ carte_bancaire.cinS1 ) }}" width="250" height="150"/></td>
+												<td><img src="{{ asset('uploads/carteBancaire/'~ carte_bancaire.cinS2 ) }}" width="250" height="150"/></td>
+												<td>
+													<a href="{{ path('app_carte_bancaire_show', {'id': carte_bancaire.id}) }}">Show</a>
+												</td>
+											</tr>
+											{# {% else %}  
+																						           <tr>
+																						                <td>{{ carte_bancaire.id }}</td>
+																						               <td>{{ carte_bancaire.idtypecarte }}</td>
+																						                <td>{{ carte_bancaire.email }}</td>
+																						                <td>{{ carte_bancaire.identifier }}</td>
+																						                <td>{{ carte_bancaire.description }}</td>
+																						                <td><img src="{{ asset('uploads/carteBancaire/'~ carte_bancaire.cinS1  ) }}" width="250" height="150"/></td>
+																						                <td><img src="{{ asset('uploads/carteBancaire/'~ carte_bancaire.cinS2 ) }}" width="250" height="150"/></td>
+																						               <td><a href="{{ path('app_carte_bancaire_show', {'id': carte_bancaire.id}) }}">Show</a></td>
+																						            </tr>
+																						            {% endif %} #}
+										{% else %}
+											<tr>
+												<td colspan="7">no records found</td>
+											</tr>
+										{% endfor %}
+									</tbody>
+								</table>
+							</div>
+							<nav>
+								<ul class="pagination">
+
+									<li class="page-item disabled" aria-disabled="true" aria-label="&laquo; Previous">
+										<span class="page-link" aria-hidden="true">&lsaquo;</span>
+									</li>
+
+
+									<li class="page-item active" aria-current="page">
+										<span class="page-link">1</span>
+									</li>
+									<li class="page-item">
+										<a class="page-link" href="">2</a>
+									</li>
+									<li class="page-item">
+										<a class="page-link" href="">3</a>
+									</li>
+									<li class="page-item">
+										<a class="page-link" href="">4</a>
+									</li>
+
+									<li class="page-item">
+										<a class="page-link" href="https://product.geniusocean.com/genius-bank/user/deposits?page=2" rel="next" aria-label="Next &raquo;">&rsaquo;</a>
+									</li>
+								</ul>
+							</nav>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

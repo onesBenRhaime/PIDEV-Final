@@ -1,0 +1,287 @@
+{# <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Table Example</title>
+	<style>
+		table {
+			border-collapse: collapse;
+			width: 100%;
+			margin-bottom: 20px;
+			font-size: 16px;
+			font-family: Arial, sans-serif;
+		}
+		th, td {
+			border: 1px solid #dddddd;
+			text-align: left;
+			padding: 4px;
+		}
+		th {
+			background-color: #f2f2f2;
+			font-weight: bold;
+            padding: 2px;
+		}
+		tr:nth-child(even) {
+			background-color: #f9f9f9;
+		}
+        .bg-success {
+         background-color: #66bb6a !important;
+        }
+        .bg-danger {
+         background-color: #fc544b !important;
+        }
+        .bg-warning {
+          background-color: #ffa426 !important;
+        }
+        .badge {
+          display: inline-block;
+          padding: 0.25em 0.4em;
+         font-size: 75%;
+         font-weight: 700;
+         line-height: 1;
+         text-align: center;
+         white-space: nowrap;
+         vertical-align: baseline;
+         border-radius: 0.35rem;
+        -webkit-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+         transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+        transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+      }
+	</style>
+ </head>
+<body>
+	<h1>Transaction history</h1>
+    <table   id="geniustable"  class="table table-hover dt-responsive"   width="100%">
+                       <thead>
+                         <tr>
+                          <th>Date</th>
+                          <th>Agance Name</th>
+                           <th>Account Number</th>
+                           <th>Amount</th>
+                          <th>Request From</th>
+                          <th>Request To</th>
+                          <th>Status</th>
+                        </tr>
+                       </thead>
+                     <tbody>
+          {% for transaction in transactions %}
+             {% if  transaction.typeTransaction == "Wire Transfer"  %}
+             {% if transaction.statue == "valide"%}
+              <tr>
+                <td>{{ transaction.date ? transaction.date|date('Y-m-d') : '' }}</td>
+                <td>{{ transaction.agenceName }}</td>
+                <td>{{ transaction.compte }}</td>
+                <td>{{ transaction.montant }}</td>
+                <td>{{ transaction.requestFrom }}</td>
+                <td>{{ transaction.requestTo }}</td>
+                {% if  transaction.statue == "valide" %}
+                    <td><span class="badge bg-success">{{ transaction.statue }}</span></td>
+                {% elseif transaction.statue == "rejected" %}
+                <td><span class="badge bg-danger">{{ transaction.statue }}</span></td>
+                {% else %}
+                    <td><span class="badge bg-warning">{{ transaction.statue }}</span></td>                          
+                {% endif %}              
+              </tr>
+             {% endif %}  
+             {% endif %}
+          {% else %}
+              <tr>
+                <td colspan="9">no records found</td>
+             </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+</body>
+</html> #}
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="UTF-8">
+     <title> Transactions History </title>
+     <style> 
+@page {
+    size: A4;
+    margin: 1cm;
+    background-color: #f2f2f2;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 12pt;
+  }
+  @page {
+
+    @top-center {
+      content: "Titre de l'en-tête";
+    }
+    @bottom-center {
+      content: "Numéro de page " counter(page);
+    }
+  }
+   
+p {
+    border: 1px solid black;
+    padding: 10px;
+  }
+  /* Style pour le corps du document */
+body {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+}
+
+/* Style pour l'en-tête du document */
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Style pour le logo */
+.logo {
+  display: block;
+  margin: 0 auto;
+  width: 100px;
+}
+
+/* Style pour le titre */
+.title {
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+/* Style pour la liste des produits */
+.product-list {
+  margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Style pour l'en-tête de la liste des produits */
+.product-list th {
+  border-bottom: 2px solid #ccc;
+  background-color: #eee;
+  padding: 10px;
+}
+
+/* Style pour les cellules de la liste des produits */
+.product-list td {
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+}
+
+/* Style pour le total */
+.total {
+  margin-top: 20px;
+  text-align: right;
+  font-weight: bold;
+}
+
+/* Style pour le pied de page */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: #ccc;
+  text-align: center;
+  padding-top: 10px;
+
+}
+.container {
+  text-align: right;
+}
+.titre {
+  font-weight: bold;
+  text-align: center;
+  color: blue;
+}
+.container {
+  text-align: right;
+}
+
+.title {
+  font-family: sans-serif;
+}
+table {
+  border: 1px ;
+  border-radius: 10px;
+}
+p {
+  margin: 10px;
+  padding: 5px;
+}
+
+
+td,th {
+  vertical-align: middle;
+  padding:10px;
+}
+h1 {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+a {
+  text-decoration: none;
+}
+
+</style>
+
+</head>
+<body>
+    <div class="container">
+      <h1 class="title">MAZEBANK </h1>
+    </div>
+    <h1>MazeBank<br>"Simplifions votre vie financière" </br></h1>
+    <h1 class="titre">Transaction  Type : Wire Transfer</h1>
+    <div class="container">
+    <p id="demo"> faite le : 10/03/2023 à 15:30</p>	
+    </div>
+    <table   id="geniustable"  class="table table-hover dt-responsive"   width="100%">
+                       <thead>
+                         <tr>
+                          <th>Date</th>
+                          <th>Agance Name</th>
+                           <th>Account Number</th>
+                           <th>Amount</th>
+                          <th>Request From</th>
+                          <th>Request To</th>
+                          <th>Status</th>
+                        </tr>
+                       </thead>
+                     <tbody>
+          {% for transaction in transactions %}
+             {% if  transaction.typeTransaction == "Wire Transfer"  %}
+             
+              <tr>
+                <td>{{ transaction.date ? transaction.date|date('Y-m-d') : '' }}</td>
+                <td>{{ transaction.agenceName }}</td>
+                <td>{{ transaction.compte }}</td>
+                <td>{{ transaction.montant }}</td>
+                <td>{{ transaction.requestFrom }}</td>
+                <td>{{ transaction.requestTo }}</td>
+                {% if  transaction.statue == "valide" %}
+                    <td><span class="badge bg-success">{{ transaction.statue }}</span></td>
+                {% elseif transaction.statue == "rejected" %}
+                <td><span class="badge bg-danger">{{ transaction.statue }}</span></td>
+                {% else %}
+                    <td><span class="badge bg-warning">{{ transaction.statue }}</span></td>                          
+                {% endif %}              
+              </tr>           
+             {% endif %}
+          {% else %}
+              <tr>
+                <td colspan="9">no records found</td>
+             </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>  
+  
+</html>

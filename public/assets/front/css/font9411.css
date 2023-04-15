@@ -1,0 +1,28 @@
+
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Manrope;
+}
+
+@media screen and (max-width: 375px) {
+	.change-language {
+		font-size: 12px;
+		font-family: Manrope, sans-serif;
+	}
+}
+
+.nav-menu li a:not([class*="btn"]),
+.breadcrumb li,
+.clients-item .clients-content blockquote,
+.form-label,
+.pricing-checkbox,
+.cmn--btn,
+.nav--tabs li a {
+	font-family: Manrope, sans-serif;
+}

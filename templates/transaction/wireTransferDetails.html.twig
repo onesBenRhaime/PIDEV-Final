@@ -1,0 +1,87 @@
+{% extends 'baseClient.html.twig' %}
+
+{% block body %}
+    
+     <div class="page-wrapper">
+        <div class="container-xl">
+          <div class="page-header d-print-none">
+            <div class="row align-items-center">
+              <div class="col">
+                <h2 class="page-title">Wire Transfer Details</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="page-body">
+          <div class="container-xl">
+            <div class="row row-cards">
+              <div class="col-12">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <div class="table-responsive-sm">
+                      <table class="table mb-0">
+                        <tbody>
+                          <tr>
+                            <th class="45%" width="45%">Bank Name</th>
+                            <td width="10%">:</td>
+                            <td class="45%" width="45%">
+                              The City Bank Limited
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <th class="45%" width="45%">Swift Code</th>
+                            <td width="10%">:</td>
+                            <td class="45%" width="45%">CIBLBDDH</td>
+                          </tr>
+
+                          <tr>
+                            <th class="45%" width="45%">Currency</th>
+                            <td width="10%">:</td>
+                            <td class="45%" width="45%">USD</td>
+                          </tr>
+
+                          <tr>
+                            <th class="45%" width="45%">Routing Number</th>
+                            <td width="10%">:</td>
+                            <td class="45%" width="45%">987456123</td>
+                          </tr>
+
+                          <tr>
+                            <th class="45%" width="45%">Country</th>
+                            <td width="10%">:</td>
+                            <td class="45%" width="45%">Bangladesh</td>
+                          </tr>
+
+                          <tr>
+                            <th width="45%">Receiver Account Name</th>
+                            <td width="10%">:</td>
+                            <td width="45%">ching</td>
+                          </tr>
+
+                          <tr>
+                            <th width="45%">Receiver Account Number</th>
+                            <td width="10%">:</td>
+                            <td width="45%">010120298</td>
+                          </tr>
+
+                          <tr>
+                            <th width="45%">Status</th>
+                            <td width="10%">:</td>
+                            <td width="45%">
+                              <span class="badge bg-warning">pending</span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        
+{% endblock %}

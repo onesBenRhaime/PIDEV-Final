@@ -1,0 +1,14 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Edit Embauche
+{% endblock %}
+
+{% block body %}
+	<h1>Edit Embauche</h1>
+
+	{{ include('embauche/_form.html.twig', {'button_label': 'Update'}) }}
+
+	<a href="{{ path('app_embauche_index') }}">back to list</a>
+
+	{{ include('embauche/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends 'baseClient.html.twig' %}
+
+{% block body %}
+	<div class="page-wrapper">
+
+		<div class="container-xl">
+			<div class="page-header d-print-none">
+				<div class="row align-items-center">
+					<div class="col">
+						<div class="page-pretitle">
+							Overview
+						</div>
+						<h2 class="page-title">
+							My Loans
+						</h2>
+					</div>
+					<div class="col-auto ms-auto d-print-none">
+						<div class="btn-list">
+
+							<a href=" {{ path('loans') }}" class="btn btn-primary d-none d-sm-inline-block">
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewbox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+								Ask for other loan
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-body">
+			<div class="container-xl">
+				<div class="row row-cards">
+					<div class="col-12">
+						<div class="card">
+							<div class="table-responsive">
+								<table class="table table-vcenter table-mobile-md card-table">
+									<thead>
+										<tr>
+											<th>Date</th>
+											<th>Category</th>
+											<th>User</th>
+											<th>Amount</th>
+											<th>Status</th>
+											<th>actions</th>
+										</tr>
+									</thead>
+									<tbody>
+										{% for a in pagination %}
+
+											<tr>
+												<td data-label="Date">
+													<div>
+														{{a.createdAt|date}}
+													</div>
+												</td>
+												<td data-label="Category">
+													<div>
+														{{ a.creditId }}
+													</div>
+												</td>
+
+												<td data-label="user">
+													<div>
+														{{ a.userId.name }}
+													</div>
+												</td>
+												<td data-label="Amount">
+													<div>
+														{{ a.amount }}
+													</div>
+												</td>
+												<td data-label="Status">
+													<div>
+														<span class="badge bg-warning">{{ a.status }}</span>
+													</div>
+												</td>
+
+												<td>
+													<div class="d-flex justify-content-between align-items-center">
+														<a class="btn btn-danger" href="{{ path('calculateMonthlyPayment', {'id': a.id}) }}">Details</a>
+
+														<a class="btn btn-primary" href="{{ path('editapplyCredit', {'id': a.id}) }}">Edit</a>
+														<a class="btn btn-primary" href="{{ path('applyCredit_remove', {'id': a.id}) }}">Delete</a>
+													</div>
+												</td>
+											</tr>
+										</div>
+									</tbody>
+								</td>
+							</tr>
+
+						{% endfor %}
+						{{ knp_pagination_render(pagination) }}
+
+
+					</tbody>
+				</table>
+			</div>
+
+
+		</div>
+	</div>
+</div></div></div></div>{% endblock %}

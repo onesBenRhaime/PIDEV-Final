@@ -1,0 +1,97 @@
+ {% extends 'baseAdmin.html.twig' %}
+
+{% block body %}
+    
+     <div class="page-wrapper">
+
+
+<div class="container-fluid" id="container-wrapper">
+
+            
+<div class="card">
+	<div class="d-sm-flex align-items-center justify-content-between">
+	<h5 class=" mb-0 text-gray-800 pl-3">Add New Category <a class="btn btn-primary btn-rounded btn-sm" href=" {{ path('showcarnets') }}">
+  <i class="fas fa-arrow-left"></i> Back</a></h5>
+	<ol class="breadcrumb">
+        {# <li class="breadcrumb-item"><a href=" {{ path('newtype') }}">Dashboard</a></li> #}
+        <li class="breadcrumb-item"><a href=" {{ path('showcarnets') }}">Categories</a></li>
+        {# <li class="breadcrumb-item"><a href=" {{ path('newtype') }}">Add New Category</a></li> #}
+	</ol>
+	</div>
+</div>
+
+<div class="row justify-content-center mt-3">
+  <div class="col-md-10">
+    <!-- Form Basic -->
+    <div class="card mb-4">
+      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+        <h6 class="m-0 font-weight-bold text-primary">Add New Category Form</h6>
+      </div>
+
+      <div class="card-body">
+        <div class="gocover" style="background: url(https://product.geniusocean.com/genius-bank/assets/images/33CiUFaI1641808748.gif) no-repeat scroll center center rgba(45, 45, 45, 0.5);"></div>
+     
+{{form_start(formCheque,{'attr':{'novalidate':'novalidate'}})}}
+   
+
+            <div class="form-group">
+         
+            {{form_label(formCheque.nom,'Nom : ',{'attr':{'class':'form-label'}})}}
+            {{form_widget(formCheque.nom,{'attr':{'class':'form-control'}})}}
+        
+                
+            </div>
+
+            <div class="form-group">
+
+             {{form_label(formCheque.description,'Description : ',{'attr':{'class':'form-label'}})}}
+            {{form_widget(formCheque.description,{'attr':{'class':'form-control'}})}}
+          
+                
+             </div> 
+             
+            <div class="form-group">
+            {{form_label(formCheque.startnum,'Starting num : ',{'attr':{'class':'form-label'}})}}
+            {{form_widget(formCheque.startnum,{'attr':{'class':'form-control'}})}}
+                
+            </div>
+
+
+            <div class="form-group">
+            {{form_label(formCheque.endnum,'Ending num : ',{'attr':{'class':'form-label'}})}}
+            {{form_widget(formCheque.endnum,{'attr':{'class':'form-control'}})}}
+                
+            </div>
+
+
+            <div class="form-group">
+            {{form_label(formCheque.datecreation,'Creation Date : ',{'attr':{'class':'form-label'}})}}
+            {{form_widget(formCheque.datecreation,{'attr':{'class':'form-date'}})}}
+                
+            </div>
+
+
+            <div class="form-group">
+            {{form_label(formCheque.datevalidation,'datevalidation : ',{'attr':{'class':'form-label'}})}}
+            {{form_widget(formCheque.datevalidation,{'attr':{'class':'form-date'}})}}
+                
+            </div>
+
+
+       
+
+           
+             {{form_widget(formCheque.save,{'attr':{'class':'btn btn-primary w-100'}})}}
+            {# <button type="submit" id="submit-btn" class="btn btn-primary w-100">save</button> #}
+ {{form_end(formCheque)}} 
+       
+      </div>
+    </div>
+  </div>
+
+</div>
+
+        </div>
+        	</div>
+        
+{% endblock %} 

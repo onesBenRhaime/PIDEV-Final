@@ -1,0 +1,164 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<head>
+		<meta charset="UTF-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+		<meta name="keywords" content="Genius,Ocean,Sea,Etc,Genius,Ocean,SeaGenius,Ocean,Sea,Etc,Genius,Ocean,SeaGenius,Ocean,Sea,Etc,Genius,Ocean,Sea">
+		<meta name="author" content="GeniusOcean">
+		<title>MazeBank- All in Digital One Banking System</title>
+
+		<link rel="stylesheet" href="{{asset('/assets/front/css/bootstrap.min.css')}}"/>
+		<link rel="stylesheet" href="{{asset('/assets/front/css/animate.css')}}"/>
+		<link rel="stylesheet" href="{{asset('/assets/front/css/all.min.css')}}"/>
+		<link rel="stylesheet" href="{{asset('/assets/front/css/lightbox.min.css')}}"/>
+		<link rel="stylesheet" href="{{asset('/assets/front/css/odometer.css')}}"/>
+		<link rel="stylesheet" href="{{asset('/assets/front/css/owl.min.css')}}"/>
+		<link rel="stylesheet" href="{{asset('/assets/front/css/main.css')}}"/>
+		<link rel="stylesheet" href="{{('/assets/front/css/toastr.min.css')}}">
+
+		<link rel="stylesheet" href="{{asset('/assets/front/css/styles93e6.css?color=0ba026')}}">
+
+		<link href="https://fonts.googleapis.com/css?family=Manrope&amp;display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" id="colorr" href="{{asset('/assets/front/css/font9411.css?font_familly=Manrope')}}">
+
+
+		<link rel="shortcut icon" href="{{asset('/assets/images/16393007481563335660service-icon-1.png')}}">
+	</head>
+	<body>
+		<!-- Overlayer -->
+		<span class="toTopBtn">
+			<i class="fas fa-angle-up"></i>
+		</span>
+		<div class="overlayer"></div>
+		<div class="loader">
+			<h2>
+				<span class="let1">l</span>
+				<span class="let2">o</span>
+				<span class="let3">a</span>
+				<span class="let4">d</span>
+				<span class="let5">i</span>
+				<span class="let6">n</span>
+				<span class="let7">g</span>
+			</h2>
+		</div>
+
+
+		<!-- Hero -->
+		<section class="hero-section bg--overlay bg_img" data-img="../assets/images/4oHWW9wP1647317756.html">
+			<div class="container">
+				<div class="hero-content">
+					<h2 class="hero-title">Login</h2>
+					<ul class="breadcrumb">
+						<li>
+							<a href="../index.html">Home</a>
+						</li>
+						<li>
+							Login
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<!-- Hero -->
+		<!-- Account -->
+		<section class="account-section pt-100 pb-100">
+			<div class="container">
+				<div class="account-wrapper bg--body">
+					<div class="section-title mb-3">
+						<h6 class="subtitle text--base">Sign In</h6>
+						<h3 class="title">Login Now</h3>
+					</div>
+
+					<form method="post" novalidate>
+						{% if error %}
+							<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+						{% endif %}
+
+						{% if app.user %}
+							<div class="mb-3">
+								You are logged in as
+								{{ app.user.userIdentifier }},
+								<a href="{{ path('app_logout') }}">Logout</a>
+							</div>
+						{% endif %}
+
+
+						<label for="inputEmail">Your Email</label>
+						<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+						<label for="inputPassword">Your Password</label>
+						<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+						<input
+						type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+						{#
+																		        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+																		        See https://symfony.com/doc/current/security/remember_me.html
+																		
+																		        <div class="checkbox mb-3">
+																		            <label>
+																		                <input type="checkbox" name="_remember_me"> Remember me
+																		            </label>
+																		        </div>
+																		    #}
+
+						<button type="submit" class="cmn--btn bg--base me-3">
+							Login Now
+						</button>
+						<div class="d-flex flex-wrap justify-content-between align-items-center mt-2">
+							<a href="{{path('app_forgot')}}" class="text--base mt-1">Forget Password</a>
+							<a href="{{path('app_register')}}" class="text--base mt-1">Don't have
+																								                                an account ?</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+		<!-- Account -->
+
+		<script src="{{asset('/assets/front/js/jquery-3.6.0.min.js')}}"></script>
+		<script src="{{asset('/assets/front/js/bootstrap.min.js')}}"></script>
+		<script src="{{asset('/assets/front/js/viewport.jquery.js')}}"></script>
+		<script src="{{asset('/assets/front/js/odometer.min.js')}}"></script>
+		<script src="{{asset('/assets/front/js/lightbox.min.js')}}"></script>
+		<script src="{{asset('/assets/front/js/owl.min.js')}}"></script>
+		<script src="{{asset('/assets/front/js/toastr.min.js')}}"></script>
+		<script src="{{asset('/assets/front/js/notify.js')}}"></script>
+		<script src="{{asset('/assets/front/js/main.js')}}"></script>
+		<script src="{{asset('/assets/front/js/custom.js')}}"></script>
+
+		<script>
+			'use strict';
+let mainurl = 'https://product.geniusocean.com/genius-bank';
+		</script>
+
+		<script>
+			'use strict';
+		</script>
+
+		<script>
+			'use strict';
+
+$('.apply-loan').on('click', function () {
+let id = $(this).data('id');
+let title = $(this).data('title');
+
+$('#planId').val(id);
+$('.loan-title').text(title);
+});
+
+$('.apply-pension').on('click', function () {
+let id = $(this).data('id');
+let title = $(this).data('title');
+
+$('#fdrplan').val(id);
+$('.loan-title').text(title);
+});
+		</script>
+	</body>
+</html></body>{% endblock %}

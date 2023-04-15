@@ -1,0 +1,389 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <script src="https://kit.fontawesome.com/3c64a1ca0d.js" crossorigin="anonymous"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Genius Bank - All in Digital One Banking System</title>
+    <link rel="shortcut icon" href="https://product.geniusocean.com/genius-bank/assets/images/16393007481563335660service-icon-1.png">
+    <link href="https://product.geniusocean.com/genius-bank/assets/user/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://product.geniusocean.com/genius-bank/assets/user/css/tabler.min.css" rel="stylesheet" />
+    <link href="https://product.geniusocean.com/genius-bank/assets/user/css/tabler-flags.min.css" rel="stylesheet" />
+    <link href="https://product.geniusocean.com/genius-bank/assets/user/css/tabler-payments.min.css" rel="stylesheet" />
+    <link href="https://product.geniusocean.com/genius-bank/assets/user/css/tabler-vendors.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://product.geniusocean.com/genius-bank/assets/front/css/toastr.min.css">
+    <link href="https://product.geniusocean.com/genius-bank/assets/user/css/demo.min.css" rel="stylesheet" />
+    <link href="https://product.geniusocean.com/genius-bank/assets/user/css/custom.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="navbar navbar-expand-xl navbar-light d-print-none">
+            <div class="container-xl">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+                <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+                    <a href="../index.html">
+          <img src="../assets/images/MAZE2.png" alt="logo" style="width:50px"/>
+        </a>
+                </h1>
+                <div class="navbar-nav flex-row order-md-last">
+                    <div class="change-language me-2">
+                        <select name="currency" class="currency selectors nice language-bar">
+                                <option value="https://product.geniusocean.com/genius-bank/currency/1" >
+                      USD
+                  </option>
+                                <option value="https://product.geniusocean.com/genius-bank/currency/4" >
+                      BDT
+                  </option>
+                                <option value="https://product.geniusocean.com/genius-bank/currency/6" selected>
+                      EUR
+                  </option>
+                                <option value="https://product.geniusocean.com/genius-bank/currency/8" >
+                      NGN
+                  </option>
+                                <option value="https://product.geniusocean.com/genius-bank/currency/9" >
+                      INR
+                  </option>
+                        </select>
+                    </div>
+                    <a href="?theme=dark" class="nav-link px-0 hide-theme-dark" title="Enable dark mode" data-bs-toggle="tooltip" data-bs-placement="bottom">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg>
+        </a>
+                    <a href="?theme=light" class="nav-link px-0 hide-theme-light" title="Enable light mode" data-bs-toggle="tooltip" data-bs-placement="bottom">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="12" cy="12" r="4" /><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" /></svg>
+        </a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
+            <span class="avatar avatar-sm" style="background-image: url(https://product.geniusocean.com/genius-bank/assets/images/16576606414BD963F2-25AD-4236-9452-6D41DFDB92CE.jpeg)"></span>
+            <div class="d-none d-xl-block ps-2">
+              <div>dark loard</div>
+            </div>
+          </a>
+                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                            <a href="profile.html" class="dropdown-item">Edit Profile</a>
+                            <a href="change-password.html" class="dropdown-item">Change Password</a>
+                            <a href="{{path('app_logout')}}" class="dropdown-item">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Navbar -->
+        <div class="navbar-expand-xl">
+          <div class="collapse navbar-collapse" id="navbar-menu">
+              <div class="navbar navbar-light">
+                  <div class="container-xl" style="margin-left: 300px; margin-right: 300px;">
+                      <ul class="navbar-nav">
+                          <li class="nav-item ">
+                              <a class="nav-link" href="{{path('app_user_dashboard')}}">
+                                  <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                      <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                          viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                          stroke-linecap="round" stroke-linejoin="round">
+                                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                          <polyline points="5 12 3 12 12 3 21 12 19 12" />
+                                          <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                                          <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+                                      </svg>
+                                  </span>
+                                  <span class="nav-link-title">
+                                      Home </span>
+                              </a>
+                          </li>
+
+                          <li class="nav-item dropdown ">
+                              <a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown"
+                                  data-bs-auto-close="outside" role="button" aria-expanded="false">
+                                  <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                      <i class="fas fa-cash-register"></i>
+                                  </span>
+                                  <span class="nav-link-title">
+                                      Loan
+                                  </span>
+                              </a>
+                              <div class="dropdown-menu">
+                                  <a class="dropdown-item"
+                                      href="loan-plan.html">
+                                      Loan Plan
+                                  </a>
+
+                                  <a class="dropdown-item"
+                                      href="loans.html">
+                                      All Loans
+                                  </a>
+
+                                  
+                              </div>
+                          </li>
+
+                          <li class="nav-item dropdown ">
+                              <a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown"
+                                  data-bs-auto-close="outside" role="button" aria-expanded="false">
+                                  <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                      <i class="fas fa-warehouse"></i>
+                                  </span>
+                                  <span class="nav-link-title">
+                                      Offer
+                                  </span>
+                              </a>
+                              <div class="dropdown-menu">
+                                  <a class="dropdown-item"
+                                      href="offer.html">
+                                      Investment Plan
+                                  </a>
+
+                                  <a class="dropdown-item"
+                                      href="offer.html">
+                                      Career
+                                  </a>
+
+
+                              </div>
+                          </li>
+
+                          <li class="nav-item ">
+                              <a class="nav-link" href="deposits.html">
+                                  <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                      <i class="fas fa-hand-holding-usd"></i>
+                                  </span>
+                                  <span class="nav-link-title">
+                                      Deposit
+                                  </span>
+                              </a>
+                          </li>
+
+
+                          <li class="nav-item ">
+                              <a class="nav-link"
+                                  href="wire-transfer.html">
+                                  <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                      <i class="fas fa-tram"></i>
+                                  </span>
+                                  <span class="nav-link-title">
+                                      Wire Transfer
+                                  </span>
+                              </a>
+                          </li>
+
+
+                          <li class="nav-item ">
+                              <a class="nav-link" href="package.html">
+                                  <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                      <i class="fa-solid fa-money-check-dollar"></i>
+                                  </span>
+                                  <span class="nav-link-title">
+                                      Service
+                                  </span>
+                              </a>
+                          </li>
+
+                          <li class="nav-item active ">
+                              <a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown"
+                                  data-bs-auto-close="outside" role="button" aria-expanded="false">
+                                  <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                      <i class="fas fa-suitcase"></i>
+                                  </span>
+                                  <span class="nav-link-title">
+                                      More
+                                  </span>
+                              </a>
+                              <div class="dropdown-menu">
+                                  <a class="dropdown-item"
+                                      href="two-factor.html">
+                                      2FA Security
+                                  </a>
+
+
+                                  <a class="dropdown-item"
+                                      href="messages.html">
+                                      Support Tickets
+                                  </a>
+
+                                  <a class="dropdown-item"
+                                      href="transactions.html">
+                                      Transactions
+                                  </a>
+                              </div>
+                          </li>
+
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- Navbar -->
+        <div class="page-wrapper">
+
+            <div class="container-xl">
+                <div class="page-header d-print-none">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h2 class="page-title">
+                                Support Ticket
+                            </h2>
+                        </div>
+                        <div class="col-auto ms-auto d-print-none">
+                            <div class="btn-list">
+                                <a href="javascript:;" class="btn btn-primary w-100 apply-loan" data-bs-toggle="modal" data-bs-target="#modal-message">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
+              Create New Ticket
+          </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="modal modal-blur fade" id="modal-message" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Create Ticket</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+
+                           
+                                 <input type="hidden" name="_token" value="{{ csrf_token('support_ticket') }}">
+
+    <div class="container-fluid" id="container-wrapper" style = "margin-bottom:20px;margin-top:20px;">
+   
+    {{form_start(form, {'attr': {'novalidate': 'novalidate'}})}}
+
+
+    {{form_label(form.name,'Title : ',{'attr':{'class':'form-label'}})}}
+    {{form_widget(form.name,{'attr':{'class':'form-control'}})}}
+    {{ form_errors(form.name) }}
+
+    {{form_label(form.priorite,'Priority : ',{'attr':{'class':'form-label'}})}}
+    {{form_widget(form.priorite,{'attr':{'class':'form-control'}})}}
+    {{ form_errors(form.priorite) }}
+
+    {{form_label(form.description,'Description : ',{'attr':{'class':'form-label'}})}}
+                        <br>
+    {{form_widget(form.description,{'attr':{'class':'form-control'}})}}
+    {{ form_errors(form.description) }}
+
+<label for="{{ form.TypeReclamation.vars.id }}">Reclamation Type</label>
+    {{ form_widget(form.TypeReclamation, {'attr': {'class': 'form-label'}}) }}
+    {{ form_errors(form.TypeReclamation, {'attr': {'class': 'form-label'}}) }}
+    
+      <button type="submit" class="cmn--btn bg--base me-3 w-100">
+        Submit
+      </button><br>
+  
+
+    {{form_end(form)}}
+    
+    </div>
+                          
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="modal modal-blur fade" id="confirm-delete" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <div class="modal-status bg-danger"></div>
+                            <div class="modal-body text-center py-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon mb-2 text-danger icon-lg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 9v2m0 4v.01" /><path d="M5 19h14a2 2 0 0 0 1.84 -2.75l-7.1 -12.25a2 2 0 0 0 -3.5 0l-7.1 12.25a2 2 0 0 0 1.75 2.75" /></svg>
+                                <h3>Are you sure?</h3>
+                                <div class="text-muted">You are about to delete this Ticket.</div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="w-100">
+                                    <div class="row">
+                                        <div class="col"><a href="#" class="btn w-100" data-bs-dismiss="modal">
+                Cancel
+              </a></div>
+                                        <div class="col">
+                                            <a href="javascript:;" class="btn btn-danger w-100 btn-ok">
+                Delete
+              </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script>
+        let mainurl = 'https://product.geniusocean.com/genius-bank';
+    </script>
+    <script src="https://product.geniusocean.com/genius-bank/assets/user/js/jquery-3.6.0.min.js"></script>
+    <script src="https://product.geniusocean.com/genius-bank/assets/user/js/tabler.min.js"></script>
+    <script src="https://product.geniusocean.com/genius-bank/assets/user/js/demo.min.js"></script>
+    <script src="https://product.geniusocean.com/genius-bank/assets/front/js/custom.js"></script>
+    <script src="https://product.geniusocean.com/genius-bank/assets/user/js/notify.min.js"></script>
+    <script src="https://product.geniusocean.com/genius-bank/assets/front/js/toastr.min.js"></script>
+
+    <script type="text/javascript">
+        'use strict';
+
+        $(document).on("submit", "#emailreply1", function() {
+            var token = $(this).find('input[name=_token]').val();
+            var subject = $(this).find('input[name=subject]').val();
+            var message = $(this).find('textarea[name=message]').val();
+            $('#subj1').prop('disabled', true);
+            $('#msg1').prop('disabled', true);
+            $('#emlsub1').prop('disabled', true);
+            $.ajax({
+                type: 'post',
+                url: "https://product.geniusocean.com/genius-bank/user/admin/user/send/message",
+                data: {
+                    '_token': token,
+                    'subject': subject,
+                    'message': message,
+                },
+                success: function(data) {
+                    $('#subj1').prop('disabled', false);
+                    $('#msg1').prop('disabled', false);
+                    $('#subj1').val('');
+                    $('#msg1').val('');
+                    $('#emlsub1').prop('disabled', false);
+                    if (data == 0)
+                        $.notify("Oops Something Goes Wrong !!", "error");
+                    else
+                        $.notify("Message Sent !!", "success");
+                    $('.close').click();
+                    location.reload();
+                }
+
+            });
+            return false;
+        });
+    </script>
+
+    <script type="text/javascript">
+        'use strict';
+
+        $('#confirm-delete').on('show.bs.modal', function(e) {
+            $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+        });
+    </script>
+
+
+
+    <script>
+        'use strict';
+    </script>
+</body>
+
+</html>
+{% block footer %}{% endblock %}
+{% endblock %}

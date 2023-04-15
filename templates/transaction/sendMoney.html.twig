@@ -1,0 +1,199 @@
+{% extends 'baseClient.html.twig' %}
+
+{% block body %}
+  <div class="page-wrapper">
+        <div class="container-xl">
+          <div class="page-header d-print-none">
+            <div class="row align-items-center">
+              <div class="col">
+                <h2 class="page-title">Send Money</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="page-body">
+          <div class="container-xl">
+            <div class="row row-cards">
+              <div class="col-12">
+                <div class="card p-4">
+                  <ul class="nav nav-tabs nav-fill" data-bs-toggle="tabs">
+                    <li class="nav-item">
+                      <a
+                        href="#other-account"
+                        class="nav-link active"
+                        data-bs-toggle="tab"
+                        >Other Account</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        href="#saved-account"
+                        class="nav-link"
+                        data-bs-toggle="tab"
+                        >Saved Account</a
+                      >
+                    </li>
+                  </ul>
+
+                  <div class="card-body">
+                    <div class="tab-content">
+                      <div class="tab-pane active show" id="other-account">
+                        <form
+                          action="https://product.geniusocean.com/genius-bank/user/send-money"
+                          method="POST"
+                          enctype="multipart/form-data"
+                        >
+                          <input
+                            type="hidden"
+                            name="_token"
+                            value="vR3eXGkdlb2WWaaLMMakQUdvmL2t5FszaT4AsjYX"
+                          />
+                          <div class="form-group mb-3 mt-3">
+                            <label class="form-label required"
+                              >Account Number</label
+                            >
+                            <input
+                              name="account_number"
+                              id="account_number"
+                              class="form-control"
+                              autocomplete="off"
+                              placeholder="000.000.0000"
+                              type="text"
+                              value=""
+                              min="1"
+                              required
+                            />
+                          </div>
+
+                          <div class="form-group mb-3 mt-3">
+                            <label class="form-label required"
+                              >Account Name</label
+                            >
+                            <input
+                              name="account_name"
+                              id="account_name"
+                              class="form-control"
+                              autocomplete="off"
+                              placeholder="Jhon Doe"
+                              type="text"
+                              value=""
+                              min="1"
+                              required
+                              readonly
+                            />
+                          </div>
+
+                          <div class="form-group mt-3">
+                            <label class="form-label required">Amount</label>
+                            <input
+                              name="amount"
+                              id="amount"
+                              class="form-control"
+                              autocomplete="off"
+                              placeholder="0.0"
+                              type="number"
+                              value=""
+                              min="1"
+                              required
+                            />
+                          </div>
+
+                          <div class="form-footer">
+                            <button type="submit" class="btn btn-primary w-100">
+                              Submit
+                            </button>
+                          </div>
+                        </form>
+                      </div>
+                      <div class="tab-pane" id="saved-account">
+                        <div class="row g-3">
+                          <div class="col-6">
+                            <a
+                              href="https://product.geniusocean.com/genius-bank/user/send-money/GS23060807282893"
+                            >
+                              <div class="row g-3 align-items-center">
+                                <span class="col-auto">
+                                  <span
+                                    class="avatar"
+                                    style="
+                                      background-image: url(https://product.geniusocean.com/genius-bank/assets/images);
+                                    "
+                                  >
+                                    <span class="badge bg-red"></span
+                                  ></span>
+                                </span>
+                                <div class="col text-truncate">
+                                  <span>Dark Loard</span>
+                                  <br />
+                                  <small class="text-muted text-truncate mt-n1"
+                                    >GS23060807282893</small
+                                  >
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col-6">
+                            <a
+                              href="https://product.geniusocean.com/genius-bank/user/send-money/GS22063247333537"
+                            >
+                              <div class="row g-3 align-items-center">
+                                <span class="col-auto">
+                                  <span
+                                    class="avatar"
+                                    style="
+                                      background-image: url(https://product.geniusocean.com/genius-bank/assets/images);
+                                    "
+                                  >
+                                    <span class="badge bg-red"></span
+                                  ></span>
+                                </span>
+                                <div class="col text-truncate">
+                                  <span>Meenamohan</span>
+                                  <br />
+                                  <small class="text-muted text-truncate mt-n1"
+                                    >GS22063247333537</small
+                                  >
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col-6">
+                            <a
+                              href="https://product.geniusocean.com/genius-bank/user/send-money/GS22013644509981"
+                            >
+                              <div class="row g-3 align-items-center">
+                                <span class="col-auto">
+                                  <span
+                                    class="avatar"
+                                    style="
+                                      background-image: url(https://product.geniusocean.com/genius-bank/assets/images/1654984824IMG-20220610-WA0005.jpg);
+                                    "
+                                  >
+                                    <span class="badge bg-red"></span
+                                  ></span>
+                                </span>
+                                <div class="col text-truncate">
+                                  <span>Gsi</span>
+                                  <br />
+                                  <small class="text-muted text-truncate mt-n1"
+                                    >GS22013644509981</small
+                                  >
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+{% endblock %}

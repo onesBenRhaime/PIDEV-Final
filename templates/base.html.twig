@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Maze Bank - All in Digital One Banking System{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+       <link rel="stylesheet" href="assets/front/css/bootstrap.min.css" />
+       
+<script src="https://kit.fontawesome.com/3c64a1ca0d.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="{{asset('assets/front/css/bootstrap.min.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/admin/css/bootstrap-colorpicker.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/admin/css/bootstrap-iconpicker.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/admin/css/color-picker.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/admin/css/custom.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/admin/css/plugin.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/admin/css/ruang-admin.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/admin/css/select2.min.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/admin/css/summernote.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/admin/css/tagify.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/admin/css/toastr.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/front/css/all.min')}}" />
+<link rel="stylesheet" href="{{asset('assets/front/css/animate.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/front/css/bootstrap.min.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/front/css/font9411.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/front/css/lightbox.min.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/front/css/main.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/front/css/odometer.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/front/css/owl.min.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/front/css/styles93e6.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/front/css/toastr.min.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/user/css/custom.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/user/css/demo.min.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/user/css/tabler.min.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/user/css/tabler-flags.min.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/user/css/tabler-payments.min.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/user/csstabler-vendors.min.css')}}" />
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+     {% block header %}
+          <!-- Header -->
+    <header class="position-relative">
+        
+        <div class="navbar-bottom">
+            <div class="container">
+                <div class="navbar-wrapper">
+                    <div class="logo">
+                        <a href="../index.html">
+                            <img src="../assets/images/MAZE2.png" alt="logo" style="width:50px"/>
+                        </a>
+                    </div>
+                    
+                    <div class="nav-toggle d-lg-none">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="nav-menu-area">
+                        <div class="menu-close text--danger d-lg-none">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <ul class="nav-menu">
+                            <li><a href="../index.html" target="_self">Home</a></li>
+                            <li><a href="../services.html" target="_self">Services</a></li>
+                            <li><a href="../blogs.html" target="_self">Blog</a></li>
+                            <li><a href="../about.html" target="_self">About</a></li>
+
+                            <li>
+                                <a href="../contact.html">Contact</a>
+                            </li>
+
+                            <li>
+                                <div class="btn__grp ms-lg-3">
+                                    <a href="login.html" class="cmn--btn">Login Now</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header -->
+    {% endblock %}
+    {% block body %}{% endblock %}
+    {% block footer %}
+    <footer class="bg--section">
+        <div class="footer-top position-relative">
+            <div class="container">
+                <div class="footer-wrapper">
+                    <div class="footer-logo">
+                        <a href="index.html">
+                            <img src="../assets/images/Qk6wE0dR1645001520.png" alt="logo">
+                        </a>
+                    </div>
+                    <div class="footer-links">
+                        <h5 class="title">About</h5>
+                        <ul>
+                            <li>
+                                <a href="../privacy.html">Privacy &amp; Policy</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="footer-links mobile-second-item">
+                        <h5 class="title">Contact</h5>
+                        <ul>
+                            <li>
+                                <a href="#0">3584 Hickory Heights Drive ,Hanover MD 21076, USA</a>
+                            </li>
+                            <li>
+                                <a href="admin%40geniusocean.html">admin@geniusocean.com</a>
+                            </li>
+                            <li>
+                                <a href="%2b12%203456%207890%201234.html">+12 3456 7890 1234</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-comunity">
+                        <h5 class="title">Community</h5>
+                        <ul class="social-icons justify-content-start mt-0 mb-4">
+                            <li>
+                                <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+
+                            <li>
+                                <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+                            </li>
+
+                            <li>
+                                <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                            </li>
+                        </ul>
+                        <p>
+                            Stay Excited, Subscribe to our Newsletter </p>
+
+
+                        <form class="input-group mt-3 footer-input-group"
+                            action="https://product.geniusocean.com/genius-bank/subscriber" method="POST">
+                            <input type="hidden" name="_token" value="CxwJfHukZdKzLel0kUjduqwUBxRZZnQuluge7UIX"> <input
+                                type="email" name="email" class="form-control" placeholder="Your email address...">
+                            <button class="input-group-text bg--white border-0 text--base">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom position-relative pb-5">
+            <div class="container text-center">
+                <p>
+                    COPYRIGHT © 2019. All Rights Reserved By <a href="http://geniusocean.com/">GeniusOcean.com</a> </p>
+            </div>
+        </div>
+    </footer> 
+    {% endblock %}
+
+    </body>
+<script src="{{asset('assets/front/js/jquery-3.6.0.min.js')}}"></script>
+<script src="{{asset('assets/admin/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('assets/admin/js/bootstrap-colorpicker.js')}}"></script>
+<script src="{{asset('assets/admin/js/bootstrap-datepicker.min.js')}}"></script>
+<script src="{{asset('assets/admin/js/bootstrap-iconpicker.bundle.min.js')}}"></script>
+<script src="{{asset('assets/admin/js/chart.min.js')}}"></script>
+<script src="{{asset('assets/admin/js/colorpicker.js')}}"></script>
+<script src="{{asset('assets/admin/js/plugin.js')}}"></script>
+<script src="{{asset('assets/admin/js/ruang-admin.js')}}"></script>
+<script src="{{asset('assets/admin/js/select2.min.js')}}"></script>
+<script src="{{asset('assets/admin/js/sortable.js')}}"></script>
+<script src="{{asset('assets/admin/js/summernote.js')}}"></script>
+<script src="{{asset('assets/admin/js/tagify.js')}}"></script>
+<script src="{{asset('assets/admin/js/toastr.js')}}"></script>
+<script src="{{asset('assets/front/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('assets/front/js/custom.js')}}"></script>
+<script src="{{asset('assets/front/js/jquery-3.6.0.min.js')}}"></script>
+<script src="{{asset('assets/front/js/lightbox.min.js')}}"></script>
+<script src="{{asset('assets/front/js/main.js')}}"></script>
+<script src="{{asset('assets/front/js/notify.js')}}"></script>
+<script src="{{asset('assets/front/js/odometer.min.js')}}"></script>
+<script src="{{asset('assets/front/js/owl.min.js')}}"></script>
+<script src="{{asset('assets/front/js/payform.js')}}"></script>
+<script src="{{asset('assets/front/js/paymin.js')}}"></script>
+<script src="{{asset('assets/front/js/payvalid.js')}}"></script>
+<script src="{{asset('assets/front/js/toastr.min.js')}}"></script>
+<script src="{{asset('assets/front/js/viewport.jquery.js')}}"></script>
+<script src="{{asset('assets/user/js/demo.min.js')}}"></script>
+<script src="{{asset('assets/user/js/notify.min.js')}}"></script>
+<script src="{{asset('assets/user/js/jquery-3.6.0.min.js')}}"></script>
+<script src="{{asset('assets/user/js/tabler.min.js')}}"></script>
+<script src="{{asset('assets/front/js/main.js')}}"></script>
+<script src="{{asset('assets/front/js/custom.js')}}"></script>
+
+<script type="text/javascript">
+      "use strict";
+
+      var table = $("#geniustable").DataTable({
+        ordering: false,
+        processing: true,
+        serverSide: true,
+        searching: false,
+        ajax: "https://product.geniusocean.com/genius-bank/admin/blog/datatables",
+        columns: [
+          { data: "photo", name: "photo", searchable: false, orderable: false },
+          { data: "title", name: "title" },
+          { data: "views", name: "views" },
+          { data: "action", searchable: false, orderable: false },
+        ],
+        language: {
+          processing:
+            '<img src="https://product.geniusocean.com/genius-bank/assets/images/33CiUFaI1641808748.gif">',
+        },
+      });
+
+      $(function () {
+        $(".btn-area").append(
+          '<div class="col-sm-12 col-md-4 pr-3 text-right">' +
+            '<a class="btn btn-primary" href="create.html">' +
+            '<i class="fas fa-plus"></i> Add New Post' +
+            "</a>" +
+            "</div>"
+        );
+      });
+    </script>
+</html>

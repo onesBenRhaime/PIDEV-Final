@@ -1,0 +1,82 @@
+
+{{form_start(form,{'attr':{'novalidate':'novalidate'}})}}
+                    <div class="card text-white bg-black col-sm-6 col-lg-12  " >
+                      <div class="card-header"><h2> Account Information <b class="text-danger">***</b></h2></div>
+                    </div>                  
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group mb-3 mt-3">
+                               {{form_label(form.idType,'Account Type : ',{'attr':{'class':'form-label'}})}}
+                            {{ form_widget(form.idType, { 'attr': { 'class': 'form-select' } }) }}  
+                        </div>
+                      </div>
+                        <div class="col-md-6">
+                        <div class="form-group mb-3 mt-3">
+                               {{form_label(form.idUser,'User : ',{'attr':{'class':'form-label'}})}}
+                               {{form_widget(form.idUser ,{'attr':{'class':'form-select'}} ) }}         
+                              {# <input type="text"    class="form-control" value="{{type}}" />    #}
+                        </div>
+                      </div>
+                   </div>
+                   
+                     <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group mb-3 mt-3">
+                                {{form_label(form.maxSolde,'Max Amount: ',{'attr':{'class':'form-label'}})}}
+                                {{form_widget(form.maxSolde,{'attr':{'class':'form-control'}})}} 
+                               
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group mb-3 mt-3">
+                                {{form_label(form.minSolde,'Min Amount : ',{'attr':{'class':'form-label'}})}}
+                                {{form_widget(form.minSolde,{'attr':{'class':'form-control'}})}}                
+                            
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group mb-3 mt-3">
+                                {{form_label(form.redSolde,'Red Amount: ',{'attr':{'class':'form-label'}})}}
+                                {{form_widget(form.redSolde,{'attr':{'class':'form-control'}})}} 
+                        </div>
+                      </div>
+                    </div>          
+                   <div class="card text-white bg-black col-sm-6 col-lg-12  " >
+                      <div class="card-header"><h2> 3. Request Documents  <b class="text-danger">***</b></h2></div>
+                    </div>                    
+                    <div class="row">
+                       <label class=" col-md-12 mb-3 mt-4 form-label text-danger"><h3> You should copy your CIN card on both sides and if you have another document, 
+                       do not hesitate to add it to reinforce the acceptance of your request </h3></label>
+                     <div class="col-md-4">
+                        <div class="form-group mb-3 mt-2">                
+                                {{form_label(form.cinS1,'First side: ',{'attr':{'class':'form-label'}})}}
+                                {{form_widget(form.cinS1,{'attr':{'class':'form-control'}})}}                                 
+					              </div>
+                      
+                     </div>
+                     <div class="col-md-4">
+                        <div class="form-group mb-3 mt-2">
+                                {{form_label(form.cinS2,'Second side: ',{'attr':{'class':'form-label'}})}}
+                                {{form_widget(form.cinS2,{'attr':{'class':'form-control'}})}}  
+                        </div>                      
+                     </div>
+                     <div class="col-md-3">
+                        <div class="form-group mb-3 mt-2">
+                                {{form_label(form.otherDoc,'Other : ',{'attr':{'class':'form-label'}})}}
+                                {{form_widget(form.otherDoc,{'attr':{'class':'form-control'}})}}  
+                        </div>                      
+                     </div>
+                    </div>
+                    <div class="row">
+                       <div class="col-md-6" ></div>
+                        <div class="col-md-3 bg-light" >
+                         {# <button type="Resset" class="btn btn-primary w-100">
+                          Resset
+                         </button> #}
+                       </div>
+                       <div class="col-md-3 bg-light" >
+                        {{form_widget(form.save,{'attr':{'class':'btn btn-success w-100'}})}}
+                       </div>
+                    </div>
+                  </div>
+ {{form_end(form)}}

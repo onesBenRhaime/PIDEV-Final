@@ -1,0 +1,113 @@
+{% extends 'baseClient.html.twig' %}
+
+{% block body %}
+           
+<div class="page-wrapper">
+        <div class="container-xl">
+          <div class="page-header d-print-none">
+            <div class="row align-items-center">
+              <div class="col">
+                <h2 class="page-title">My Accounts</h2>
+              </div>
+              <div class="col">
+              
+                <form  class="row"action="{{ path('allcompteFiltre') }}" method="get">                     
+                      <select class="col form-control" name="type" id="type">
+                          <option value="all">All </option>
+                        {% for type in typecompte %}
+                           <option value="{{ type.id }}">{{ type.type }}</option>
+                       {% endfor %}
+                     </select>
+                    <button type="submit"class="col-2 btn btn-primary ">Filter</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+           <div class="page-body">
+          <div class="container-xl">
+            <div class="row row-cards">
+              <div class="col-12">
+                <div class="card">
+                  <div class="table-responsive">
+                    <table
+                      class="table table-vcenter table-mobile-md card-table"
+                    >
+                      <thead>
+                        <tr>
+                          <th> ACCOUNT TYPE</th>
+                          <th> CREATION DATE</th>
+                          <th> CLOSED  DATE</th>
+                          <th> SOLDE</th>
+                          <th> RED SOLDE</th>
+                          <th>STATUS</th>
+                          <th>OPTIONS</th>                     
+                        </tr>
+                      </thead>
+                      <tbody>   
+                     {% for compte in comptes %}
+                        <tr>                           
+                          <td data-label="Account dd">
+                            <div>{{ compte.idType }}</div>
+                          </td>
+                          <td data-label="Date Creation">
+                            <div>{{ compte.dateCreation ? compte.dateCreation|date('Y-m-d') : '' }}</div>
+                          </td>
+                          <td data-label="Account Closed Date">
+                            <div>{{ compte.dateFermeture ? compte.dateFermeture|date('Y-m-d') : '' }}</div>
+                          </td>
+                          {% if compte.solde == "in progress..." %} 
+                          <td data-label="Account solde">
+                            <div><span class="badge">{{ compte.solde }}</span></div>
+                          </td>              
+                          {% else %}
+                          <td>{{ compte.solde }}</td>                          
+                          {% endif %}
+                          <td data-label="Account solde Red">
+                            <div>{{ compte.redSolde }}</div>
+                          </td>
+                          {% if  compte.statue == "valide" %}
+                          <td data-label="Account status">
+                            <div> <span class="badge bg-success" >{{ compte.statue }}</span></div>
+                          </td>    
+                          {% elseif compte.statue == "rejected" %}                       
+                          <td data-label="Account status">
+                            <div> <span class="badge bg-danger" >{{ compte.statue }}</span></div>
+                          </td>    
+                          {% else %} 
+                          <td data-label="Account status">
+                            <div> <span class="badge bg-warning" >{{ compte.statue }}</span></div>
+                          </td>                           
+                          {% endif %}                                               
+                          <td data-label="row">                                                           
+                              <form method="post" action="{{ path('app_compte_delete', {'id': compte.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                 <a
+                                href="{{ path('compte_details', {'id': compte.id}) }}"
+                                class="btn btn-success"
+                                 >
+                                   Details
+                                 </a>
+                                 <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ compte.id) }}">
+                                 <button href="javascript:;" data-toggle="modal" data-target="#statusModal"   class="btn btn-primary ml-5"> Delete</button>
+                              </form>                          
+                          </td>
+                        </tr>   
+                      {% else %}
+                        <tr>
+                            <td colspan="6">no Account found</td>
+                        </tr>
+                      {% endfor %}                   
+                    </tbody>
+                    </table>
+                  </div>
+              
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+</div>
+
+
+
+{% endblock %}

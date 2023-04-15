@@ -1,0 +1,39 @@
+{% extends 'baseClient.html.twig' %}
+
+{% block title %}Embauche
+{% endblock %}
+
+{% block body %}
+	<h1>Embauche</h1>
+
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Id</th>
+				<td>{{ embauche.id }}</td>
+			</tr>
+			<tr>
+				<th>Poste</th>
+				<td>{{ embauche.poste }}</td>
+			</tr>
+			<tr>
+				<th>Date_embauche</th>
+				<td>{{ embauche.dateEmbauche ? embauche.dateEmbauche|date('Y-m-d') : '' }}</td>
+			</tr>
+			<tr>
+				<th>Salaire</th>
+				<td>{{ embauche.salaire }}</td>
+			</tr>
+			<tr>
+				<th>Duree</th>
+				<td>{{ embauche.duree }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_embauche_index_front') }}">back to list</a>
+
+	<a href="{{ path('app_embauche_edit_front', {'id': embauche.id}) }}">edit</a>
+
+	{{ include('embauche/_delete_form_front.html.twig') }}
+{% endblock %}

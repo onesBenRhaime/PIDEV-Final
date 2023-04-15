@@ -1,0 +1,182 @@
+{% extends 'baseClient.html.twig' %}
+
+{% block body %}
+     <div class="page-wrapper">
+        <div class="container-xl">
+          <div class="page-header d-print-none">
+            <div class="row align-items-center">
+              <div class="col">
+                <h2 class="page-title">Apply Loan</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+ <div class="page-body">
+          <div class="container-xl">
+            <div class="row row-cards">
+              <div class="col-12">
+                <div class="card p-5">
+                  <div
+                    class="gocover"
+                    style="
+                      background: url(https://product.geniusocean.com/genius-bank/assets/images/5monWltX1641808745.gif)
+                        no-repeat scroll center center rgba(45, 45, 45, 0.5);
+                    "
+                  ></div>
+
+                 
+                  
+
+                    <div class="form-group  mb-3 mt-3">
+                    <div class="col">
+                    <h2 class="page-title">To Apply for this loan you must follow this process :</h2>
+                    </div>
+                    </div>
+                    {# <div class="card text-white bg-danger mb-3" >
+                      <div class="card-header">personal information</div>
+                    </div>
+                    
+                    <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group mb-3 mt-3">
+                          <label class="form-label">first name</label>
+                        
+											    <input
+                            type="text"
+                            id="firstname"
+                            name="firstname"
+                            class="form-control"
+                            autocomplete="off"
+                            placeholder="Enter your first name "
+                            value=""
+                          />
+										    </div>
+                      
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group mb-3 mt-3">
+                          <label class="form-label">last name</label>
+                        
+											  <input
+                            type="text"
+                            id="lastname"
+                            name="lastname"
+                            class="form-control"
+                            autocomplete="off"
+                            placeholder="Enter your last name "
+                            value=""
+                          />
+										  </div>
+                      
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                        <div class="form-group mb-3 mt-3">
+                          <label class="form-label">Cin</label>
+                         	<input
+                            type="text"
+                            id="cin"
+                            name="cin"
+                            class="form-control"
+                            autocomplete="off"
+                            placeholder="Enter your cin "
+                            value=""
+                          />
+                        </div>
+                        </div>
+                          <div class="col-md-6">
+                         <div class="form-group mb-3 mt-3">
+                          <label class="form-label">address email</label>
+                         	<input
+                            type="text"
+                            id="email"
+                            name="email"
+                            class="form-control"
+                            autocomplete="off"
+                            placeholder="Enter your email "
+                            value=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                     <div class="card text-white bg-danger mb-3" >
+                      <div class="card-header">Loan informations</div>
+                    </div>
+                     #}
+                    
+
+                    <div class="row">
+                  {{form_start(form)}}
+                       <div class="col-md-6">                        
+                          {{form_label(form.creditId,'Category : ',{'attr':{'class':'form-label'}})}}
+                          {{ form_widget(form.creditId, {'attr': {'class': 'form-control'}}) }}
+                       </div>
+                       <div class="col-md-6">                        
+                          {{form_label(form.userId,'User : ',{'attr':{'class':'form-label'}})}}
+                          {{ form_widget(form.userId, {'attr': {'class': 'form-control'}})}}
+                       </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group mb-3 mt-3">
+                          {{form_label(form.amount,'Amount : ',{'attr':{'class':'form-label'}})}}
+                          {{form_widget(form.amount,{'attr':{'class':'form-control'}})}}
+                        </div>
+                      </div>
+                    </div>
+
+                    
+
+                    <div class="form-group mb-3">
+                     {{form_label(form.note,'Note : ',{'attr':{'class':'form-label'}})}}
+                          {{form_widget(form.note,{'attr':{'class':'form-control'}})}}
+                    </div>
+
+                    <div class="card text-white bg-danger mb-3" >
+                      <div class="card-header">add the requested documents :</div>
+                    </div>
+                    
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group mb-3 mt-3">
+                          <label class="form-label">Id card copy </label>
+                          <h5>first side</h5>
+                  
+                                  {{form_widget(form.cin1,{'attr':{'class':'form-control'}})}}   
+
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group mb-3 mt-3">
+                          <label class="form-label"><br></label>
+                          <h5>second side</h5>
+                  
+                                 {{form_widget(form.cin2,{'attr':{'class':'form-control'}})}}
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-3 bg-light" >
+                      <button type="submit" class="btn btn-primary w-100">
+                        Submit
+                      </button>
+                    </div>
+                    </div> 
+                    {{form_end(form)}}
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+     
+      </div>
+         
+    
+
+
+{% endblock %}
+

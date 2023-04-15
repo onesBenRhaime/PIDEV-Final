@@ -1,0 +1,89 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block body %}
+    
+     <div class="page-wrapper">
+        <div class="container-xl">
+          <div class="page-header d-print-none">
+            <div class="row align-items-center">
+              <div class="col">
+                <h2 class="page-title">Demand details</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="page-body">
+          <div class="container-xl">
+            <div class="row row-cards">
+              <div class="col-12">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <div class="table-responsive-sm">
+                      
+                       <table class="table mb-0">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ compte.id }}</td>
+            </tr>
+            <tr>
+                <th>RIB</th>
+                <td>{{ compte.rib }}</td>
+            </tr>
+            <tr>
+                <th>TypeCompte</th>
+                <td>{{ compte.typeCompte }}</td>
+            </tr>
+            <tr>
+                <th>DateCreation</th>
+                <td>{{ compte.dateCreation ? compte.dateCreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateFermeture</th>
+                <td>{{ compte.dateFermeture ? compte.dateFermeture|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Solde</th>
+                <td>{{ compte.solde }}</td>
+            </tr>
+            <tr>
+                <th>CinS1</th>
+                <td>{{ compte.cinS1 }}</td>
+            </tr>
+            <tr>
+                <th>CinS2</th>
+                <td>{{ compte.cinS2 }}</td>
+            </tr>
+            <tr>
+                <th>OtherDoc</th>
+                <td>{{ compte.otherDoc }}</td>
+            </tr>
+            <tr>
+                <th>MaxSolde</th>
+                <td>{{ compte.maxSolde }}</td>
+            </tr>
+            <tr>
+                <th>MinSolde</th>
+                <td>{{ compte.minSolde }}</td>
+            </tr>
+            <tr>
+                <th>RedSolde</th>
+                <td>{{ compte.redSolde }}</td>
+            </tr>
+              <tr>
+                <th>Status</th>
+                <td>{{ compte.statue }}</td>
+            </tr>
+        </tbody>
+    </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        
+{% endblock %}

@@ -1,0 +1,20 @@
+<table id="geniustable" class="table table-hover dt-responsive" cellspacing="0" width="100%">
+              <thead class="thead-light">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Status</th>
+                </tr>
+              </thead>
+                <tbody>
+    {% for uz in users %}
+    <tr>
+      <td>{{uz.name}}</td>
+      <td>{{uz.email }}</td>
+      <td>{{uz.phone}}</td> 
+      <td><a href="{{path('Status',{'id':uz.id})}}">{{uz.getStatus}}</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+            </table>

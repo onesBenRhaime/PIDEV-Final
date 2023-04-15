@@ -1,0 +1,241 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block header %}
+	<div class="Loader" style="
+				        background: url(https://product.geniusocean.com/genius-bank/assets/images/33CiUFaI1641808748.gif)
+				          no-repeat scroll center center #fff;
+				      "></div>
+	<div
+		id="wrapper">
+		<!-- Sidebar -->
+		<ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
+			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{path('app_dashboard')}}">
+				<div class="sidebar-brand-icon">
+					<img src="{{asset('assets/images/MAZE2.png')}}">
+				</div>
+			</a>
+
+			<li class="nav-item">
+				<a class="nav-link" href="{{path('app_dashboard')}}">
+					<i class="fas fa-fw fa-tachometer-alt"></i>
+					<span>Dashboard</span>
+				</a>
+			</li>
+
+
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#customer" aria-expanded="true" aria-controls="collapseTable">
+					<i class="fas fa-user"></i>
+					<span>Manage Customers</span>
+				</a>
+				<div id="customer" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" href="{{path('app_users_list')}}">User
+														                        List</a>
+
+						<a class="collapse-item" href="#">Withdraw Request
+							<span class="badge badge-sm badge-danger badge-counter">210</span>
+						</a>
+
+					</div>
+				</div>
+			</li>
+
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#loan" aria-expanded="true" aria-controls="collapseTable">
+					<i class="fas fa-cash-register"></i>
+					<span>Loan Management</span>
+				</a>
+				<div id="loan" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" href="#">Loan Plans</a>
+						<a class="collapse-item" href="#">All
+														                        Loans</a>
+
+					</div>
+				</div>
+			</li>
+
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#dps" aria-expanded="true" aria-controls="collapseTable">
+					<i class="fas fa-warehouse"></i>
+					<span>Offer Management</span>
+				</a>
+				<div id="dps" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" href="investment.html">Investment</a>
+						<a class="collapse-item" href="#">Career</a>
+					</div>
+				</div>
+			</li>
+
+
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#wiretransfer" aria-expanded="true" aria-controls="collapseTable">
+					<i class="fas fa-wallet"></i>
+					<span>Wire Transfer</span>
+				</a>
+				<div id="wiretransfer" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" href="#">Wire Transfer
+														                        Bank</a>
+
+					</div>
+				</div>
+			</li>
+
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#requestmoney" aria-expanded="true" aria-controls="collapseTable">
+					<i class="fas fa-donate"></i>
+					<span>Request Money</span>
+				</a>
+				<div id="requestmoney" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<a class="collapse-item" href="#">All Money Request</a>
+
+					</div>
+				</div>
+			</li>
+
+			<li class="nav-item">
+				<a class="nav-link" href="#">
+					<i class="fas fa-chart-line"></i>
+					<span>Transactions</span>
+				</a>
+			</li>
+
+			<li class="nav-item">
+				<a class="nav-link" href="deposits.html">
+					<i class="fas fa-piggy-bank"></i>
+					<span>Deposits</span>
+				</a>
+			</li>
+
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#blog" aria-expanded="true" aria-controls="collapseTable">
+					<i class="fas fa-fw fa-newspaper"></i>
+					<span>Manage Blog</span>
+				</a>
+				<div id="blog" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+
+						<a class="collapse-item" href="{{path('app_blog')}}">Posts</a>
+						<a class="collapse-item" href="{{path('app_category')}}">Categories</a>
+					</div>
+				</div>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{{path('app_reclamation')}}">
+					<i class="fas fa-vote-yea"></i>
+					<span>Support Tickets</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{{path('app_agence')}}">
+					<i class="fas fa-child"></i>
+					<span>Agence</span>
+				</a>
+			</li>
+
+			<li class="nav-item">
+				<a class="nav-link" href="#">
+					<i class="fas fa-fw fa-users-cog"></i>
+					<span>Subscribers</span>
+				</a>
+			</li>
+
+
+		</ul>
+	{% endblock %}
+	{% block body %}
+		<div id="content-wrapper" class="d-flex flex-column">
+			<div
+				id="content">
+
+
+				<!-- Container Fluid-->
+				<div class="container-fluid" id="container-wrapper">
+					<form action="#" class="nk-form nk-form-style-1" novalidate="novalidate">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Type something..." id="search">
+							<input type="hidden" id="blog_id" name="blog_id" value="">
+
+						</div>
+					</form>
+
+					<div class="col-sm-12 col-md-4 pr-3 text-right">
+						<a class="btn btn-primary" href="{{path('app_blog_create')}}">
+							<i class="fas fa-plus nav-item"></i>
+							Add New Post
+						</a>
+					</div>
+					<br>
+					<div class="card mb-4">
+						<div class="table-responsive p-3">
+							<table id="geniustable" class="table  dt-responsive" cellspacing="0" width="100%">
+								<thead class="thead-light">
+									<tr>
+										<th>Featured Image</th>
+										<th>Post Title</th>
+										<th>Description</th>
+										<th>Options</th>
+									</tr>
+
+								</thead>
+
+
+								{% for c in blogs %}
+									<tr>
+										<td><img src="{{asset('/uploads/photos/'~c.photo)}}"></td>
+										<td>{{c.name}}</td>
+										<td>{{c.description}}</td>
+										<td>
+											<ul>
+												<li style="display : flex;">
+													<i class="fa-solid fa-trash" style="margin-right:5px;margin-top:4px;"></i>
+													<a href="{{path('remove_blog',{'id':c.id})}}">Delete</a>
+												</li>
+												<li style="display:flex;">
+													<i class="fa-solid fa-pen-to-square" style="margin-right:5px;margin-top:3px;"></i>
+													<a href="{{path('update_blog',{'id':c.id})}}">Update</a>
+												</li>
+												<li style="display:flex;">
+													<i class="fa fa-download" style="margin-right:5px;margin-top:3px;"></i>
+													<a href="{{path('app_blog_download',{'id':c.id})}}">Download</a>
+												</li>
+
+											</ul>
+										</td>
+									</tr>
+								{% endfor %}
+
+
+							</table>
+							{{ knp_pagination_render(blogs) }}
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+	<!---Container Fluid-->
+</div></div></div><!-- Scroll to top --><button onclick="topFunction()" id="myBtn" title="Go to top" style="float:right;"><i class="fas fa-angle-up"></i></button><script>window.onscroll = function () {
+scrollFunction()
+};
+
+function scrollFunction() {
+if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+document.getElementById("myBtn").style.display = "block";
+} else {
+document.getElementById("myBtn").style.display = "none";
+}
+}
+
+function topFunction() {
+document.body.scrollTop = 0;
+document.documentElement.scrollTop = 0;
+}</script>{% block footer %}{% endblock %}{% endblock %}

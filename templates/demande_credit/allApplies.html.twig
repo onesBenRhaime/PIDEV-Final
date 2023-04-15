@@ -1,0 +1,160 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block body %}
+	<div class="container-fluid" id="container-wrapper">
+
+
+		<div class="card">
+			<div class="d-sm-flex align-items-center justify-content-between py-3">
+				<h5 class=" mb-0 text-gray-800 pl-3">Loans</h5>
+				<ol class="breadcrumb m-0 py-0">
+					<li class="breadcrumb-item">
+						<a href="/dashboard">Dashboard</a>
+					</li>
+					<li class="breadcrumb-item">
+						<a href={{ path('applies') }}>Loans</a>
+					</li>
+				</ol>
+			</div>
+		</div>
+
+		<br>
+		<form method="GET" action="{{ path('applies') }}" class="form-inline">
+			<div class="form-group mr-2">
+				<input type="text" class="form-control" name="parameter1" placeholder="Amount ...">
+			</div>
+			<div class="form-group mr-2">
+				<input type="text" class="form-control" name="parameter2" placeholder="Status ...">
+			</div>
+			<div class="form-group mr-2">
+				<input type="date" class="form-control datepicker" name="parameter3" placeholder="Date ...">
+			</div>
+			<button class="btn btn-danger" type="submit">Search</button>
+		</form>
+
+
+		<div id="search-results"></div>
+		<div class="row mt-3">
+			<div class="col-lg-12">
+
+				<div class="alert alert-success" style="display: none;" role="alert">
+					<button type="button" class="close hide-close" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+					<p class="m-0"></p>
+				</div>
+
+
+				<div class="card mb-4">
+					<div class="table-responsive p-3">
+						<div id="geniustable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+							<div class="row btn-area">
+								<div class="col-sm-4">
+									<div class="dataTables_length" id="geniustable_length">
+										<label>Show
+											<select name="geniustable_length" aria-controls="geniustable" class="custom-select custom-select-sm form-control form-control-sm">
+												<option value="10">10</option>
+												<option value="25">25</option>
+												<option value="50">50</option>
+												<option value="100">100</option>
+											</select>
+											entries</label>
+									</div>
+								</div>
+								<div class="col-sm-4"></div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12">
+									<table id="geniustable" class="table table-hover dt-responsive dataTable no-footer dtr-inline" cellspacing="0" width="100%" role="grid" aria-describedby="geniustable_info" style="width: 100%;">
+										<thead class="thead-light">
+											<tr role="row">
+												<th class="sorting_disabled" colspan="1" rowspan="1">Category</th>
+												<th class="sorting_disabled" colspan="1" rowspan="1">Created At</th>
+												<th class="sorting_disabled" rowspan="1" colspan="1" style="width: 0px;">Loan Amount</th>
+												<th class="sorting_disabled" rowspan="1" colspan="1" style="width: 0px;">User</th>
+												<th class="sorting_disabled" rowspan="1" colspan="1" style="width: 0px;">Status</th>
+												<th class="sorting_disabled" rowspan="1" colspan="1" style="width: 0px;">Action</th>
+											</tr>
+										</thead>
+										<tbody>
+											{% if results is not empty %}
+
+												{% for a in results %}
+													<tr role="row" class="odd">
+														<td tabindex="0" style="">
+															<div>
+
+																<span class="text-info">{{ a.creditId }}</span>
+															</div>
+														</td>
+														<td style="">
+															<div>
+																<span class="text-info">Date
+																	{{a.createdAt|date}}</span>
+															</div>
+														</td>
+														<td style="">
+															<div>
+																{{ a.amount }}
+															</div>
+														</td>
+														<td style="">
+															<div>
+																<span>{{ a.userId.name }}</span>
+															</div>
+														</td>
+														<td style="">
+															<span class="badge bg-warning">
+																{{ a.status }}</span>
+														</td>
+														<td style="">
+															<div class="col-sm-12 col-md-4 ">
+																<a class="btn btn-danger" href="{{path('credit_details', {'id': a.id}) }}">Details</a>
+
+															</div>
+
+														</td>
+													</tr>
+
+												{% endfor %}
+
+												{{ knp_pagination_render(results) }}
+
+
+											{% else %}
+												<div>No results found.</div>
+											{% endif %}
+										</tbody>
+										<tbody id="searchtab"></tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="modal fade confirm-modal" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="statusModalTitle" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Update Status</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">×</span>
+									</button>
+								</div>
+
+								<div class="modal-body">
+									<p class="text-center">You are about to change the status.</p>
+									<p class="text-center">Do you want to proceed?</p>
+								</div>
+
+								<div class="modal-footer">
+									<a href="javascript:;" class="btn btn-secondary" data-dismiss="modal">Cancel</a>
+									<a href="javascript:;" class="btn btn-success btn-ok">Update</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			{% endblock %}

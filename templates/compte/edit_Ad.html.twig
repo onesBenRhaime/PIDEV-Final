@@ -1,0 +1,152 @@
+
+
+{% extends 'baseAdmin.html.twig' %}
+
+{% block body %}
+
+
+          <!-- Container Fluid-->
+          <div class="container-fluid" id="container-wrapper">
+            <div class="card">
+              <div
+                class="d-sm-flex align-items-center py-3 justify-content-between"
+              >
+                <h5 class="mb-0 text-gray-800 pl-3">
+                Details demande account
+                  <a
+                    class="btn btn-primary btn-rounded btn-sm"
+                    href="{{path('all_deposits')}}"
+                    ><i class="fas fa-arrow-left"></i> Back</a
+                  >
+                </h5>
+                <ol class="breadcrumb py-0 m-0">
+                  <li class="breadcrumb-item">
+                    <a
+                      href=""
+                      >Dashboard</a
+                    >
+                  </li>
+                  <li class="breadcrumb-item">
+                    <a href="javascript:;">Account</a>
+                  </li>
+                  <li class="breadcrumb-item">
+                    <a
+                      href=""
+                      >Accounts deposit
+                    >
+                  </li>
+                  <li class="breadcrumb-item">
+                    <a
+                      href=""
+                      >Details</a
+                    >
+                  </li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="row justify-content-center mt-3">
+              <div class="col-md-10">
+                <!-- Form Basic -->
+              <div class="card mb-4">
+                  <div
+                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
+                  >
+                    <h6 class="m-0 font-weight-bold text-primary">
+                      Details
+                    </h6>
+                  </div>
+
+                <div class="card-body">
+                    <div
+                      class="gocover"
+                      style="
+                        background: url(https://product.geniusocean.com/genius-bank/assets/images/33CiUFaI1641808748.gif)
+                          no-repeat scroll center center rgba(45, 45, 45, 0.5);
+                      "
+                    ></div>
+          <table class="table"> 
+            <tbody>
+             <tr>
+                <th>Client  </th>
+                <td >{{ compte.idUser }}</span></td>
+            </tr>
+            <tr>
+                <th>Statue </th>
+                <td ><span class="badge bg-warning" > {{ compte.statue }}</span></td>
+            </tr>
+            <tr>
+                <th>TypeCompte</th>
+                <td>{{ compte.idType }}</td>
+            </tr>
+            <tr>
+                <th>DateCreation</th>
+                <td>{{ compte.dateCreation ? compte.dateCreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateFermeture</th>
+                <td>{{ compte.dateFermeture ? compte.dateFermeture|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Solde</th>
+                <td><div> <span class="badge bg-warrning" >{{ compte.solde }}</span></div></td>
+            </tr>
+              <tr>
+                <th>RIB</th>
+                <td><div> <span class="badge bg-warrning" >{{ compte.rib }}</span></div></td>
+            </tr>
+             <tr>
+                <th>MaxSolde</th>
+                <td>{{ compte.maxSolde }}</td>
+            </tr>
+            <tr>
+                <th>MinSolde</th>
+                <td>{{ compte.minSolde }}</td>
+            </tr>
+            <tr>
+                <th>RedSolde</th>
+                <td>{{ compte.redSolde }}</td>
+            </tr>
+            <tr>
+                <th>Cin first side</th>
+                <td><img src="{{ asset('uploads/compte/'~ compte.cinS1 ) }}" width="250" height="150"/></td>
+            </tr>
+            <tr>
+                <th>Cin second side </th>
+                <td><img src="{{ asset('uploads/compte/'~ compte.cinS2 ) }}" width="250" height="150"/></td>
+            </tr>
+            <tr>
+                <th>Other documents</th>
+                <td><img src="{{ asset('uploads/compte/'~ compte.otherDoc ) }}" width="250" height="150"/></td>
+            </tr>           
+            <tr>
+              <th>Options </th>
+              <td class='row'>
+                 <form method="post" action="{{ path('app_compte_accept', {'id': compte.id}) }}" onsubmit="return confirm('Are you sure you want to Accept this Account ?');">
+                     <input type="hidden" name="_token" value="{{ csrf_token('accept' ~ compte.id) }}">
+                    <button class="btn btn-success"><i class="fa-solid fa-check"></i> Accept</button>
+                 </form>
+                 <form method="post" action="{{ path('app_compte_reject', {'id': compte.id}) }}" onsubmit="return confirm('Are you sure you want to Reject this Account ?');">
+                     <input type="hidden" name="_token" value="{{ csrf_token('reject' ~ compte.id) }}">
+                     <button class="btn btn-danger ml-3"><i class="fa-regular fa-square-minus"></i> Reject</button>
+                 </form>                                         
+              </td>
+           </tr>
+           
+           </tbody>
+          </table>
+                    {# <div class="row">
+                    <div class="col-md-8" >   </div>
+                        <div class="col-md-2" >    <button class="btn-primary">Accept</button> </div>  
+                         <div class="col-md-2">                        
+                              {{ include('compte/_delete_form.html.twig') }}
+                          </div> 
+                    </div>         #}                   
+                </div>
+              </div>
+              </div>
+            </div>
+            <!--Row-->
+          </div>
+          <!---Container Fluid-->
+{% endblock %}
